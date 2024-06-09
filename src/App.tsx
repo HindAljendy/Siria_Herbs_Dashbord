@@ -1,12 +1,10 @@
-import './App.css'
+import React from 'react';
+import './App.css';
 
-function App() {
-  
-  return (
-    <>
-      <h1>Siria Herbs</h1>
-    </>
+const App: React.FC = () => {
+  return(
+    <div> Siria Herbs</div>
   )
 }
 
-export default App
+export default App;
