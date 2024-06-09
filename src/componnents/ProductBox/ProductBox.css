@@ -1,0 +1,64 @@
+.ne-product-box{
+    display: flex;
+    box-shadow: 0.3px 0.3px 6.4px 0px rgba(205, 202, 202, 0.25);
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0.3px 0.3px 6.4 rgba(205, 202, 202, 0.25);
+    /* border: 1px solid red; */
+    width: 452px;
+    justify-content: center;
+    /* align-items: end; */
+    padding-top: 15px;
+    padding-right: 21.05px;
+}
+.ne-box-text{
+    margin-bottom: 36.25px;
+}
+
+.ne-product-img{
+    width: 139.95px;
+}
+.ne-title-1{
+    font-family: var(--almarai-family);
+    font-size: 1rem;
+    font-weight: var(--bold-weight);
+    line-height: 17.86px;
+    color: var(--pink-color);
+}
+.ne-title-2,.ne-title-3{
+    font-family: var(--almarai-family);
+    font-size: 14px;
+    font-weight: var(--normal-weight);
+    line-height: 15.62px;
+}
+
+.ne-brand-title{
+    color: var(--text-color-secondary);
+    font-size: 14px;
+    font-weight: var(--bold-weight);
+    font-family: var(--almarai-family);
+    line-height: 15.62px;
+    margin-bottom: 12px;
+
+
+}
+.ne-brand-title span{
+    font-weight: var(--normal-weight);
+    margin-right: 10px;
+
+}
+
+.ne-box-info{
+    margin-bottom: 33.17px;
+}
+.ne-action{
+    display: flex;
+    gap: 1rem;
+    flex-direction: row-reverse;
+    text-align: end;
+    margin-left: 25px;
+    margin-bottom: 25.83px;
+}
+.ne-edit-icon{
+    cursor: pointer;
+}
