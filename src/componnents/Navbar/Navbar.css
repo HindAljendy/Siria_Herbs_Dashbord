@@ -1,0 +1,17 @@
+.ne-navbar{
+    padding: 34.07px 36.34px;
+    width: 100%;
+    background-color: #283760;
+}
+.logout{
+    gap: 5.5px;
+}
+.logout img{
+    width: 30px;
+}
+.logout .logout-text{
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 18.75px;
+}
