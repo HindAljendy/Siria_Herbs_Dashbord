@@ -1,50 +1,61 @@
-.cards_withCircleImage{
-    width: 332px;
+.MA_cards_withCircleImage{
+    width: 17.29%;
     height: 248.05px;
-    padding: 9px 17px;
+    height: 248.05px;
+    padding: 0.5rem 1.1rem;
     color: #ffffff;
     box-sizing: border-box;
+    font-family:var( --almarai-family);
 }
-.cards_withCircleImage p , .cards_withCircleImage label{
-    font-family: var(--roboto-family);
-}
-.cards_withCircleImage .box1{
+
+.MA_cards_withCircleImage .box1{
     display: flex;
-    flex-direction: box1;
-    justify-content: space-between;
+    flex-direction: row-reverse;
+    justify-content: space-around;
     align-items: center;
+    gap: 7px;
 }
-.cards_withCircleImage .box1 p{
+.MA_cards_withCircleImage .box1 p{
    font-weight: 700;
-   size: 31.71px;
-   line-height: 31.71px;
+   font-size: 1.98rem;
+   line-height: 1.98rem;
+   font-family:var( --almarai-family);
+   text-align: end;
+
 
 }
-.cards_withCircleImage .box1 .cards_withCircleImage_img{
+.MA_cards_withCircleImage .box1 .MA_cards_withCircleImage_img{
    height: 38.78px;
 
 }
-.cards_withCircleImage .box2{
+.MA_cards_withCircleImage .box2{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
+    margin-top: 2rem;
+    position: relative;
 }
-.cards_withCircleImage .box2  img{
+.MA_cards_withCircleImage .box2 .all{
+    position: absolute;
+  
+}
+.MA_cards_withCircleImage .box2  img{
     border-radius: 50%;
+    width: 4rem;
     
 }
-.cards_withCircleImage .box2  .circle{
-    width: 65.29px;
-    height: 65.29px;
+.MA_cards_withCircleImage .box2  .circle{
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     background-color: #ffffff;
     text-align: center;
     position: relative;
 }
-.cards_withCircleImage .box2  .circle span{
+.MA_cards_withCircleImage .box2  .circle span{
     position: absolute;
     top:20px;
     left: 20px;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
     text-align: center !important;
     color: #A4C241;

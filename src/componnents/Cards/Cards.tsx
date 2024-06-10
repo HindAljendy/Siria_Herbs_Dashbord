@@ -1,7 +1,7 @@
 import './Cards.css'
-const Cards = ({title,num,color,image}:any) => {
+const Cards = ({title,num,color,type,image}:any) => {
   return (
-    <div className='card' style={{backgroundColor: color}}>
+    <div className='MA_card' style={{backgroundColor: color}}>
         <div className='box1'>
           <p>{title}</p>
           <img src={image} alt="category" className='card_img' />
@@ -11,7 +11,7 @@ const Cards = ({title,num,color,image}:any) => {
           <p>
             {num}
           </p>
-          <label>{title}</label>
+          <label>{type}</label>
         </div>
     </div>
   )

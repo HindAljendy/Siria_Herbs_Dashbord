@@ -13,8 +13,8 @@ function App() {
     <>
       <h1>Siria Herbs
         <Delete_Popup/>
-        <Cards title="Category" num="25" color=" #58b0e0" image={category} />
-        <Cards_withCircleImage title="Our Brands" num="25" color=" #A4C241"  image={brandmain}/>
+        <Cards title="فئات" num="25" color=" #58b0e0" type="فئة" image={category} />
+        <Cards_withCircleImage title="علاماتنا التجارية" num="25" color=" #A4C241"  image={brandmain}/>
         <Footer/>
       </h1>
     </>

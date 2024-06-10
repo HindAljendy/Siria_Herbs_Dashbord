@@ -6,7 +6,7 @@ import call from './../../assets/images/footer/call.svg'
 import focalX from './../../assets/images/footer/FocalX.png'
 const Footer = () => {
   return (
-    <div className='footer'>
+    <div className='MA_footer'>
             <div>
                 <ul>
                     <li><img src={facebook} alt="facebook" /></li>

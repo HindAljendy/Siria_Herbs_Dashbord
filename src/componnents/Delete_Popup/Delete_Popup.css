@@ -1,5 +1,5 @@
-.Delete_Popup{
-    width: 400px;
+.MA_Delete_Popup{
+    width: 21%;
     height: 250px;
     border-radius: 4px;
     background-color:var( --white-color);
@@ -13,11 +13,12 @@
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 10;
+    font-family: var(  --almarai-family); 
     
 
 }
-.Delete_Popup .box{
-    width: 204.4px;
+.MA_Delete_Popup .box{
+    width: 10.4%;
     height: 163.78px;
     border-radius: 3.22px;
     background-color:var( --white-color);
@@ -27,42 +28,42 @@
     align-items: center !important;
     gap: 5px;
 }
-.Delete_Popup .box .paragraph{
+.MA_Delete_Popup .box .paragraph{
     width: 204.4px;
 
 }
-.Delete_Popup .box .paragraph p{
+.MA_Delete_Popup .box .paragraph p{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1.2rem;
     /* line-height: 17.6px; */
     text-align: center;
     color: #5E5873;
-    font-family: var( --Mulish-family);   
+    font-family: var(  --almarai-family);   
 }
-.Delete_Popup .box .btns{
+.MA_Delete_Popup .box .btns{
     width: 196px;
     height: 32px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     gap: 10px;
 }
-.Delete_Popup .box .btns .btn{
-    width: 90px;
+.MA_Delete_Popup .box .btns .btn{
+    width: 5.65rem;
     height: 32px;
-    font-size: 14px;
+    font-size: 0.8rem;
     font-weight: 700;
     border-radius: 3.22px;
     cursor: pointer;
     font-family: var( --Mulish-family); 
 
 }
-.Delete_Popup .box  .red{
+.MA_Delete_Popup .box  .red{
     background-color:var( --red-color) !important;
     color: var( --white-color);
     border: 1px solid var(--red-color)
 }
-.Delete_Popup .box .gray{
+.MA_Delete_Popup .box .gray{
     background-color: #C0BEBE;
     color: #484848;
     border: 1px solid #484848 ;

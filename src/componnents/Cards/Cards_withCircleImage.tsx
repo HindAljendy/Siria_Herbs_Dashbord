@@ -6,18 +6,18 @@ import brand4 from './../../assets/images/MainPage/brand04.png'
 const Cards_withCircleImage = ({title,color,image}:any) => {
   return (
     <div>
-        <div className='cards_withCircleImage' style={{backgroundColor: color}}>
+        <div className='MA_cards_withCircleImage' style={{backgroundColor: color}}>
         <div className='box1'>
           <p>{title}</p> 
           <img src={image} alt="category" className='card_img' />
         </div>
 
         <div className='box2' >
-          <img src={brand1} alt="brand1"  />
-          <img src={brand2} alt="brand1"  style={{marginLeft: '-30px',}} />
-          <img src={brand3} alt="brand1"  style={{marginLeft: '-25px',}} />
-          <img src={brand4} alt="brand1"  style={{marginLeft: '-25px',}} />
-          <div className='circle'         style={{marginLeft: '-25px',}} ><span>+5</span></div>
+          <img src={brand4} alt="brand4" className='all'  />
+          <img src={brand3} alt="brand3" className='all' style={{right:40}}/>
+          <img src={brand2} alt="brand2"  className='all' style={{right:80}}  />
+          <img src={brand1} alt="brand1"  className='all' style={{right:120}} />
+          <div className='circle all' style={{right:160}}    ><span>+5</span></div>
         </div>
     </div>
     </div>

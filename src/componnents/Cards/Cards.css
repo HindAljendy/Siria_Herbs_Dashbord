@@ -1,52 +1,57 @@
-.card{
-    width: 332px;
+.MA_card{
+    width: 17.29%;
     height: 248.05px;
-    padding: 9px 17px;
+    padding: 1rem 2.25rem;
     color: #ffffff;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 15px;
+    
 }
-.card p , .card label{
-    font-family:var( --roboto-family);
+.MA_card p , .MA_card label{
+    font-family:var( --almarai-family) !important;
 }
-.card .box1{
+
+.MA_card .box1{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
+    
 }
-.card .box1 p{
+.MA_card .box1 p{
   
    font-weight: 700;
-   size: 31.71px;
+   font-size: 1.98rem;
    line-height: 31.71px;
 
 }
-.card .box1 .card_img{
+.MA_card .box1 .MA_card_img{
    height: 38.78px;
 
 }
-.card .box2{
+.MA_card .box2{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: center;
     gap: 10px;
 }
-.card .box2 p{
+.MA_card .box2 p{
   
     font-weight: 600;
-    size: 31.71px;
+    font-size: 1.98rem;
     line-height: 31.71px;
     color: #ffffff;
+
  }
 
-.card .box2 label{
+.MA_card .box2 label{
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1.25rem;
     line-height: 20px;
     color: #ffffff;
     text-align: center;
+
    
  }
