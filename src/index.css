@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    direction: rtl;
+} 
+
 :root{
     /* 
         ==========================
@@ -15,6 +26,10 @@
     --pink-color:#B0426C;
     --cyan-color:#7367F0;
     --gray-color:#636363;
+    --absolute-white:#FFFFFF;
+    --black:#000000;
+    --dark-brown: #504444;
+    --dark-blue:#211639;
 
     /* 
         ==========================
@@ -26,5 +41,15 @@
     --bold-weight:700;
     --normal-weight:400;
 
+}
 
+.d-flex{
+    display: flex;
+}
+
+.align-center{
+    align-items: center;
+}
+.justify-between {
+    justify-content: space-between;
 }
