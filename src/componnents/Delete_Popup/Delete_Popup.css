@@ -1,0 +1,69 @@
+.Delete_Popup{
+    width: 400px;
+    height: 250px;
+    border-radius: 4px;
+    background-color:var( --white-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center ;
+    box-shadow: 2px 2px 9px gainsboro;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+    
+
+}
+.Delete_Popup .box{
+    width: 204.4px;
+    height: 163.78px;
+    border-radius: 3.22px;
+    background-color:var( --white-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around !important;
+    align-items: center !important;
+    gap: 5px;
+}
+.Delete_Popup .box .paragraph{
+    width: 204.4px;
+
+}
+.Delete_Popup .box .paragraph p{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    /* line-height: 17.6px; */
+    text-align: center;
+    color: #5E5873;
+    font-family: var( --Mulish-family);   
+}
+.Delete_Popup .box .btns{
+    width: 196px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.Delete_Popup .box .btns .btn{
+    width: 90px;
+    height: 32px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 3.22px;
+    cursor: pointer;
+    font-family: var( --Mulish-family); 
+
+}
+.Delete_Popup .box  .red{
+    background-color:var( --red-color) !important;
+    color: var( --white-color);
+    border: 1px solid var(--red-color)
+}
+.Delete_Popup .box .gray{
+    background-color: #C0BEBE;
+    color: #484848;
+    border: 1px solid #484848 ;
+}

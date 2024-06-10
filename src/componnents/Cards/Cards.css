@@ -1,0 +1,52 @@
+.card{
+    width: 332px;
+    height: 248.05px;
+    padding: 9px 17px;
+    color: #ffffff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.card p , .card label{
+    font-family:var( --roboto-family);
+}
+.card .box1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.card .box1 p{
+  
+   font-weight: 700;
+   size: 31.71px;
+   line-height: 31.71px;
+
+}
+.card .box1 .card_img{
+   height: 38.78px;
+
+}
+.card .box2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.card .box2 p{
+  
+    font-weight: 600;
+    size: 31.71px;
+    line-height: 31.71px;
+    color: #ffffff;
+ }
+
+.card .box2 label{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+    text-align: center;
+   
+ }

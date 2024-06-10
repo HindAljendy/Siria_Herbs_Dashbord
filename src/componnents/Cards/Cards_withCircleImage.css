@@ -1,0 +1,52 @@
+.cards_withCircleImage{
+    width: 332px;
+    height: 248.05px;
+    padding: 9px 17px;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+.cards_withCircleImage p , .cards_withCircleImage label{
+    font-family: var(--roboto-family);
+}
+.cards_withCircleImage .box1{
+    display: flex;
+    flex-direction: box1;
+    justify-content: space-between;
+    align-items: center;
+}
+.cards_withCircleImage .box1 p{
+   font-weight: 700;
+   size: 31.71px;
+   line-height: 31.71px;
+
+}
+.cards_withCircleImage .box1 .cards_withCircleImage_img{
+   height: 38.78px;
+
+}
+.cards_withCircleImage .box2{
+    display: flex;
+    flex-direction: row;
+}
+.cards_withCircleImage .box2  img{
+    border-radius: 50%;
+    
+}
+.cards_withCircleImage .box2  .circle{
+    width: 65.29px;
+    height: 65.29px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    text-align: center;
+    position: relative;
+}
+.cards_withCircleImage .box2  .circle span{
+    position: absolute;
+    top:20px;
+    left: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center !important;
+    color: #A4C241;
+    
+}
