@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import React from 'react';
 import logout from "../../assets/images/navbar/logoutbtn.svg";
 import logo from "../../assets/images/navbar/logo.svg";
 import language from './../../assets/images/navbar/Vector.svg'

@@ -1,51 +1,56 @@
 import React from 'react';
 import './Table.css';
-import { TiEdit } from "react-icons/ti";
-import { RiDeleteBin6Line } from "react-icons/ri";
-import { BsToggle2On, BsToggle2Off } from "react-icons/bs";
+import delet from "../../assets/images/button_icon/delete.svg";
+import edite from "../../assets/images/button_icon/edite.svg";
+import switch_on from './../../assets/images/button_icon/Switche_on.svg';
+import switch_off from './../../assets/images/button_icon/switch_OFF.svg';
+import { TableProps } from '../../types/types';
 
-type TableProps = {
-title: string;
-buttonLabel: string;
-columns: string[];
-data: { [key: string]: any }[];
-onButtonClick: () => void;
-};
 
-const Table: React.FC<TableProps> = ({ title, buttonLabel, columns, data, onButtonClick }) => {
-return (
-    <div className="table-container">
-    <div className="table-header">
-        <h2>{title}</h2>
-        <button onClick={onButtonClick}>{buttonLabel}</button>
-    </div>
-<table>
-        <thead>
-        <tr>
-            {columns.map((column) => (
-            <th key={column}>{column}</th>
-            ))}
-        </tr>
-        </thead>
-        <tbody>
-        {data.map((row, index) => (
-            <tr key={index}>
-            <td>{row.name}</td>
-            <td><img src={row.image} alt={row.name} className="product-image" /></td>
-            <td>{row.quantity}</td>
-            <td>
-                {row.published ? <BsToggle2On className="toggle" color="rgba(41, 201, 47, 1)" /> : <BsToggle2Off color="gray" />}
-            </td>
-            <td>
-                <RiDeleteBin6Line className="action-icon delete-icon" />
-                <TiEdit className="action-icon edit-icon" />
-            </td>
-            </tr>
-))}
-        </tbody>
-</table>
-    </div>
-);
+const Table: React.FC<TableProps> = ({ title, buttonLabel, columns, data }) => {
+    return (
+        <div className="table-container">
+            <div className="table-header">
+                <h2>{title}</h2>
+                <button  className='NA_button_Name'>
+                    {buttonLabel}
+                </button>
+
+            </div>
+
+            <table className='NA_table'>
+                <thead >
+                    <tr>
+                        {columns.map((column) => (
+                            <th key={column} className='Na_column_name'>{column}</th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody >
+                    {data.map((row, index) => (
+                        <tr key={index}>
+                            <td className='NA_Name_row'>{row.name}</td>
+                            <td><img src={row.image} alt={row.name} className="NA_product-image" /></td>
+                            <td>{row.quantity}</td>
+                            <td>
+                                {row.published ? <img src={switch_on} alt="switch-on " /> : <img src={switch_off} alt="switch_off " />}
+                            </td>
+                            <td>
+                                <div className="ne-action NA_display">
+                                    <div className="ne-edit-icon ">
+                                        <img src={edite} alt="edite icon" />
+                                    </div>
+                                    <div className="ne-delete-icon">
+                                        <img src={delet} alt="delete icon" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
 };
 
 export default Table;

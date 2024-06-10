@@ -1,4 +1,5 @@
 import "./ProductBox.css";
+import React from 'react';
 import dublicate from "../../assets/images/button_icon/dublicate.svg";
 import delet from "../../assets/images/button_icon/delete.svg";
 import edite from "../../assets/images/button_icon/edite.svg";

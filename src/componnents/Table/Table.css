@@ -1,77 +1,83 @@
 .table-container {
-  width: 100%;
-  height: 619px;
-  top: 268px;
-  left: 36px;
-  gap: 0px;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  opacity: 0px;
-  background: rgba(255, 255, 255, 1);
+  background: var(--absolute-white);
+  width: 80.83%;
+  margin-right: 36px;
+  border-radius: 4px;
 }
 
-.table-header {
+
+.table-container .table-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  margin-left: 20px;
-  margin-top: 20px;
-  direction: rtl;
+  padding: 15.55px 31.28px 36.23px 30.72px;
 }
 
-.table-header h2 {
-  width: 121px;
-  height: 20px;
-  top: 312px;
-  left: 1427px;
-  gap: 0px;
-  opacity: 0px;
-  font-family: Almarai;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 20px;
+
+
+.table-container .table-header  .NA_button_Name {
+  font-family: var(--almarai-family);
+  font-size:1.125rem /* 18px */;
+  font-weight: var(--bold-weight);
+  line-height: 18px;
+  letter-spacing: -0.03em;
+  color: var(--absolute-white);
+
+}
+
+
+.table-container  .table-header h2 {
+  font-family: var(--almarai-family);
+  font-size: 2.25rem /* 36px */;
+  font-weight: var(--bold-weight);
+  line-height: 36px;
   letter-spacing: -0.03em;
   text-align: left;
-  color: rgba(0, 0, 0, 1);
+  color: var(--gray-color);
 }
 
 .table-header button {
-  width: 159px;
-  height: 48px;
-  top: 298px;
-  left: 76px;
-  gap: 0px;
-  border-radius: 5px 0px 0px 0px;
-  opacity: 0px;
-  background: rgba(40, 55, 96, 1);
-  color: white;
+  border-radius: 5px;
+  background: var(--blue-color);
   border: none;
   cursor: pointer;
-  -webkit-border-radius: 5px 0px 0px 0px;
-  -moz-border-radius: 5px 0px 0px 0px;
-  -ms-border-radius: 5px 0px 0px 0px;
-  -o-border-radius: 5px 0px 0px 0px;
+  padding: 16px 32px  16px  33px;
 }
 
-table {
+.NA_table {
   width: 100%;
   border-collapse: collapse;
-  direction: rtl;
 }
 
-th, td {
-  padding: 10px;
+.NA_table th,
+.NA_table td {
+  padding-block: 20px;
   text-align: center;
   border-bottom: 1px solid #ddd;
 }
 
-th {
-  background-color: rgba(40, 55, 96, 1);
-  color: white;
+
+.NA_table .Na_column_name {
+  background-color: var(--blue-color);
+  font-family: var(--almarai-family);
+  font-size: 20px;
+  font-weight: var(--bold-weight);
+  line-height: 20px;
+  letter-spacing: -0.03em;
+  color: var(--absolute-white);
 }
 
-.product-image {
+.NA_table .NA_Name_row {
+  font-family: var(--almarai-family);
+  font-size: 1.25rem /* 20px */;
+  font-weight: var(--normal-weight);
+  line-height: 40px;
+  letter-spacing: -0.02em;
+  color: var(--black);/
+}
+
+
+.NA_table .NA_product-image {
   width: 66px;
   height: 66px;
   object-fit: cover;
@@ -82,40 +88,9 @@ th {
   -o-border-radius: 4px;
 }
 
-.toggle {
-  width: 57px;
-  height: 29.92px;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-}
-
-.action-icon {
-width: 36px;
-height: 36px;
-top: 543.4px;
-gap: 0px;
-border-radius: 5px 0px 0px 0px;
-opacity: 0px;
-  display: inline-flex;
-  align-items: center;
+.NA_display {
+  display: flex;
   justify-content: center;
-}
-
-.edit-icon {
-  background-color: rgba(41, 201, 47, 1); 
-  color: white;
-  margin-left: 15px;
-
-
-}
-
-.delete-icon {
-  background-color: rgba(220, 53, 69, 1);
-  color: white;
-  margin-left: 20px;
-
-
+  align-items: center;
+  gap: 16px;
 }

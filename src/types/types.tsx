@@ -10,3 +10,10 @@ export interface ProductBoxProps {
     numInPackage: number;
 }
 
+export interface TableProps {
+    title: string;
+    buttonLabel: string;
+    columns: string[];
+    data: { [key: string]: any }[]; 
+    /* data: { name: string, image: string, quantity: number, published: boolean }[]*/
+}
