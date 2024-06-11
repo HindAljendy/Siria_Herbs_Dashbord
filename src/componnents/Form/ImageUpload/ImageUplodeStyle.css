@@ -39,12 +39,10 @@ border-radius: 3px 0px 0px 0px;
     transform: translateY(-50%);
     font-size: 18px;
     font-weight: 400;
-    color: #283760;
+    color: var(--blue-color);
     font-size: 14px;
     font-weight: 400;
     line-height: 14px;
-    
-    
   }
 
   
@@ -65,10 +63,6 @@ border-radius: 3px 0px 0px 0px;
   }
   
 
-
-
-
-
   .icon{
     position: absolute;
     left: 0;
@@ -76,7 +70,7 @@ border-radius: 3px 0px 0px 0px;
     width: 37px;
 height: 100%;
 border-radius: 3px 0px 0px 0px;
-background: #DC3545;
+background: var(--red-color);
 
   }
   .file-upload-wrapper .icon svg{

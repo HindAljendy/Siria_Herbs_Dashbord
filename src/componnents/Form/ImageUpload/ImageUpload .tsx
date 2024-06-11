@@ -1,12 +1,17 @@
-import { useState } from "react";
-import './ImageUplodeStyle.css'
+import React, { useState } from "react";
+import './ImageUplodeStyle.css';
 import { FaRegTrashCan } from "react-icons/fa6";
-const ImageUpload = () => {
- 
-  const [fileName, setFileName] = useState('لم يتم اختيار صورة');
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
+// Define the props interface if needed for future enhancements
+interface ImageUploadProps {}
+
+const ImageUpload: React.FC<ImageUploadProps> = () => {
+
+  // Use string for fileName state since it will hold strings
+  const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]; // Use optional chaining to avoid runtime errors
     if (file) {
       setFileName(file.name);
     } else {
@@ -14,9 +19,13 @@ const ImageUpload = () => {
     }
   };
 
-  const triggerFileInput = (e) => {
+  const triggerFileInput = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    document.getElementById('fileInput').click();
+    // Ensure the element exists before calling click
+    const fileInputElement = document.getElementById('fileInput') as HTMLInputElement | null;
+    if (fileInputElement) {
+      fileInputElement.click();
+    }
   };
 
   return (
@@ -31,7 +40,7 @@ const ImageUpload = () => {
           type="file"
           id="fileInput"
           onChange={handleFileChange}
-          style={{display:"none"}}
+          style={{ display: "none" }}
         />
         <span className="icon">
            <FaRegTrashCan/>
@@ -40,6 +49,5 @@ const ImageUpload = () => {
     </div>
   );
 };
-
 
 export default ImageUpload;

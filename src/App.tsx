@@ -8,7 +8,7 @@ function App() {
     <>
       <h1>Siria Herbs</h1>
       <Form/>
-      <AddProduct/>
+      <AddProduct name="إضافة منتج"/>
     </>
   )
 }

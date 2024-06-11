@@ -1,6 +1,9 @@
-import React from 'react'
 
-export default function TextArea({name}) {
+interface TextArea {
+  name: string;
+}
+
+const TextArea: React.FC<TextArea> = ({ name }) => {
   return (
     <div className='input'>
     <label htmlFor="description"> {name}</label>
@@ -8,3 +11,4 @@ export default function TextArea({name}) {
   </div>
   )
 }
+export default TextArea;

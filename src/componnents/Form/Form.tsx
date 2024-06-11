@@ -1,3 +1,4 @@
+import SaveButton from './Buttons/SaveButton'
 import Checkbox from './Checkbox/Checkbox'
 import './FormStyle.css'
 import Selector from './Selector/Selector'
@@ -11,7 +12,7 @@ export default function Form() {
       </div>
       <Selector name="الفئة" options={['فئة1' , 'فئة2' , 'فئة3']}/>
       <Checkbox/>
-      <button type="submit">حفظ</button>
+      <SaveButton/>
     </form>
   )
 }
