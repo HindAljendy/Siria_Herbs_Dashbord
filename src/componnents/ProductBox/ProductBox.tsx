@@ -1,9 +1,12 @@
 import "./ProductBox.css";
+import React from 'react';
 import dublicate from "../../assets/images/button_icon/dublicate.svg";
 import delet from "../../assets/images/button_icon/delete.svg";
 import edite from "../../assets/images/button_icon/edite.svg";
+import { ProductBoxProps } from "../../types/types";
 
-const ProductBox = ({
+
+const ProductBox: React.FC<ProductBoxProps> = ({
   img,
   title_1,
   title_2,
@@ -13,16 +16,6 @@ const ProductBox = ({
   weight,
   encapsolation,
   numInPackage,
-}: {
-  img: string;
-  title_1: string;
-  title_2: string;
-  title_3: string;
-  brandName: string;
-  productNum: number;
-  weight: string;
-  encapsolation: string;
-  numInPackage: number;
 }) => {
   return (
     <div className="ne-product-box">
@@ -30,7 +23,7 @@ const ProductBox = ({
         <img src={img} alt="product Img" className="ne-product-img" />
         <p className="ne-title-1"> {title_1} </p>
         <p className="ne-title-2"> {title_2} </p>
-        <p className="title-3">{title_3}</p>
+        <p className="ne-title-3">{title_3}</p>
       </div>
       <div className="ne-box-info">
         <div className="ne-brand">

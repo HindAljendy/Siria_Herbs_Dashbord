@@ -1,17 +1,46 @@
-.ne-navbar{
-    padding: 34.07px 36.34px;
+.ne-navbar {
     width: 100%;
-    background-color: #283760;
+    background-color: var(--blue-color);
+    padding-block: 34.07px;
+    padding-left: 36.34px;
+    padding-right: 45.013%;
 }
-.logout{
+.ne-navbar .ne-info-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.ne-navbar .ne-info-nav .ne-language {
+    background-color: var(--absolute-white);
+    border-radius: 5.53px;
+    padding: 3.6px 7.76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 23.12px;
+}
+
+.ne-navbar .ne-info-nav .ne-language  .ne-lanuage-text {
+    font-family: var(--roboto-family);
+    font-size: 1.38rem;
+    font-weight: var(--bold-weight);
+    color: var(--blue-color);
+    line-height: 25.92px;
+}
+
+.ne-navbar .ne-info-nav .logout {
     gap: 5.5px;
 }
-.logout img{
+
+.ne-navbar .ne-info-nav .logout img {
     width: 30px;
 }
-.logout .logout-text{
-    color: #FFFFFF;
+
+.ne-navbar .ne-info-nav .logout .logout-text {
+    color: var(--absolute-white);
     font-size: 1rem;
     font-weight: 800;
-    line-height: 18.75px;
 }
