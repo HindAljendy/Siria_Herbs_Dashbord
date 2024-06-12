@@ -1,3 +1,4 @@
+import React from 'react';
 import SaveButton from './Buttons/SaveButton'
 import Checkbox from './Checkbox/Checkbox'
 import './FormStyle.css'

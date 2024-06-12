@@ -2,25 +2,20 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from './componnents/Sidebar/SideBar';
 import './App.css'
-import Form from './componnents/Form/Form'
-import AddProduct from './componnents/Form/AddProduct.tsx/AddProduct'
 import Navbar from './componnents/Navbar/Navbar';
-/* 
+/* import Form from './componnents/Form/Form'
+import AddProduct from './componnents/Form/AddProduct.tsx/AddProduct' 
 import ProductBox from './componnents/ProductBox/ProductBox'
 import img from './assets/images/Product/product_01.png'
 import Table from './componnents/Table/Table';
 import IMG_brand_table1 from './assets/images/category/Brand_GreenGold_logo.svg'
-import IMG_brand_table2 from './assets/images/category/Layer 1.png' 
-*/
+import IMG_brand_table2 from './assets/images/category/Layer 1.png'*/ 
+
 
 
 const App: React.FC = () => {
   return (
     <>
-
-   
-      <Form/>
-      <AddProduct name="إضافة منتج"/>
 
       <Navbar />
       <div className='HJ_container'>
@@ -53,6 +48,13 @@ const App: React.FC = () => {
           { name: 'أوغارو ', image: IMG_brand_table2, quantity: 2, published: false },
         ]}
       /> */}
+
+
+      {/* Mohammed Section */}
+      {/* 
+          <Form/>
+          <AddProduct name="إضافة منتج"/>
+      */}
 
 
     </>
