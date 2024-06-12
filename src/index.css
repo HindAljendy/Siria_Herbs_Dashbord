@@ -1,20 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-:root{
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    direction: rtl;
+}
+
+:root {
     /* 
         ==========================
         ********color************
         ========================
     */
-    --blue-color:#283760;
-    --baby-blue:#58B0E0;
-    --bb-green-color:#A4C241;
-    --white-color:#FFFFFF;
-    --red-color:#DC3545;
-    --green-color:#29C92F;
-    --pink-color:#B0426C;
-    --cyan-color:#7367F0;
-    --gray-color:#636363;
+    --blue-color: #283760;
+    --baby-blue: #58B0E0;
+    --bb-green-color: #A4C241;
+    --white-color: #FFFFFF;
+    --red-color: #DC3545;
+    --green-color: #29C92F;
+    --pink-color: #B0426C;
+    --cyan-color: #7367F0;
+    --gray-color: #636363;
+    --absolute-white: #FFFFFF;
+    --bg-container:#F1F1F1;
+    --black: #000000;
+    --dark-brown: #504444;
+    --dark-blue: #211639;
 
     /* 
         ==========================
@@ -22,31 +38,30 @@
         ========================
     */
     --almarai-family: "Almarai", sans-serif;
-    --roboto-family:"Roboto", sans-serif;
-    --bold-weight:700;
-    --normal-weight:400;
-
+    --roboto-family: "Roboto", sans-serif;
+    --bold-weight: 700;
+    --normal-weight: 400;
 
 }
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 
-
-/* body{
-    direction: rtl;
-} */
-
-.d-flex{
+.d-flex {
     display: flex;
 }
 
-.align-center{
+.align-center {
     align-items: center;
 }
+
 .justify-between {
     justify-content: space-between;
+}
+
+
+.IB_lineHeight22 {
+    line-height: 22.32px ;
+}
+
+.IB_lineHeight20 {
+    line-height: 20px ;
 }

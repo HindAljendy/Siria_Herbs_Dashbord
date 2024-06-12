@@ -1,64 +1,71 @@
 .ne-product-box{
-    display: flex;
+    max-width: 452px;
+    height: 564px;
+    background-color: var(--absolute-white);
     box-shadow: 0.3px 0.3px 6.4px 0px rgba(205, 202, 202, 0.25);
+    display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 1);
-    box-shadow: 0.3px 0.3px 6.4 rgba(205, 202, 202, 0.25);
-    /* border: 1px solid red; */
-    width: 452px;
     justify-content: center;
-    /* align-items: end; */
-    padding-top: 15px;
-    padding-right: 21.05px;
+    padding: 15px 21.83px 25.83px 25px;
 }
-.ne-box-text{
+.ne-product-box .ne-box-text{
     margin-bottom: 36.25px;
 }
 
-.ne-product-img{
+.ne-product-box .ne-box-text .ne-product-img{
     width: 139.95px;
+    padding-bottom: 10.45px;
 }
-.ne-title-1{
+.ne-product-box .ne-box-text .ne-title-1{
+    padding-bottom: 7px;
     font-family: var(--almarai-family);
     font-size: 1rem;
     font-weight: var(--bold-weight);
     line-height: 17.86px;
     color: var(--pink-color);
 }
-.ne-title-2,.ne-title-3{
+.ne-product-box .ne-box-text .ne-title-2{
+    padding-bottom: 8px;
     font-family: var(--almarai-family);
-    font-size: 14px;
+    font-size: 0.875rem;/* 14px */
     font-weight: var(--normal-weight);
-    line-height: 15.62px;
+    line-height: 15.62px; 
+    color: var(--black);
+}
+.ne-product-box .ne-box-text .ne-title-3{
+    font-family: var(--almarai-family);
+    font-size: 0.875rem;/* 14px */
+    font-weight: var(--normal-weight);
+    line-height: 15.62px; 
+    color: var(--dark-brown);
+
 }
 
-.ne-brand-title{
-    color: var(--text-color-secondary);
-    font-size: 14px;
+
+.ne-box-info .ne-brand-title{
+    color: var(--dark-blue);
+    font-size: 0.875rem;/* 14px */
     font-weight: var(--bold-weight);
     font-family: var(--almarai-family);
     line-height: 15.62px;
     margin-bottom: 12px;
 
-
 }
-.ne-brand-title span{
+.ne-box-info .ne-brand-title span{
     font-weight: var(--normal-weight);
     margin-right: 10px;
-
+    color:var(--black);
+    font-size: 0.875rem;/* 14px */
+    line-height: 17.57px ;
 }
 
-.ne-box-info{
-    margin-bottom: 33.17px;
-}
-.ne-action{
+
+.ne-product-box .ne-action{
     display: flex;
     gap: 1rem;
     flex-direction: row-reverse;
     text-align: end;
-    margin-left: 25px;
-    margin-bottom: 25.83px;
 }
-.ne-edit-icon{
+.ne-product-box .ne-action .ne-edit-icon{
     cursor: pointer;
 }

@@ -1,0 +1,125 @@
+.IB_sidebar-container {
+  max-width:  13.54%/*  260px */;
+  border-radius: 10px;
+  background-color: var(--absolute-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 35px;
+  margin-top: 36px;
+}
+
+.IB_sidebar-container .IB_profile-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 28.45px 27.91px 38.52px 20.94px;
+}
+
+.IB_sidebar-container .IB_line {
+  width: 100%;
+  border: 2px solid var(--blue-color);
+  margin-bottom: 15.69px;
+}
+
+.IB_sidebar-container .IB_profile-section .IB_profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16.23px;
+}
+
+.IB_sidebar-container .IB_profile-section .IB_profile-info .IB_username {
+  font-family: var(--roboto-family);
+  font-size: 1.25rem/* 20px */ ;
+  font-weight: var(--bold-weight);
+  line-height: 23.44px;
+  color: var(--blue-color);
+}
+
+.IB_sidebar-container .IB_profile-section .IB_profile-info .IB_role {
+  font-family: var(--roboto-family);
+  font-size: 0.98rem/* 15.72px */
+  ;
+  font-weight: 300;
+  line-height: 18.42px;
+  color: var(--blue-color);
+
+}
+
+.IB_sidebar-container .IB_profile-section .IB_userName_Photo {
+  width: 64.16px;
+}
+
+
+
+
+.IB_sidebar-container .IB_menu {
+  width: 100%;
+
+}
+
+.IB_sidebar-container .IB_menu .menu-item {
+  padding-right: 30.15px;
+  padding-block: 14.31px 5.69px;
+  font-family: var(--almarai-family);
+  font-size: 1.25rem;
+  /* 20px */
+  color: var(--blue-color);
+  font-weight: var(--normal-weight);
+  cursor: pointer;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  text-decoration: none;
+}
+
+.IB_sidebar-container .IB_menu .menu-item.active {
+  background-color: var(--blue-color);
+  color: var(--absolute-white);
+  font-weight: var(--bold-weight);
+}
+
+.IB_sidebar-container .IB_menu .IB_img_sidebar {
+  width: 24px;
+  margin-left: 16px;
+}
+
+
+/* .IB_sidebar-container .IB_menu .menu-item */ .IB_SubMenu_LinkTo {
+  text-decoration: none;
+  font-family: var(--almarai-family);
+  font-size: 1rem;/* 16px */
+  color: var(--blue-color);
+  font-weight: var(--normal-weight);
+  line-height: 16px;
+  cursor: pointer;
+  padding-right: 30.95px;
+  display: flex;
+
+}
+
+/* .IB_sidebar-container .IB_menu .menu-item  */.IB_SubMenu_LinkTo.HJ_active{
+  color: var(--blue-color);
+  font-weight: var(--bold-weight);
+  text-decoration: underline var(--blue-color) solid 10px;
+}
+
+.IB_sidebar-container .IB_menu .menu-item .IB_SubMenu_LinkTo .IB_arrow {
+  width: 12.81px;
+}
+
+.IB_Space {
+  margin-right: 4.16px;
+
+}
+.IB_Img_sub_menu{
+  margin-right: 76px;
+}
+@media screen and (max-width: 1919px) {
+  .IB_sidebar-container {
+    max-width: 20%;
+  }
+}
