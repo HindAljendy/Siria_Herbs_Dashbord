@@ -13,8 +13,11 @@ import IMG_brand_table2 from './assets/images/category/Layer 1.png'
 
 const App: React.FC = () => {
   return (
+
     <>
-       <Router>
+       
+    <Router>
+
       <div style={{ display: 'flex' }}>
         <Sidebar />
         <div style={{ flex: 1, padding: '20px' }}>
@@ -54,8 +57,10 @@ const App: React.FC = () => {
       { name: 'أوغارو ', image: IMG_brand_table2, quantity: 2, published: false},
       ]}
       />
+
     </>
  
+
   );
 };
 
