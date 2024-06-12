@@ -11,9 +11,10 @@ export interface ProductBoxProps {
 }
 
 export interface TableProps {
-    title: string;
-    buttonLabel: string;
+    title?: string;
+    buttonLabel?: string;
     columns: string[];
-    data: { [key: string]: any }[]; 
+    data?: { [key: string]: any }[]; 
     /* data: { name: string, image: string, quantity: number, published: boolean }[]*/
 }
+

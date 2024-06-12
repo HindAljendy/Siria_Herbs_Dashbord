@@ -9,6 +9,7 @@ import img from './assets/images/Product/product_01.png'
 import Table from './componnents/Table/Table';
 import IMG_brand_table1 from './assets/images/category/Brand_GreenGold_logo.svg'
 import IMG_brand_table2 from './assets/images/category/Layer 1.png'
+import ContactMessages from './componnents/ContactMessages/ContactMessages';
 
 
 const App: React.FC = () => {
@@ -57,6 +58,12 @@ const App: React.FC = () => {
       { name: 'أوغارو ', image: IMG_brand_table2, quantity: 2, published: false},
       ]}
       />
+
+
+         {/* Rasha Section : */}
+
+
+         <ContactMessages/>
 
     </>
  
