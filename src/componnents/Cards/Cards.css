@@ -1,0 +1,57 @@
+.MA_card{
+    width: 17.29%;
+    height: 248.05px;
+    padding: 1rem 2.25rem;
+    color: #ffffff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+}
+.MA_card p , .MA_card label{
+    font-family:var( --almarai-family) !important;
+}
+
+.MA_card .box1{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.MA_card .box1 p{
+  
+   font-weight: 700;
+   font-size: 1.98rem;
+   line-height: 31.71px;
+
+}
+.MA_card .box1 .MA_card_img{
+   height: 38.78px;
+
+}
+.MA_card .box2{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 10px;
+}
+.MA_card .box2 p{
+  
+    font-weight: 600;
+    font-size: 1.98rem;
+    line-height: 31.71px;
+    color: #ffffff;
+
+ }
+
+.MA_card .box2 label{
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 20px;
+    color: #ffffff;
+    text-align: center;
+
+   
+ }
