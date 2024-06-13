@@ -11,27 +11,26 @@ import img from './assets/images/Product/product_01.png'
 import Table from './componnents/Table/Table';
 import IMG_brand_table1 from './assets/images/category/Brand_GreenGold_logo.svg'
 import IMG_brand_table2 from './assets/images/category/Layer 1.png'*/ 
-import Delete_Popup from './componnents/Delete_Popup/Delete_Popup'
+/* import Delete_Popup from './componnents/Delete_Popup/Delete_Popup'
 import category from './assets/images/MainPage/category.png'
 import brandmain from './assets/images/MainPage/brandmain.png'
 import Cards from './componnents/Cards/Cards'
 import Footer from './componnents/Footer/Footer'
-import Cards_withCircleImage from './componnents/Cards/Cards_withCircleImage'
+import Cards_withCircleImage from './componnents/Cards/Cards_withCircleImage' */
 
 
 
 const App: React.FC = () => {
   return (
     <>
-
-     {/*  <Navbar />
+      <Navbar />
       <div className='HJ_container'>
         <div><Sidebar /></div>
         
         <div className='HJ_outlet'>
           <Outlet />
         </div>
-      </div> */}
+      </div> 
 
       {/* neven Section : */}
       {/* <Navbar />
@@ -63,12 +62,12 @@ const App: React.FC = () => {
           <AddProduct name="إضافة منتج"/>
       */}
         
-          <Delete_Popup/>
-{/*         <Cards title="فئات" num="25" color=" #58b0e0" type="فئة" image={category} />
- */}{/*         <Cards_withCircleImage title="علاماتنا التجارية" num="25" color=" #A4C241"  image={brandmain}/>
- */}      
-   <Footer/>
-   </>
+        {/* section Maya */}
+        {/*  <Delete_Popup/>
+          <Cards title="فئات" num="25" color=" #58b0e0" type="فئة" image={category} />
+          <Cards_withCircleImage title="علاماتنا التجارية" num="25" color=" #A4C241"  image={brandmain}/>
+          <Footer/> */}
+  </>
 
   );
 }
