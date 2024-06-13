@@ -10,8 +10,24 @@ import Table from './componnents/Table/Table';
 import IMG_brand_table1 from './assets/images/category/Brand_GreenGold_logo.svg'
 import IMG_brand_table2 from './assets/images/category/Layer 1.png'
 import ContactMessages from './componnents/ContactMessages/ContactMessages';
+import { TTableData } from './types/types';
 
 
+
+const title='الرسائل'
+
+const columns=['اسم المستخدم','البريد الالكتروني','الرسالة','الإجراءات']
+
+const data:TTableData[]=[
+    {user_name:'محمد',email:'محمد',message:'محمد'},
+    {user_name:'محمد',email:'محمد',message:'محمد'},
+    {user_name:'محمد',email:'محمد',message:'محمد'},
+];
+
+const buttons=[
+  {btn_path:'src/assets/images/button_icon/delete.svg',btn_alt:'delete icon'},
+  {btn_path:'src/assets/images/button_icon/edite.svg',btn_alt:'show icon'}
+]
 const App: React.FC = () => {
   return (
 
@@ -20,7 +36,7 @@ const App: React.FC = () => {
     <Router>
 
       <div style={{ display: 'flex' }}>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <div style={{ flex: 1, padding: '20px' }}>
           <Routes>
             <Route path="/" element={<h1>الرئيسية</h1>} />
@@ -38,12 +54,12 @@ const App: React.FC = () => {
     
       {/* neven Section : */}
       <Navbar />
-      <ProductBox img={img} title_1="للتنحيف و انقاص الوزن"
+      {/* <ProductBox img={img} title_1="للتنحيف و انقاص الوزن"
         title_2="شاي اخضر سوري مع التوت البري" 
         title_3="خلطة طبيعية و مدعمة للتنحيف و انقاص الوزن" 
         brandName="a vie" productNum={8} weight="55G" encapsolation="معبأة في كيس نايلون وعلبة كرتون خاصة" 
         numInPackage={10} 
-      />
+      /> */}
 
 
      {/* Nawar Section : */}
@@ -63,7 +79,13 @@ const App: React.FC = () => {
          {/* Rasha Section : */}
 
 
-         <ContactMessages/>
+         <ContactMessages
+         title={title}
+         columns={columns}
+         data={data}
+         buttons={buttons}
+         
+         />
 
     </>
  

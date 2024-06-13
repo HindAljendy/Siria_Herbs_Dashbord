@@ -1,18 +1,42 @@
 import React from 'react'
-import Table from '../Table/Table'
+import { ContactMessagesProps, TTableData } from '../../types/types'
+import { Row, Table } from 'react-bootstrap'
+import './ContactMessages.css'
 
-const ContactMessages = () => {
+
+
+const ContactMessages:React.FC<ContactMessagesProps> = ({title, columns, data,buttons}) => {
   return (
-    <div className='ra_contact_msg'>
-        <Table 
-            title="رسائل جهات الاتصال"
-            columns={['الاسم', "البريد الإلكتروني","الرسالة","الاجراءات"]}
-            data={[
-            { user_name: 'رشا بارودي', email:"rasha@gmail.com" ,message: "مرحبا كيف حالكم" },
-            
-            ]}
-        />
-    </div>
+    <>
+        <Row className="w-80 contact_msg_table_header ">
+          <h2 className="m-4 ">{title}</h2>
+        </Row>
+         <Table  hover responsive style ={{width : "80.83%" , marginRight: "36px",}}>
+          <thead className='text-center'>
+        {columns.map((column:string,index:number)=>{
+            return <th className='ra_contact_msg_th' key={index}>{column}</th>
+        })}
+       
+      </thead>
+      <tbody className='ra_contact_msg_body'>
+       {data.map((item:TTableData)=>{
+        return(
+            <tr >
+               
+                <td >{item.user_name}</td>
+                <td>{item.email}</td>
+                <td>{item.message}</td>
+                {buttons.map((button)=>{
+                  return <td style={{display:"flex" }}> <img src={button.btn_path} alt={button.btn_alt} /></td>
+                })}
+                
+            </tr>
+        )
+       })}
+        
+      </tbody>
+    </Table>
+    </>
   )
 }
 
