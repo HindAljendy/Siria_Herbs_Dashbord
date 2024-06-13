@@ -1,3 +1,4 @@
+import React from 'react'
 import './Cards_withCircleImage.css'
 import brand1 from './../../assets/images/MainPage/brand_01.png'
 import brand2 from './../../assets/images/MainPage/brand_02.png'

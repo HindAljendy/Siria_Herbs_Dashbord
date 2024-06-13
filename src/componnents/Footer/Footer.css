@@ -1,43 +1,72 @@
-.MA_footer{
-    width: 90%;
+.MA_footer {
+    width: 60.72%;
+    height: 41.75px;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    border-top: 1px solid gray;
+    align-items: center;
+    gap: 5.86%;
+    padding-left: 35.18px;
+}
+
+.MA_line {
+    width:  60.72%;
+    border: 1px solid rgba(33, 33, 33, 0.5);
+}
+
+
+.MA_footer .MA_info_Footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.MA_footer .MA_info_Footer span {
     color: var(--blue-color);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-family:var(--Typold-family) ;
-}
-
-
-.MA_footer .row{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-}
-.MA_footer ul{
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    gap: 10px;
-    margin-left: -25px;
-}
-.MA_footer ul li{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 5px;
+    font-family: var(--Mulish-family);
+    font-size: 1rem;
+    font-weight: var(--normal-weight);
+    line-height: 20.08px;
     text-wrap: nowrap;
 }
-.MA_footer label{
-font-weight: 390;
-font-size:1rem;
-line-height: 26px;
-text-wrap: nowrap;
+
+.MA_footer .Info_Contacts ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 15px;
 }
 
-.MA_footer .focal{
-    width: 70px;
+.MA_footer .Info_Contacts ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    text-wrap: nowrap;
+}
+
+.MA_footer .MA_info_Footer .MA_IMG_focal {
+    width: 70.25px;
     height: 18px;
 }
+
+.MA_footer .Info_Contacts .MA_emai,
+.MA_footer .Info_Contacts .MA_call {
+    color: var(--blue-color);
+    font-family: var(--Typold-family);
+    font-size: 1rem;
+    line-height: 26px;
+    letter-spacing: -0.18px;
+    text-wrap: nowrap;
+}
+
+.MA_footer .Info_Contacts .MA_emai {
+    font-weight: 300;
+}
+
+.MA_footer .Info_Contacts .MA_call {
+    font-weight: 390;
+}
+
+

@@ -41,10 +41,6 @@ const Sidebar: React.FC = () => {
     setIsPagesActive(location.pathname === '/settings/pages_settings'); 
     setIsSettingsHomeActive(location.pathname === '/settings/pages_settings/home'); 
     setIsSettingsAboutActive(location.pathname === '/settings/pages_settings/about'); 
-   
-
-
-
 
   }, [location]);
 

@@ -24,14 +24,14 @@ const App: React.FC = () => {
   return (
     <>
 
-      <Navbar />
+     {/*  <Navbar />
       <div className='HJ_container'>
         <div><Sidebar /></div>
         
         <div className='HJ_outlet'>
           <Outlet />
         </div>
-      </div>
+      </div> */}
 
       {/* neven Section : */}
       {/* <Navbar />
@@ -63,11 +63,12 @@ const App: React.FC = () => {
           <AddProduct name="إضافة منتج"/>
       */}
         
-         <Delete_Popup/>
-        <Cards title="فئات" num="25" color=" #58b0e0" type="فئة" image={category} />
-        <Cards_withCircleImage title="علاماتنا التجارية" num="25" color=" #A4C241"  image={brandmain}/>
-        <Footer/>
-    </>
+          <Delete_Popup/>
+{/*         <Cards title="فئات" num="25" color=" #58b0e0" type="فئة" image={category} />
+ */}{/*         <Cards_withCircleImage title="علاماتنا التجارية" num="25" color=" #A4C241"  image={brandmain}/>
+ */}      
+   <Footer/>
+   </>
 
   );
 }
