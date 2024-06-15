@@ -4,6 +4,7 @@ import { Outlet} from 'react-router-dom';
 import Sidebar from './componnents/Sidebar/SideBar';
 import './App.css'
 import Navbar from './componnents/Navbar/Navbar';
+
 //import { TTableData } from './types/types';
 /* import Form from './componnents/Form/Form'
 import AddProduct from './componnents/Form/AddProduct.tsx/AddProduct' 
@@ -89,6 +90,8 @@ const App: React.FC = () => {
           <Cards title="فئات" num="25" color=" #58b0e0" type="فئة" image={category} />
           <Cards_withCircleImage title="علاماتنا التجارية" num="25" color=" #A4C241"  image={brandmain}/>
           <Footer/> */}
+
+
   </>
 
 

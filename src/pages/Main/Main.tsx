@@ -1,8 +1,11 @@
 import React from 'react'
+import ContactMessages from '../../componnents/ContactMessages/ContactMessages'
 
 const Main = () => {
   return (
-    <div>Main</div>
+    <div>
+      <ContactMessages/>
+    </div>
   )
 }
 
