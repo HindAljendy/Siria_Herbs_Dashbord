@@ -32,5 +32,5 @@ export interface ContactMessagesProps {
     columns: string[];
     data: Array<TTableData>;
     buttons:{btn_path:string,btn_alt:string}[];
-    /* data: { name: string, image: string, quantity: number, published: boolean }[]*/
+    
 }

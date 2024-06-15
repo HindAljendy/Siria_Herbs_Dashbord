@@ -1,10 +1,9 @@
 import React from 'react'
-import ContactMessages from '../../componnents/ContactMessages/ContactMessages'
 
 const Main = () => {
   return (
     <div>
-      <ContactMessages/>
+      <h1>Main</h1>
     </div>
   )
 }

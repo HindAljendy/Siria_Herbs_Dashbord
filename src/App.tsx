@@ -5,7 +5,6 @@ import Sidebar from './componnents/Sidebar/SideBar';
 import './App.css'
 import Navbar from './componnents/Navbar/Navbar';
 
-//import { TTableData } from './types/types';
 /* import Form from './componnents/Form/Form'
 import AddProduct from './componnents/Form/AddProduct.tsx/AddProduct' 
 import ProductBox from './componnents/ProductBox/ProductBox'
@@ -27,21 +26,6 @@ import Cards_withCircleImage from './componnents/Cards/Cards_withCircleImage' */
 
 
 
-
-// const title='الرسائل'
-
-// const columns=['اسم المستخدم','البريد الالكتروني','الرسالة','الإجراءات']
-
-// const data:TTableData[]=[
-//     {user_name:'محمد',email:'محمد',message:'محمد'},
-//     {user_name:'محمد',email:'محمد',message:'محمد'},
-//     {user_name:'محمد',email:'محمد',message:'محمد'},
-// ];
-
-// const buttons=[
-//   {btn_path:'src/assets/images/button_icon/delete.svg',btn_alt:'delete icon'},
-//   {btn_path:'src/assets/images/button_icon/edite.svg',btn_alt:'show icon'}
-// ]
 const App: React.FC = () => {
   return (
 
@@ -54,6 +38,13 @@ const App: React.FC = () => {
           <Outlet />
         </div>
       </div> 
+     
+
+
+      {/* Rasha Section : */}
+
+
+      
 
       {/* neven Section : */}
       {/* <Navbar />
