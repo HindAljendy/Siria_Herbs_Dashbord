@@ -4,10 +4,11 @@ import { FaRegTrashCan } from "react-icons/fa6";
 
 // Define the props interface if needed for future enhancements
 interface ImageUploadProps {
-  labelName: string
+  name:string;
 }
 
-const ImageUpload: React.FC<ImageUploadProps> = ({ labelName }) => {
+const ImageUpload: React.FC<ImageUploadProps> = ({name}) => {
+
 
   // Use string for fileName state since it will hold strings
   const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
@@ -32,7 +33,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ labelName }) => {
 
   return (
     <div className="container input">
-      <label htmlFor="name">{labelName}</label>
+      <label htmlFor="name"> {name}</label>
       <div className="file-upload-wrapper">
         <button className="choose-file-btn" onClick={triggerFileInput}>
           <span>اختر ملف</span>
