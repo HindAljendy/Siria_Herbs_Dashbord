@@ -9,6 +9,7 @@ body{
     position: absolute;
     top: 8.28% /* 159px */ ;
     right: 15.40% /* 295.72px */;
+    width: 75%;
 }
 
 @media screen and (max-width: 1919px) {
