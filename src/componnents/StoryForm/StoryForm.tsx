@@ -6,7 +6,7 @@ import TextArea from '../Form/TextArea/TextArea'
 
 export const StoryForm = () => {
   return (
-    <form className='form YS-story' >
+    <form className='form YS-form' >
       <div className="YS-left">
         <a href='' className="YS-remove-form" >
           <svg width="15" height="6" viewBox="0 0 15 6" fill="none" xmlns="http://www.w3.org/2000/svg">

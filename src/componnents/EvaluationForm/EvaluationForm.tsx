@@ -1,68 +1,26 @@
 import React from 'react';
-import { FaTrash } from 'react-icons/fa';
+import ImageUpload from '../Form/ImageUpload/ImageUpload ';
+import TextArea from '../Form/TextArea/TextArea';
 
-interface SectionProps {
-  data: {
-    icon: string;
-    title: string;
-    summary: string;
-    description: string;
-  };
-  onChange: (data: SectionProps['data']) => void;
-  onRemove: () => void;
-}
-
-const EvaluationForm: React.FC<SectionProps> = ({ data, onChange, onRemove }) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    onChange({ ...data, [name]: value });
-  };
+const EvaluationForm = () => {
 
   return (
-    <div className="section">
-      <button className="remove-section" onClick={onRemove}>
-        إزالة قسم <FaTrash />
-      </button>
-      <div className="section-content">
-        <div className="input-group">
-          <label>الأيقونة</label>
-          <input
-            type="text"
-            name="icon"
-            value={data.icon}
-            onChange={handleChange}
-            placeholder="fa fa_hand"
-          />
-        </div>
-        <div className="input-group">
-          <label>العنوان</label>
-          <input
-            type="text"
-            name="title"
-            value={data.title}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="input-group">
-          <label>الملخص</label>
-          <input
-            type="text"
-            name="summary"
-            value={data.summary}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="input-group">
-          <label>الوصف</label>
-          <textarea
-            name="description"
-            value={data.description}
-            onChange={handleChange}
-          />
-        </div>
-        <button className="save-button">حفظ</button>
+    <form className='form YS-form' >
+      <div className="YS-left">
+        <a href='' className="YS-remove-form" >
+          <svg width="15" height="6" viewBox="0 0 15 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.2383 0.269531V5.78711H0.444336V0.269531H14.2383Z" fill="#283760" />
+          </svg> <span> إزالة قسم</span>
+        </a>
       </div>
-    </div>
+      <ImageUpload name='الأيقونة' />
+      <div className='input'>
+        <label htmlFor="title">العنوان</label>
+        <input type="text" name="title" id="title" />
+      </div>
+      <TextArea name='الوصف' />
+      <div className="YS-left"><button className='YS-save-boutton' type='submit'>حفظ</button></div>
+    </form >
   );
 };
 
