@@ -1,8 +1,6 @@
 import React from 'react'
-import './StoryForm.css'
 import ImageUpload from '../Form/ImageUpload/ImageUpload '
 import TextArea from '../Form/TextArea/TextArea'
-// import { FaTrash } from 'react-icons/fa'
 
 export const StoryForm = () => {
   return (
