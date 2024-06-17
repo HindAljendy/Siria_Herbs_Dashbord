@@ -18,9 +18,16 @@ export interface TableProps {
     /* data: { name: string, image: string, quantity: number, published: boolean }[]*/
 }
 
+export type Tbutton =
+
+{
+    btn_path:string,
+    btn_alt:string,
+    handlefunc:(rowId?:any)=>any
+}
 
 export type TTableData = {
-   
+    id?:number;
     full_name?:string;
     email?:string;
     message?:string;
@@ -31,6 +38,6 @@ export interface ContactMessagesProps {
     buttonLabel?: string;
     columns: string[];
     data: Array<TTableData>;
-    buttons:{btn_path:string,btn_alt:string}[];
+    buttons?:Tbutton[];
     
 }
