@@ -1,8 +1,16 @@
 import React from 'react'
+import './SettingHome.css'
+import { Story } from '../Story/Story'
+import { Evaluation } from '../Evaluation/Evaluation'
+import PageHeaderForm from '../Form/PageHeaderForm/PageHeaderForm'
 
 const SettingHome = () => {
   return (
-    <div>SettingHome</div>
+    <div className='YS-setting-home'>
+    <PageHeaderForm />
+    <Story />
+    <Evaluation />
+    </div>
   )
 }
 

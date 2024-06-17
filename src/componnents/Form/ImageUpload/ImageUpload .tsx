@@ -9,6 +9,7 @@ interface ImageUploadProps {
 
 const ImageUpload: React.FC<ImageUploadProps> = ({name}) => {
 
+
   // Use string for fileName state since it will hold strings
   const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
 
@@ -45,7 +46,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({name}) => {
           style={{ display: "none" }}
         />
         <span className="icon">
-           <FaRegTrashCan/>
+          <FaRegTrashCan />
         </span>
       </div>
     </div>
