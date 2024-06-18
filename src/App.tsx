@@ -1,15 +1,21 @@
 
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet} from 'react-router-dom';
 import Sidebar from './componnents/Sidebar/SideBar';
 import './App.css'
 import Navbar from './componnents/Navbar/Navbar';
+
 /* import Form from './componnents/Form/Form'
 import AddProduct from './componnents/Form/AddProduct.tsx/AddProduct' 
 import ProductBox from './componnents/ProductBox/ProductBox'
 import img from './assets/images/Product/product_01.png'
 import Table from './componnents/Table/Table';
 import IMG_brand_table1 from './assets/images/category/Brand_GreenGold_logo.svg'
+<<<<<<< HEAD
+import IMG_brand_table2 from './assets/images/category/Layer 1.png'
+import ContactMessages from './componnents/ContactMessages/ContactMessages';
+import { TTableData } from './types/types';
+=======
 import IMG_brand_table2 from './assets/images/category/Layer 1.png'*/ 
 /* import Delete_Popup from './componnents/Delete_Popup/Delete_Popup'
 import category from './assets/images/MainPage/category.png'
@@ -22,7 +28,8 @@ import Cards_withCircleImage from './componnents/Cards/Cards_withCircleImage' */
 
 const App: React.FC = () => {
   return (
-    <>
+
+   <>
       <Navbar />
       <div className='HJ_container'>
         <div><Sidebar /></div>
@@ -31,6 +38,13 @@ const App: React.FC = () => {
           <Outlet />
         </div>
       </div> 
+     
+
+
+      {/* Rasha Section : */}
+
+
+      
 
       {/* neven Section : */}
       {/* <Navbar />
@@ -67,7 +81,10 @@ const App: React.FC = () => {
           <Cards title="فئات" num="25" color=" #58b0e0" type="فئة" image={category} />
           <Cards_withCircleImage title="علاماتنا التجارية" num="25" color=" #A4C241"  image={brandmain}/>
           <Footer/> */}
+
+
   </>
+
 
   );
 }
