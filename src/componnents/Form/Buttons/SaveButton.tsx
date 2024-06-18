@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export default function SaveButton() {
+const SaveButton: React.FC = () => {
   return (
     <div>
        <button type="submit">حفظ</button>
     </div>
-  )
-}
+  );
+};
+
+export default SaveButton;
