@@ -27,7 +27,7 @@ const Table: React.FC<TableProps> = ({ title, buttonLabel, columns, data }) => {
                     </tr>
                 </thead>
                 <tbody >
-                    {data.map((row, index) => (
+                    {data?.map((row, index) => (
                         <tr key={index}>
                             <td className='NA_Name_row'>{row.name}</td>
                             <td><img src={row.image} alt={row.name} className="NA_product-image" /></td>
