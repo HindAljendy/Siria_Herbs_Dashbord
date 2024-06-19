@@ -12,6 +12,9 @@
 
 body {
     direction: rtl;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    -webkit-text-orientation: mixed;
 }
 
 :root {
@@ -36,6 +39,8 @@ body {
     --black: #000000;
     --dark-brown: #504444;
     --dark-blue: #211639;
+
+
 
     /* 
         ==========================
@@ -87,6 +92,10 @@ form{
     direction: rtl;
     font-family: var(--almarai-family);
     margin-top: 35px;
+    -webkit-border-radius: 4px 0px 0px 0px;
+    -moz-border-radius: 4px 0px 0px 0px;
+    -ms-border-radius: 4px 0px 0px 0px;
+    -o-border-radius: 4px 0px 0px 0px;
 }
 form .input{
     display: flex;
@@ -115,11 +124,14 @@ color: var(--blue-color);
 
 form .input input[type="text"]  , .form .input select{
     border: 0.5px solid #525866;
-height: 48px;
-border-radius: 3px 0px 0px 0px;
-opacity: 0px;
-padding: 10px;
-
+    height: 48px;
+    border-radius: 3px 0px 0px 0px;
+    opacity: 0px;
+    padding: 10px;
+    -webkit-border-radius: 3px 0px 0px 0px;
+    -moz-border-radius: 3px 0px 0px 0px;
+    -ms-border-radius: 3px 0px 0px 0px;
+    -o-border-radius: 3px 0px 0px 0px;
 }
 form .form-header{
 
@@ -133,17 +145,21 @@ line-height: 26px;
 
 form button{
     width: 134px;
-height: 48px;
-border-radius: 5px 0px 0px 0px;
-opacity: 0px;
-background: var(--blue-color);
-font-size: 20px;
-font-weight: 700;
-line-height: 20px;
-color: white;
-position: absolute;
-left: 20px;
-bottom: 5px;
+    height: 48px;
+    border-radius: 5px 0px 0px 0px;
+    opacity: 0px;
+    background: var(--blue-color);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    color: white;
+    position: absolute;
+    left: 20px;
+    bottom: 5px;
+    -webkit-border-radius: 5px 0px 0px 0px;
+    -moz-border-radius: 5px 0px 0px 0px;
+    -ms-border-radius: 5px 0px 0px 0px;
+    -o-border-radius: 5px 0px 0px 0px;
 }
 
 textarea{
@@ -152,3 +168,5 @@ border: 0.5px 0px 0px 0px;
 height:88px;
 
 }
+
+

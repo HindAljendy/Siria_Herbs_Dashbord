@@ -11,7 +11,8 @@ export default function AboutUsForm() {
                     <input type="text" name="name" id="" />
                 </div>
                 <TextArea name="الوصف"/>
-                <ImageUpload name="صورة او فيديو"/>
+                <ImageUpload name="صورة او فيديو" 
+                onImageUpload={handleImageUpload} />
                 <SaveButton/>
             </form>
     )
