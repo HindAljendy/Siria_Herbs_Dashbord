@@ -1,6 +1,6 @@
 .ne-product-box{
     max-width: 452px;
-    height: 564px;
+    /* height: 564px; */
     background-color: var(--absolute-white);
     box-shadow: 0.3px 0.3px 6.4px 0px rgba(205, 202, 202, 0.25);
     display: flex;

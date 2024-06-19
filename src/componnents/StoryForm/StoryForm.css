@@ -1,0 +1,34 @@
+.YS-left {
+    display: flex;
+    justify-content: end;
+}
+
+.YS-Link-form {
+    width: 166px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    text-decoration: none;
+    gap: 10px;
+    color: var(--blue-color);
+}
+
+.YS-Link-form span {
+    font-family: var(--almarai-family);
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: -30%;
+    color: var(--blue-color);
+    font-weight: 700;
+    text-align: center;
+}
+
+.YS_container_Button{
+    margin-top: 11.13px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom:40px ;
+}
+
+

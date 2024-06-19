@@ -1,0 +1,7 @@
+.BigNavigationLinks{
+    width: 399px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 23.7px;
+}

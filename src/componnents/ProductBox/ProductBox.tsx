@@ -18,7 +18,7 @@ const ProductBox: React.FC<ProductBoxProps> = ({
   numInPackage,
 }) => {
   return (
-    <div className="ne-product-box">
+    <div className="ne-product-box ">
       <div className="ne-box-text">
         <img src={img} alt="product Img" className="ne-product-img" />
         <p className="ne-title-1"> {title_1} </p>
