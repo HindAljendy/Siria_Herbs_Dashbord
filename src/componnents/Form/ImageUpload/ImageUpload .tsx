@@ -3,9 +3,12 @@ import './ImageUplodeStyle.css';
 import { FaRegTrashCan } from "react-icons/fa6";
 
 // Define the props interface if needed for future enhancements
-interface ImageUploadProps {}
+interface ImageUploadProps {
+  name:string;
+}
 
-const ImageUpload: React.FC<ImageUploadProps> = () => {
+const ImageUpload: React.FC<ImageUploadProps> = ({name}) => {
+
 
   // Use string for fileName state since it will hold strings
   const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
@@ -21,6 +24,7 @@ const ImageUpload: React.FC<ImageUploadProps> = () => {
 
   const triggerFileInput = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    
     // Ensure the element exists before calling click
     const fileInputElement = document.getElementById('fileInput') as HTMLInputElement | null;
     if (fileInputElement) {
@@ -30,7 +34,7 @@ const ImageUpload: React.FC<ImageUploadProps> = () => {
 
   return (
     <div className="container input">
-      <label htmlFor="name">الصورة الرئيسية</label>
+      <label htmlFor="name" className="HJ_FontColor_gray"> {name}</label>
       <div className="file-upload-wrapper">
         <button className="choose-file-btn" onClick={triggerFileInput}>
           <span>اختر ملف</span>
@@ -43,7 +47,7 @@ const ImageUpload: React.FC<ImageUploadProps> = () => {
           style={{ display: "none" }}
         />
         <span className="icon">
-           <FaRegTrashCan/>
+          <FaRegTrashCan />
         </span>
       </div>
     </div>

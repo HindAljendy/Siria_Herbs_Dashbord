@@ -1,0 +1,59 @@
+.HJ_margin_27 {
+    margin-bottom: 27px;
+}
+
+.HJ_form_padding {
+    padding: 22px 22px 25px 23px;
+}
+
+.HJ_groups_Selectors {
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+    width: 100%;
+}
+
+.HJ_groups_Selectors .HJ_width_select {
+    width: 50%;
+}
+
+.HJ_Button_AddPhoto a {
+    text-decoration: none;
+}
+
+.HJ_Button_AddPhoto button {
+    Width: 67px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    background-color: var(--green-dark);
+    color: var(--absolute-white);
+    font-family: var(--almarai-family);
+    font-size: 14px;
+    font-weight: var(--bold-weight);
+    line-height: 14px;
+}
+
+.HJ_Button_AddPhoto label {
+    color: #5E5873;
+    font-family: var(--almarai-family);
+    font-size: 12px;
+    font-weight: var(--normal-weight);
+    line-height: 12px;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.HJ_container_Button {
+    margin-top: 52.54px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.HJ_Margin_AddProduct {
+    margin-bottom: 9.40%;
+}

@@ -1,0 +1,16 @@
+.MA_form_padding{
+    padding-top: 61px;
+    padding-bottom: 35px;
+    padding-right:23px;
+    padding-left:34px;
+}
+.MA_margin{
+    margin-bottom: 48px;
+}
+
+
+.MA_container_Button{
+    margin-top: 39px;
+    display: flex;
+    justify-content: flex-end;
+}

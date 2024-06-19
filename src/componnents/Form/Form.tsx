@@ -1,19 +1,25 @@
 import React from 'react';
 import SaveButton from './Buttons/SaveButton'
 import Checkbox from './Checkbox/Checkbox'
-import './FormStyle.css'
 import Selector from './Selector/Selector'
+
 export default function Form() {
   return (
-    <form className='form'>
-      <div className='form-header'>إضافة فئة إلى النظام</div>
-      <div className='input'>
-        <label htmlFor="name">الاسم</label>
-        <input type="text" name="name" id="" />
+    <form className='form form_padding'>
+      <div className='d-flex d-flex_direction justify-between gap_22'>
+        <div className='form-header HJ_FontColor_gray'>إضافة  إلى النظام</div>
+        <div className='input'>
+          <label htmlFor="name" className='HJ_label HJ_FontColor_blue'>الاسم</label>
+          <input type="text" name="name" placeholder='اكتب اسم الفئة' />
+        </div>
       </div>
-      <Selector name="الفئة" options={['فئة1' , 'فئة2' , 'فئة3']}/>
-      <Checkbox/>
-      <SaveButton/>
+      <div className='d-flex d-flex_direction justify-between gap_30'>
+        <Selector name="الماركة"  />
+        <Checkbox />
+      </div>
+      <div className='HJ_container_Button'>
+        <SaveButton/>
+      </div>
     </form>
   )
 }
