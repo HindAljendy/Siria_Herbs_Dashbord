@@ -4,8 +4,9 @@ import { TTableData } from '../../types/types';
 import { getContactMessages } from '../../services/services';
 import ShowMessage from '../../componnents/ContactMessages/ShowMessage/ShowMessage';
 import axios from 'axios';
+import NavigationLinks from '../../componnents/NavigationLinks/NavigationLinks';
 
-
+import './ContactMessages.css'
 
 
 
@@ -16,7 +17,7 @@ const ContactMessages = () => {
  const [messageToshow,setMessageToShow]=useState<any>('');
 
 
-    const title='الرسائل'
+    const title='رسائل جهات الاتصال'
 
     const columns=['اسم المستخدم','البريد الالكتروني','الرسالة','الإجراءات']
 
@@ -54,15 +55,21 @@ const ContactMessages = () => {
     })
  },[])
   return (
-    <div>
+    <>
+     <div className='ra_contact_messages_navlink'>
+        <NavigationLinks navigateMain='رسائل جهات الاتصال'
+        navigateLink='الواجهات الرئيسية'
+        navigateSubmain='رسائل جهات الاتصال'/>
+      </div>
 
         <Messages
-         title={title}
+        
          columns={columns}
          data={messages}
          buttons={buttons} />
          {showedMessage &&<ShowMessage message={messageToshow} closeMessage={()=>setShowedMessage(false)}/>
-}    </div>
+}   
+ </>
   )
 }
 
