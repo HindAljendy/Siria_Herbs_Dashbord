@@ -1,0 +1,85 @@
+
+.AB-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--absolute-white) ;
+    border-radius: 4px;
+
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+    padding: 24px;
+    
+} 
+
+
+.AB_input_facebook,
+.AB_input_instagram,
+.AB_input_whatsapp,
+.AB_input_twitter,
+.AB_input_linkedin,
+.AB_input_youtube {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    margin-bottom: 2px;
+    font-family: var(--almarai-family);
+}
+
+input[type="url"],
+input[type="tel"],
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box;
+   
+}
+
+@media (max-width: 1024px) {
+    .AB_input_facebook,
+    .AB_input_instagram,
+    .AB_input_whatsapp,
+    .AB_input_twitter,
+    .AB_input_linkedin,
+    .AB_input_youtube {
+        flex: 1 1 100%; /* لجعل كل عنصر يأخذ العرض الكامل */
+    }
+}
+
+@media (max-width: 768px) {
+    .form {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+.AB_icon{
+    width: 13.99px;
+    height: 14px;
+    color: #5E5873;
+    margin-right: 8px; 
+}
+
+.AB_SaveButton{
+    display: flex;
+    justify-content: flex-end;
+    /* padding: 20px; */
+    font-size: 20px;
+   
+} 
+    
+
+.AB_SaveButton button{
+    
+    padding: 10px 20px;
+    margin-left: 0;
+}
