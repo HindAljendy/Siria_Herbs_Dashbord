@@ -1,15 +1,19 @@
+// TextArea.tsx
+import React, { ChangeEvent } from 'react';
 
-import React from 'react';
-interface TextArea {
-  name: string;
+interface TextAreaProps {
+    name: string;
+    value: string;
+    onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const TextArea: React.FC<TextArea> = ({ name }) => {
-  return (
-    <div className='input'>
-    <label htmlFor="description"> {name}</label>
-    <textarea name="description" id="description"></textarea>
-  </div>
-  )
-}
+const TextArea: React.FC<TextAreaProps> = ({ name, value, onChange }) => {
+    return (
+        <div>
+            <label htmlFor={name}>{name}</label>
+            <textarea id={name} name={name} value={value} onChange={onChange} />
+        </div>
+    );
+};
+
 export default TextArea;

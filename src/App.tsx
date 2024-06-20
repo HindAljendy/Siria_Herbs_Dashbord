@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Sidebar from './componnents/Sidebar/SideBar';
 import './App.css'
 import Navbar from './componnents/Navbar/Navbar';
-/* import Form from './componnents/Form/Form'
+/* import Form from './componnents/Form/Form' 
 import AddProduct from './componnents/Form/AddProduct.tsx/AddProduct' 
 import ProductBox from './componnents/ProductBox/ProductBox'
 import img from './assets/images/Product/product_01.png'

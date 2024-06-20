@@ -134,7 +134,7 @@ line-height: 26px;
 form button{
     width: 134px;
 height: 48px;
-border-radius: 5px 0px 0px 0px;
+border-radius: 5px 5px 5px px;
 opacity: 0px;
 background: var(--blue-color);
 font-size: 20px;
@@ -151,4 +151,11 @@ border-radius: 3px 0px 0px 0px;
 border: 0.5px 0px 0px 0px;
 height:88px;
 
+}
+
+textarea label{
+    font-size: 14px;
+    font-weight:var( --bold-weight);
+    line-height:14px;
+    color: #5E5873;
 }
