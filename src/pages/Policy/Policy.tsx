@@ -77,8 +77,7 @@ const Policy = () => {
     const file = fileInput.files![0];
 
     formData.append("icon", file);
-    console.log('formdata:',formData);
-    
+    console.log("formdata:", formData);
 
     axios
       .post("http://127.0.0.1:8000/api/policy", formData, {
@@ -104,19 +103,21 @@ const Policy = () => {
     formData.append("policy_number", updatedPolicy.policy_number);
     formData.append("title", updatedPolicy.title);
     formData.append("description", updatedPolicy.description);
-  
+
     // Ensure the correct file input ID
-    const fileInput = document.getElementById(`file-input_${index}`) as HTMLInputElement;
-  
+    const fileInput = document.getElementById(
+      `file-input_${index}`
+    ) as HTMLInputElement;
+
     if (fileInput && fileInput.files && fileInput.files.length > 0) {
       formData.append("icon", fileInput.files[0]);
     }
-  
-    console.log('FormData contents:');
+
+    console.log("FormData contents:");
     for (let [key, value] of formData.entries()) {
       console.log(key, value);
     }
-  
+
     axios
       .post(`http://127.0.0.1:8000/api/policy/${id}`, formData, {
         headers: {
@@ -133,15 +134,14 @@ const Policy = () => {
         );
       })
       .catch((error) => {
-        console.error('Error updating policy:', error);
+        console.error("Error updating policy:", error);
         if (error.response) {
-          console.error('Response data:', error.response.data);
-          console.error('Response status:', error.response.status);
-          console.error('Response headers:', error.response.headers);
+          console.error("Response data:", error.response.data);
+          console.error("Response status:", error.response.status);
+          console.error("Response headers:", error.response.headers);
         }
       });
   };
-  
 
   return (
     <div className="ne-policy_container">
@@ -155,7 +155,12 @@ const Policy = () => {
           <form action="">
             <div className="ne-form-group">
               <div className="ne-input-group">
-                <label htmlFor={`policy_number_${index}`} className="ne-policy-label">رقم السياسة</label>
+                <label
+                  htmlFor={`policy_number_${index}`}
+                  className="ne-policy-label"
+                >
+                  رقم السياسة
+                </label>
                 <input
                   type="text"
                   id={`policy_number_${index}`}
@@ -184,9 +189,11 @@ const Policy = () => {
                       onChange={(event) => {
                         const files = event.target.files;
 
-                        if (files && files.length>0) {
-                          const updatedPolicies = [...policies]
-                          updatedPolicies[index].icon=URL.createObjectURL(files[0]);
+                        if (files && files.length > 0) {
+                          const updatedPolicies = [...policies];
+                          updatedPolicies[index].icon = URL.createObjectURL(
+                            files[0]
+                          );
                           setPolicies(updatedPolicies);
                           // setNewPolicy({
                           //   ...newPolicy,
@@ -213,7 +220,12 @@ const Policy = () => {
               </div>
             </div>
             <div className="ne-input-group">
-              <label htmlFor={`policy_title_${index}`} className="ne-policy-label">عنوان السياسة</label>
+              <label
+                htmlFor={`policy_title_${index}`}
+                className="ne-policy-label"
+              >
+                عنوان السياسة
+              </label>
               <input
                 type="text"
                 id={`policy_title_${index}`}
@@ -228,7 +240,12 @@ const Policy = () => {
               />
             </div>
             <div className="ne-input-group ne-policy_description">
-              <label htmlFor={`policy_description_${index}`} className="ne-policy-label">وصف السياسة</label>
+              <label
+                htmlFor={`policy_description_${index}`}
+                className="ne-policy-label"
+              >
+                وصف السياسة
+              </label>
               <textarea
                 name=""
                 id={`policy_description_${index}`}
@@ -247,15 +264,19 @@ const Policy = () => {
           <button
             className="ne-save-btn"
             onClick={() =>
-              handleSave(policy.id!, {
-                policy_number: policy.policy_number,
+              handleSave(
+                policy.id!,
+                {
+                  policy_number: policy.policy_number,
 
-                title: policy.title,
+                  title: policy.title,
 
-                description: policy.description,
+                  description: policy.description,
 
-                icon: policy.icon,
-              },index)
+                  icon: policy.icon,
+                },
+                index
+              )
             }
           >
             حفظ
@@ -268,213 +289,105 @@ const Policy = () => {
         </h1>
       </div>
       {showModal && (
-        // <div className="modal ne-policy">
-        //   <div className="modal-content">
-        //   <h1 className=" ne-cancel-policy d-flex justify-center align-center">
-        //       <span>-</span>حذف السياسة
-        //     </h1>
-        //     <form onSubmit={handleFormSubmit}>
-        //       <div className="ne-form-group">
-        //         <div className="ne-input-group">
-        //           <label htmlFor="policy_number ne-policy-label">رقم السياسة</label>
-        //           <input
-        //             type="text"
-        //             id="policy_number"
-        //             value={newPolicy.policy_number}
-        //             onChange={(event) =>
-        //               setNewPolicy({
-        //                 ...newPolicy,
-        //                 policy_number: event.target.value,
-        //               })
-        //             }
-        //           />
-        //         </div>
-        //         <div className="ne-input-group-icon">
-        //           <h2 className="ne-policy-label">ايقونة السياسة</h2>
-        //           <div className="container">
-        //             <label
-        //               htmlFor="file-input"
-        //               className="button ne-choose_file"
-        //             >
-        //               <span>اختار ملف</span>
-        //               <input
-        //                 type="file"
-        //                 id="file-input"
-        //                 style={{ display: "none" }}
-        //                 onChange={(event) => {
-        //                   const files = event.target.files;
-
-        //                   if (files) {
-        //                     setNewPolicy({
-        //                       ...newPolicy,
-
-        //                       icon: files[0].name,
-        //                     });
-        //                   }
-        //                 }}
-        //               />
-        //             </label>
-        //             <div className="input-container">
-        //               <input
-        //                 type="text"
-        //                 placeholder="اسم الملف"
-        //                 id="file-input"
-        //                 // value={newPolicy.icon}
-        //               />
-        //               <button className="ne-img-icon">
-        //                 <img src={newPolicy.icon} alt="icon photo" />
-        //               </button>
-        //             </div>
-        //           </div>
-        //         </div>
-        //       </div>
-        //       <div className="ne-input-group">
-        //         <label htmlFor="policy_title ne-policy-label ">عنوان السياسة</label>
-        //         <input
-        //           type="text"
-        //           id="policy_title"
-        //           value={newPolicy.title}
-        //           onChange={(event) =>
-        //             setNewPolicy({
-        //               ...newPolicy,
-        //               title: event.target.value,
-        //             })
-        //           }
-        //         />
-        //       </div>
-        //       <div className="ne-input-group policy_description">
-        //         <label htmlFor="policy_description ne-policy-label">وصف السياسة</label>
-        //         <textarea
-        //           name=""
-        //           id="policy_description"
-        //           placeholder="اكتب وصف السياسة هنا"
-        //           value={newPolicy.description}
-        //           onChange={(event) =>
-        //             setNewPolicy({
-        //               ...newPolicy,
-        //               description: event.target.value,
-        //             })
-        //           }
-        //         ></textarea>
-        //       </div>
-        //       <div className="add-close-btn">
-        //         <button className="button ne-save-btn" type="submit">
-        //           حفظ
-        //         </button>
-        //         <button
-        //           className="button ne-cancel-btn"
-        //           onClick={handleModalClose}
-        //         >
-        //           الغاء
-        //         </button>
-        //       </div>
-        //     </form>
-        //   </div>
-        // </div>
-
-
-
-
-<div  className="ne-policy">
-<div className="ne-delet-btn" onClick={handleModalClose} >
-  <h1 className="ne-delete-policy-icon d-flex justify-center align-center">
-    <span>-</span>حذف السياسة
-  </h1>
-</div>
-<form onSubmit={handleFormSubmit}>
-  <div className="ne-form-group">
-    <div className="ne-input-group">
-      <label htmlFor='policy_number' className="ne-policy-label">رقم السياسة</label>
-      <input
-                    type="text"
-                    id="policy_number"
-                    value={newPolicy.policy_number}
-                    onChange={(event) =>
-                      setNewPolicy({
-                        ...newPolicy,
-                        policy_number: event.target.value,
-                      })
-                    }
-                  />
-    </div>
-    <div className="ne-input-group-icon">
-      <h2 className="ne-policy-label">ايقونة السياسة</h2>
-      <div className="ne-icon-container">
-      <label
-                      htmlFor="file-input"
-                      className="button ne-choose_file"
-                    >
-                      <span>اختار ملف</span>
-                      <input
-                        type="file"
-                        id="file-input"
-                        style={{ display: "none" }}
-                        onChange={(event) => {
-                          const files = event.target.files;
-
-                          if (files) {
-                            setNewPolicy({
-                              ...newPolicy,
-
-                              icon: files[0].name,
-                            });
-                          }
-                        }}
-                      />
-        </label>
-        <div className="input-container">
-                    <input
-                        type="text"
-                        placeholder="اسم الملف"
-                        id="file-input"
-                        // value={newPolicy.icon}
-                      />
-
-          <div className=" ne-img-icon">
-            <img src={newPolicy.icon} alt="delete Button" />
+        <div className="ne-policy">
+          <div className="ne-delet-btn" onClick={handleModalClose}>
+            <h1 className="ne-delete-policy-icon d-flex justify-center align-center">
+              <span>-</span>حذف السياسة
+            </h1>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="ne-input-group">
-    <label htmlFor='policy_title' className="ne-policy-label">عنوان السياسة</label>
-    <input
+          <form onSubmit={handleFormSubmit}>
+            <div className="ne-form-group">
+              <div className="ne-input-group">
+                <label htmlFor="policy_number" className="ne-policy-label">
+                  رقم السياسة
+                </label>
+                <input
                   type="text"
-                  id="policy_title"
-                  value={newPolicy.title}
+                  id="policy_number"
+                  value={newPolicy.policy_number}
                   onChange={(event) =>
                     setNewPolicy({
                       ...newPolicy,
-                      title: event.target.value,
+                      policy_number: event.target.value,
                     })
                   }
                 />
-  </div>
-  <div className="ne-input-group ne-policy_description">
-    <label htmlFor='policy_description' className="ne-policy-label">وصف السياسة</label>
-    <textarea
-                  name=""
-                  id="policy_description"
-                  placeholder="اكتب وصف السياسة هنا"
-                  value={newPolicy.description}
-                  onChange={(event) =>
-                    setNewPolicy({
-                      ...newPolicy,
-                      description: event.target.value,
-                    })
-                  }
-                ></textarea>
-  </div>
-  <button
-  className="ne-save-btn"
-  type="submit"
->
-  حفظ
-</button>
-</form>
+              </div>
+              <div className="ne-input-group-icon">
+                <h2 className="ne-policy-label">ايقونة السياسة</h2>
+                <div className="ne-icon-container">
+                  <label htmlFor="file-input" className="button ne-choose_file">
+                    <span>اختار ملف</span>
+                    <input
+                      type="file"
+                      id="file-input"
+                      style={{ display: "none" }}
+                      onChange={(event) => {
+                        const files = event.target.files;
 
-</div>
+                        if (files) {
+                          setNewPolicy({
+                            ...newPolicy,
+
+                            icon: files[0].name,
+                          });
+                        }
+                      }}
+                    />
+                  </label>
+                  <div className="input-container">
+                    <input
+                      type="text"
+                      placeholder="اسم الملف"
+                      id="file-input"
+                      // value={newPolicy.icon}
+                    />
+
+                    <div className=" ne-img-icon">
+                      <img src={newPolicy.icon} alt="delete Button" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="ne-input-group">
+              <label htmlFor="policy_title" className="ne-policy-label">
+                عنوان السياسة
+              </label>
+              <input
+                type="text"
+                id="policy_title"
+                value={newPolicy.title}
+                onChange={(event) =>
+                  setNewPolicy({
+                    ...newPolicy,
+                    title: event.target.value,
+                  })
+                }
+              />
+            </div>
+            <div className="ne-input-group ne-policy_description">
+              <label htmlFor="policy_description" className="ne-policy-label">
+                وصف السياسة
+              </label>
+              <textarea
+                name=""
+                id="policy_description"
+                placeholder="اكتب وصف السياسة هنا"
+                value={newPolicy.description}
+                onChange={(event) =>
+                  setNewPolicy({
+                    ...newPolicy,
+                    description: event.target.value,
+                  })
+                }
+              ></textarea>
+            </div>
+            <button className="ne-save-btn" type="submit">
+              حفظ
+            </button>
+          </form>
+        </div>
       )}
     </div>
   );

@@ -4,7 +4,6 @@
   align-items: end;
   justify-content: center;
   gap: 24px;
-  /* margin-right: 34px; */
 }
 .ne-add-policy h1 {
   padding-left: 71px;
@@ -21,6 +20,8 @@
   padding-right: 42px;
   padding-left: 30.63px;
   padding-bottom: 24px;
+
+  margin: 0 auto;
 }
 .ne-input-group,
 .ne-input-group-icon {
@@ -59,13 +60,13 @@
 .ne-policy form {
   display: flex;
   flex-direction: column;
-  /* margin-left: 31px; */
+
   width: 100%;
 }
 .ne-form-group {
   gap: 79px;
   margin-bottom: 27px;
-  /* border:1px solid red; */
+
   display: flex;
   align-items: center;
 }
@@ -106,7 +107,6 @@
 }
 
 .ne-choose_file {
-  /* text-align: center; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -136,8 +136,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  /* margin-top: 20px; */
 }
 
 .ne-icon-container #file-button {
@@ -155,11 +153,7 @@
 
   border: 1px solid #ccc;
 
-  /* border-radius: 5px; */
-
-  /* padding: 5px; */
-
-  width: 525px;
+  width: 596px;
   height: 44px;
 }
 
@@ -181,19 +175,19 @@ input[type="file"] {
 }
 
 .ne-img-icon img {
-  width: 80%;
+  width: 44%;
 }
 .ne-policy-label {
   font-size: 0.88rem;
   font-family: var(--almarai-family);
   line-height: 14px;
   color: rgba(94, 88, 115, 1);
-  font-weight:var(--bold-weight);
+  font-weight: var(--bold-weight);
 }
 
 @media (max-width: 1700px) {
   .ne-img-icon {
-    width: 30%;
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -202,11 +196,11 @@ input[type="file"] {
     width: 1200px;
   }
   .ne-form-group input {
-    width: 554px;
+    width: 454px;
     height: 44px;
   }
   .input-container {
-    width: 289px;
+    width: 489px;
     height: 44px;
   }
 }
@@ -220,7 +214,7 @@ input[type="file"] {
     height: 44px;
   }
   .input-container {
-    width: 289px;
+    width: 359px;
     height: 44px;
   }
 }
@@ -235,10 +229,11 @@ input[type="file"] {
     height: 44px;
   }
   .input-container {
-    width: 289px;
+    width: 312px;
     height: 44px;
   }
 }
+
 @media (max-width: 1000px) {
   .ne-policy {
     width: 663px;
@@ -259,7 +254,6 @@ input[type="file"] {
     height: 44px;
   }
   .ne-form-group {
-    
     display: flex;
     flex-direction: column;
     align-items: start;
