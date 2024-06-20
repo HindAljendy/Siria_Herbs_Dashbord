@@ -41,3 +41,15 @@ export interface ContactMessagesProps {
     buttons?:Tbutton[];
     
 }
+export interface NavigationLinksProps {
+    navigateMain: string;
+    navigateLink: string;
+    navigateSubmain: string;
+}
+
+export interface BigNavigationLinksProps {
+    navigateMain: string;
+    navigateLinkMain: string;
+    navigateLinkSubmain: string;
+    navigateSubmain: string;
+}

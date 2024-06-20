@@ -24,6 +24,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({name}) => {
 
   const triggerFileInput = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    
     // Ensure the element exists before calling click
     const fileInputElement = document.getElementById('fileInput') as HTMLInputElement | null;
     if (fileInputElement) {
@@ -33,7 +34,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({name}) => {
 
   return (
     <div className="container input">
-      <label htmlFor="name"> {name}</label>
+      <label htmlFor="name" className="HJ_FontColor_gray"> {name}</label>
       <div className="file-upload-wrapper">
         <button className="choose-file-btn" onClick={triggerFileInput}>
           <span>اختر ملف</span>
