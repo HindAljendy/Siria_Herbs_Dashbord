@@ -16,6 +16,8 @@ import Certificates from '../componnents/Certificates/Certificates'
 import PrivacyPolicy from '../componnents/PrivacyPolicy/PrivacyPolicy'
 import SystemSettings from '../componnents/SystemSettings/SystemSettings'
 import PagesSettings from '../componnents/PagesSettings/PagesSettings'
+import ContactMessages from '../pages/Contact Messages/ContactMessages'
+import ProductAdd from '../componnents/ProductAdd/ProductAdd'
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
                 element: <Products />
             },
             {
+                path: "/products/addProduct",
+                element: <ProductAdd/>
+            },
+            {
                 path: "/categories",
                 element: <Category />,
                 children: [
@@ -48,6 +54,12 @@ export const router = createBrowserRouter([
                 path: "/contacts",
                 element: <Contacts />
             },
+
+            {
+                path: "/contactMessages",
+                element: <ContactMessages />
+            },
+
             {
                 path: "/settings",
                 element:<Settings/>,

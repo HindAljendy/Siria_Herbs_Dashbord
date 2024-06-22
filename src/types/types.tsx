@@ -44,3 +44,39 @@ export type TStoryForm = {
     setUpdate: () => void;
     handelHidenForm: () => void;
 }
+
+export type Tbutton =
+
+{
+    btn_path:string,
+    btn_alt:string,
+    handlefunc:(rowId?:any)=>any
+}
+
+export type TTableData = {
+    id?:number;
+    full_name?:string;
+    email?:string;
+    message?:string;
+}
+
+export interface ContactMessagesProps {
+    title?: string;
+    buttonLabel?: string;
+    columns: string[];
+    data: Array<TTableData>;
+    buttons?:Tbutton[];
+    
+}
+export interface NavigationLinksProps {
+    navigateMain: string;
+    navigateLink: string;
+    navigateSubmain: string;
+}
+
+export interface BigNavigationLinksProps {
+    navigateMain: string;
+    navigateLinkMain: string;
+    navigateLinkSubmain: string;
+    navigateSubmain: string;
+}

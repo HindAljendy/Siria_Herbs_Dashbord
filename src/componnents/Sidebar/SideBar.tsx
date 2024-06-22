@@ -118,6 +118,16 @@ const Sidebar: React.FC = () => {
           <img className="IB_img_sidebar" src={icon_contacts} alt="icon_contacts" />
           <span>جهات الاتصال</span>
         </NavLink>
+
+        <NavLink
+          to="/contactMessages"
+          className={`menu-item IB_lineHeight22 ${activePath === '/contactMessages' ? 'active' : ''}`}
+        >
+          <img className="IB_img_sidebar" src={icon_contacts} alt="icon_messages" />
+          <span>رسائل جهات الاتصال </span>
+
+        </NavLink>
+
         <NavLink
           to="/settings"
           className={`menu-item IB_lineHeight22 ${activePath === '/settings' ? 'active' : ''}`}

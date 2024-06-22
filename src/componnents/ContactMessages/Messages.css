@@ -1,0 +1,44 @@
+
+
+
+.ra_contact_msg_thead{
+    background-color: var(--blue-color);
+    font-family: var(--almarai-family);
+    font-size: 20px;
+    font-weight: var(--bold-weight);
+    line-height: 20px;
+    letter-spacing: -0.03em;
+    color: var(--absolute-white);
+  }
+  
+  
+  .ra_contact_msg_th{
+      background-color: var(--blue-color);
+    font-family: var(--almarai-family);
+    font-size: 20px;
+    font-weight: var(--bold-weight);
+    line-height: 20px;
+    letter-spacing: -0.03em;
+    color: var(--absolute-white);
+    padding:20px
+  }
+  
+
+
+  .ra_contact_msg_body{
+    text-align: center;
+    font-family: var(--almarai-family);
+    font-size: 1.25rem /* 20px */;
+    font-weight: var(--normal-weight);
+    line-height: 40px;
+    letter-spacing: -0.02em;
+    color: var(--black);
+  
+  }  
+
+
+  .ra_contact_msg_body td{
+    padding-block: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
