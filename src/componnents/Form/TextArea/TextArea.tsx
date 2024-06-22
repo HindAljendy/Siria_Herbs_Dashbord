@@ -3,13 +3,10 @@ import React from 'react';
 import './TextArea.css'
 interface TextArea {
   name: string;
-  onChange: (value: string) => void;
 }
 
-const TextArea: React.FC<TextArea> = ({ name, onChange }) => {
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onChange(e.target.value);
-  };
+const TextArea: React.FC<TextArea> = ({ name }) => {
+
   return (
     <div className='input'>
       <label htmlFor="description"  className="HJ_FontColor_gray"> {name}</label>
