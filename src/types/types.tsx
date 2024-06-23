@@ -50,7 +50,7 @@ export type Tbutton =
 {
     btn_path:string,
     btn_alt:string,
-    handlefunc:(rowId?:any)=>any
+    handlefunc:(rowId?:any)=>void
 }
 
 export type TTableData = {
@@ -64,7 +64,7 @@ export interface ContactMessagesProps {
     title?: string;
     buttonLabel?: string;
     columns: string[];
-    data: Array<TTableData>;
+    data: TTableData[];
     buttons?:Tbutton[];
     
 }

@@ -13,7 +13,7 @@ const ContactMessages = () => {
 
   const [messages,setMessages] = useState<TTableData[]>([]);
   const [showedMessage,setShowedMessage] = useState (false);
- const [messageToshow,setMessageToShow]=useState<any>('');
+ const [messageToshow,setMessageToShow]=useState<string | undefined>('');
 
 
     const title='الرسائل'
@@ -50,7 +50,7 @@ const ContactMessages = () => {
 
   useEffect(()=>{
     getContactMessages().then((data)=>{
-     setMessages(data.data)
+     setMessages(data.data.data)
     })
  },[])
   return (
