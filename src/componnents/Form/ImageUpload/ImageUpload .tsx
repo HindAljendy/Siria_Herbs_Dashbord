@@ -4,13 +4,13 @@ import { FaRegTrashCan } from "react-icons/fa6";
 
 // Define the props interface if needed for future enhancements
 interface ImageUploadProps {
-  name:string;
+  name: string;
 }
 
-const ImageUpload: React.FC<ImageUploadProps> = ({name}) => {
+const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
 
 
-  // Use string for fileName state since it will hold strings
+ // Use string for fileName state since it will hold strings
   const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {

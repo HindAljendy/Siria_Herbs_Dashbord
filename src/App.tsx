@@ -4,11 +4,11 @@ import { Outlet} from 'react-router-dom';
 import Sidebar from './componnents/Sidebar/SideBar';
 import './App.css'
 import Navbar from './componnents/Navbar/Navbar';
-import SettingsAbout from './componnents/SettingAbout/SettingsAbout';
-import Form from './componnents/Form/Form';
-import InputGroup from './componnents/Form/InputGroup/InputGroup';
-import TextArea from './componnents/Form/TextArea/TextArea';
-import ImageUpload from './componnents/Form/ImageUpload/ImageUpload ';
+// import SettingsAbout from './componnents/SettingAbout/SettingsAbout';
+// import Form from './componnents/Form/Form';
+// import InputGroup from './componnents/Form/InputGroup/InputGroup';
+// import TextArea from './componnents/Form/TextArea/TextArea';
+// import ImageUpload from './componnents/Form/ImageUpload/ImageUpload ';
 
 
 /* import Form from './componnents/Form/Form'

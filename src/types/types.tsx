@@ -14,8 +14,35 @@ export interface TableProps {
     title: string;
     buttonLabel: string;
     columns: string[];
-    data: { [key: string]: any }[]; 
+    data: { [key: string]: any }[];
     /* data: { name: string, image: string, quantity: number, published: boolean }[]*/
+}
+
+export type TEvaluation = {
+    id: number | string;
+    title: string;
+    description: string;
+    icon: File | null;
+}
+
+export type TEvaluationForm = {
+    mode: 'create' | 'edit';
+    evaluation: TEvaluation;
+    setUpdate: () => void;
+    handelHidenForm: () => void;
+}
+
+export type TStory = {
+    id: number | string;
+    description: string;
+    file: File | null;
+}
+
+export type TStoryForm = {
+    mode: 'create' | 'edit';
+    story: TStory;
+    setUpdate: () => void;
+    handelHidenForm: () => void;
 }
 
 export type Tbutton =
@@ -39,7 +66,7 @@ export interface ContactMessagesProps {
     columns: string[];
     data: Array<TTableData>;
     buttons?:Tbutton[];
-    
+ 
 }
 export interface NavigationLinksProps {
     navigateMain: string;
