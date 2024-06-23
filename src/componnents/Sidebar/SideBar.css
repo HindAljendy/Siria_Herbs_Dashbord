@@ -120,6 +120,7 @@ transform:  rotate(-90deg);
   cursor: pointer;
   padding-right: 30.95px;
   display: flex;
+  padding-bottom: 12px;
 
 }
 
