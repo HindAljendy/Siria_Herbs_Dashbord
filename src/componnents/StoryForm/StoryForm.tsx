@@ -71,7 +71,7 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
       if (mode === 'create') {
         const response = await axios.post('http://127.0.0.1:8000/api/story-create', formData, {
           headers: {
-            // 'Authorization': 'Bearer <token>',
+            'Authorization': 'Bearer <token>',
             'Content-Type': 'multipart/form-data'
           }
         });
