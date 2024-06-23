@@ -66,7 +66,7 @@ export interface ContactMessagesProps {
     columns: string[];
     data: TTableData[];
     buttons?:Tbutton[];
-    
+ 
 }
 export interface NavigationLinksProps {
     navigateMain: string;
