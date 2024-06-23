@@ -1,24 +1,19 @@
 
 import React from 'react';
+import './TextArea.css'
 interface TextArea {
   name: string;
   description: string;
   onChange: (value: string) => void;
 }
 
-const TextArea: React.FC<TextArea> = ({ name, description, onChange }) => {
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onChange(e.target.value);
-  };
+const TextArea: React.FC<TextArea> = ({ name }) => {
+
   return (
     <div className='input'>
-      <label htmlFor="description"> {name}</label>
-      <textarea
-        name="description"
-        id="description"
-        value={description}
-        onChange={handleChange}
-      />
+      <label htmlFor="description"  className="HJ_FontColor_gray"> {name}</label>
+      <textarea name="description" id="description" className='MA_TextArea'></textarea>
+    {/*  <div className='MA_Note'>سيظهر هذا النص فوق الصورة</div>*/}
     </div>
   )
 }

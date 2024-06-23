@@ -37,7 +37,7 @@ const EvaluationForm: React.FC<TEvaluationForm> = ({ mode, evaluation, setUpdate
   const triggerFileInput = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     // Ensure the element exists before calling click
-    const fileInputElement = document.getElementById(`fileInput ${evaluation.id}${evaluation.id}`) as HTMLInputElement | null;
+    const fileInputElement = document.getElementById(`evaluationFileInput ${evaluation.id}`) as HTMLInputElement | null;
     if (fileInputElement) {
       fileInputElement.click();
     }
@@ -114,6 +114,7 @@ const EvaluationForm: React.FC<TEvaluationForm> = ({ mode, evaluation, setUpdate
         </button>
       </div>
       <form className='form YS-form' onSubmit={handleSubmit} >
+        <label htmlFor="name">الأيقونة </label>
         <div className="file-upload-wrapper">
           <button className="choose-file-btn" onClick={triggerFileInput}>
             <span>اختر ملف</span>
@@ -121,7 +122,7 @@ const EvaluationForm: React.FC<TEvaluationForm> = ({ mode, evaluation, setUpdate
           <div className="file-name">{fileName}</div>
           <input
             type="file"
-            id={`fileInput ${evaluation.id}${evaluation.id}`}
+            id={`evaluationFileInput ${evaluation.id}`}
             onChange={handleFileChange}
             style={{ display: "none" }}
           />

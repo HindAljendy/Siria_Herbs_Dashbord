@@ -29,7 +29,7 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
   const triggerFileInput = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     // Ensure the element exists before calling click
-    const fileInputElement = document.getElementById(`fileInput ${story.id}`) as HTMLInputElement | null;
+    const fileInputElement = document.getElementById(`StoryFileInput ${story.id}`) as HTMLInputElement | null;
     if (fileInputElement) {
       fileInputElement.click();
     }
@@ -113,7 +113,7 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
             <div className="file-name">{fileName}</div>
             <input
               type="file"
-              id={`fileInput ${story.id}`}
+              id={`StoryFileInput ${story.id}`}
               onChange={handleFileChange}
               style={{ display: "none" }}
             />

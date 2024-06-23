@@ -43,6 +43,7 @@ export type TStoryForm = {
     story: TStory;
     setUpdate: () => void;
     handelHidenForm: () => void;
+}
 
 export type Tbutton =
 
@@ -66,4 +67,16 @@ export interface ContactMessagesProps {
     data: Array<TTableData>;
     buttons?:Tbutton[];
  
+}
+export interface NavigationLinksProps {
+    navigateMain: string;
+    navigateLink: string;
+    navigateSubmain: string;
+}
+
+export interface BigNavigationLinksProps {
+    navigateMain: string;
+    navigateLinkMain: string;
+    navigateLinkSubmain: string;
+    navigateSubmain: string;
 }
