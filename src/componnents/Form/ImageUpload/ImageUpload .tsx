@@ -4,14 +4,24 @@ import { FaRegTrashCan } from "react-icons/fa6";
 
 interface ImageUploadProps {
   name: string;
-  label?: string;
-  className?: string;
-  onImageUpload: (name: string, file: File) => void;
-  value?: File | null;
+// <<<<<<< nawar_setting
+//   label?: string;
+//   className?: string;
+//   onImageUpload: (name: string, file: File) => void;
+//   value?: File | null;
+// }
+
+// const ImageUpload: React.FC<ImageUploadProps> = ({ name, label, className, onImageUpload, value }) => {
+//   const [fileName, setFileName] = useState<string>(' اختر ملف');
+// =======
 }
 
-const ImageUpload: React.FC<ImageUploadProps> = ({ name, label, className, onImageUpload, value }) => {
-  const [fileName, setFileName] = useState<string>(' اختر ملف');
+const ImageUpload: React.FC<ImageUploadProps> = ({ name }) => {
+
+
+ // Use string for fileName state since it will hold strings
+  const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
+// >>>>>>> main
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
