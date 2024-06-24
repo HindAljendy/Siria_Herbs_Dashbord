@@ -1,0 +1,101 @@
+.table-container {
+    background: var(--absolute-white);
+    width: 90.83% !important;
+    margin-right: 36px;
+    border-radius: 4px;
+    font-family: var(--almarai-family);
+
+  }
+  
+  
+  .table-container .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15.55px 31.28px 36.23px 30.72px;
+    
+  }
+  
+  
+  
+  .table-container .table-header  .NA_button_Name {
+    font-family: var(--almarai-family);
+    font-size:1.125rem /* 18px */;
+    font-weight: var(--bold-weight);
+    line-height: 18px;
+    letter-spacing: -0.03em;
+    color: var(--absolute-white);
+  
+  }
+  
+  
+  .table-container  .table-header h2 {
+    font-family: var(--almarai-family);
+    font-size: 2.25rem /* 36px */;
+    font-weight: var(--bold-weight);
+    line-height: 36px;
+    letter-spacing: -0.03em;
+    text-align: left;
+    color: var(--gray-color);
+  }
+  
+  .table-header button {
+    border-radius: 5px;
+    background: var(--blue-color);
+    border: none;
+    cursor: pointer;
+    padding: 0.8% 1.6%  0.8%   1.7%;
+  }
+  
+  .NA_table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .NA_table th,
+  .NA_table td {
+    padding-block: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  
+  .NA_table .Na_column_name {
+    background-color: var(--blue-color);
+    font-family: var(--almarai-family);
+    font-size: 1.25rem;
+    font-weight: var(--bold-weight);
+    line-height: 20px;
+    letter-spacing: -0.03em;
+    color: var(--absolute-white);
+  }
+  
+  .NA_table {
+    font-family: var(--almarai-family);
+    font-size: 1.12rem /* 18px */;
+    font-weight: 400;
+    font-weight: var(--normal-weight);
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    color: var(--black);/
+  }
+  
+  
+  .NA_table .NA_product-image {
+    width:3.5rem;
+    height: 2rem;
+  
+  }
+  .NA_table .delete-edite {
+    width: 2.25rem;
+    height: 2.25rem;
+  
+  }
+  
+  
+  .NA_display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
