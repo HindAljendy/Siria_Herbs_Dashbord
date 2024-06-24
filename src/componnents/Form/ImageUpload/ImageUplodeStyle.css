@@ -26,6 +26,10 @@
   border-right: 1px solid;
   height: 48px;
   border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
 .file-upload-wrapper .choose-file-btn span {
@@ -88,3 +92,10 @@
   margin-right: 0;
   max-width: 100%;
 }
+
+
+
+
+
+
+

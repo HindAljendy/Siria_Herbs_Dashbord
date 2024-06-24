@@ -7,6 +7,21 @@
     color: rgba(99, 99, 99, 0.5);
     text-align: start;
 }
+.MA_TextArea{
+    width: 1479px;
+    height: 215px;
+    top: 675px;
+    left: 1553px;
+    gap: 0px;
+    border-radius: 3px 0px 0px 0px;
+    border: 0.5px 0px 0px 0px;
+    opacity: 0px;
+    -webkit-border-radius: 3px 0px 0px 0px;
+    -moz-border-radius: 3px 0px 0px 0px;
+    -ms-border-radius: 3px 0px 0px 0px;
+    -o-border-radius: 3px 0px 0px 0px;
+
+}
 /* .MA_TextArea{
     font-family: var(--roboto-family);
     font-size: 14px;
