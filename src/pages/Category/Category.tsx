@@ -8,7 +8,6 @@ import CategoryTable from '../../componnents/Category/CategoryTable/CategoryTabl
 const Category = () => {
   return (
     <>
-
     <NavigationLinks
           navigateMain='أضف فئة'
           navigateLink='الواجهة الرئيسية' navigateSubmain='الفئات' 
@@ -17,7 +16,6 @@ const Category = () => {
       <Outlet/>
       <CategoryTable title={'الفئات'} buttonLabel={'اضف فئة'} columns={['الاسم', 'العلامات التجارية', 'عدد المنتجات', 'تم النشر', 'الإجراءات']} data={[]}/>
     </>
- 
   )
 }
 
