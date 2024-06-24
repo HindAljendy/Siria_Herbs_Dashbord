@@ -1,3 +1,11 @@
+:root {
+    direction: rtl;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    -webkit-text-orientation: mixed;
+    -webkit-writing-mode: horizontal-tb;
+    -ms-writing-mode: horizontal-tb;
+}
 body{
     background-color: var( --bg-container);
 }
@@ -11,6 +19,7 @@ body{
     right: 15.40% /* 295.72px */;
     width: 76%;
 }
+
 
 @media screen and (max-width: 1919px) {
     .HJ_outlet{
