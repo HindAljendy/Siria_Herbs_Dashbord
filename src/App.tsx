@@ -11,6 +11,7 @@ import TextArea from './componnents/Form/TextArea/TextArea';
 import ImageUpload from './componnents/Form/ImageUpload/ImageUpload ';
 
 
+
 /* import Form from './componnents/Form/Form'
 import AddProduct from './componnents/Form/AddProduct.tsx/AddProduct' 
 import ProductBox from './componnents/ProductBox/ProductBox'
@@ -42,7 +43,7 @@ const App: React.FC = () => {
         <div className='HJ_outlet'>
           <Outlet />
         </div>
-      </div> 
+      </div>  
      
 
 

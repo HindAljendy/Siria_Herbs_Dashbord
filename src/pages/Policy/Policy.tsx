@@ -6,7 +6,7 @@ import axios from "axios";
 interface Policy {
   id?: number;
 
-  policy_number: string;
+  policy_number: number;
 
   title: string;
 
@@ -19,11 +19,12 @@ const Policy = () => {
   const [policies, setPolicies] = useState<Policy[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [newPolicy, setNewPolicy] = useState<Policy>({
-    policy_number: "",
+    policy_number: 0,
     title: "",
     description: "",
     icon: "",
   });
+  const [showadd,SetShowAdd] = useState(true);
 
   useEffect(() => {
     axios
@@ -54,6 +55,7 @@ const Policy = () => {
 
   const handleAddPolicy = () => {
     setShowModal(true);
+    SetShowAdd(false);
     setNewPolicy({
       policy_number: "",
       title: "",
@@ -283,11 +285,13 @@ const Policy = () => {
           </button>
         </div>
       ))}
-      <div className="ne-add-policy" onClick={handleAddPolicy}>
+      {showadd && (
+        <div className="ne-add-policy" onClick={handleAddPolicy}>
         <h1>
           <span>+</span>اضافة سياسة جديدة
         </h1>
       </div>
+      )}
       {showModal && (
         <div className="ne-policy">
           <div className="ne-delet-btn" onClick={handleModalClose}>
