@@ -3,8 +3,6 @@ import React from 'react';
 import './TextArea.css'
 interface TextArea {
   name: string;
-  description: string;
-  onChange: (value: string) => void;
 }
 
 const TextArea: React.FC<TextArea> = ({ name }) => {

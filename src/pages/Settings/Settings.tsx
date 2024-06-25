@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
 import axios from 'axios';
 import SaveButton from '../../componnents/Form/Buttons/SaveButton';
 import NavigationLinks from '../../componnents/NavigationLinks/NavigationLinks';
-import './Setting.css';
-import SettingImageUpload from '../../componnents/SettingImageUpload/SettingImageUpload';
+import { Outlet } from 'react-router-dom';
+import { FaRegTrashCan } from 'react-icons/fa6';
+import './Settings.css'
 
 interface Settings {
   title: string;
@@ -14,11 +14,9 @@ interface Settings {
   tags: string;
   website_icon: File | null;
   website_logo: File | null;
-  system_language: string;
 }
 
 const Settings = () => {
-  const { id } = useParams();
   const [settings, setSettings] = useState<Settings>({
     title: '',
     description: '',
@@ -27,50 +25,49 @@ const Settings = () => {
     tags: '',
     website_icon: null,
     website_logo: null,
-    system_language: 'AR'
   });
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/api/setting/${id}`)
+    axios.get(`http://127.0.0.1:8000/api/setting/1`)
       .then(response => {
         const data = response.data.data;
         setSettings({
-          title: data.title || '',
-          description: data.description || '',
-          meta_pixel_id: data.meta_pixel_id || '',
-          google_analystic_id: data.google_analystic_id || '',
-          tags: data.tags || '',
-          website_icon: data.website_icon || null,
-          website_logo: data.website_logo || null,
-          system_language: 'AR'
+          title: data.title,
+          description: data.description,
+          meta_pixel_id: data.meta_pixel_id,
+          google_analystic_id: data.google_analystic_id,
+          tags: data.tags,
+          website_icon: data.website_icon,
+          website_logo: data.website_logo
         });
       })
       .catch(error => {
         console.error('There was an error fetching the settings!', error);
       });
-  }, [id]);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setSettings({ ...settings, [name]: value });
   };
 
-  const handleImageUpload = (name: string, file: File) => {
-    setSettings({ ...settings, [name]: file });
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData();
-    for (const key in settings) {
-      const value = settings[key as keyof Settings];
-      if (value instanceof File) {
-        formData.append(key, value);
-      } else {
-        formData.append(key, value as string);
-      }
+    formData.append('title', settings.title);
+    formData.append('description', settings.description);
+    formData.append('meta_pixel_id', settings.meta_pixel_id);
+    formData.append('google_analystic_id', settings.google_analystic_id);
+    formData.append('tags', settings.tags);
+    if (settings.website_icon instanceof File) {
+      formData.append('website_icon', settings.website_icon);
     }
-    axios.put(`http://127.0.0.1:8000/api/setting/${id}/update`, formData, {
+    if (settings.website_logo instanceof File) {
+      formData.append('website_logo', settings.website_logo);
+    }
+    formData.append('_method', 'PUT');
+
+    axios.post(`http://127.0.0.1:8000/api/setting/1/update`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
@@ -82,6 +79,46 @@ const Settings = () => {
         console.error('There was an error updating the settings!', error);
       });
   };
+
+  const [websiteIconName, setWebsiteIconName] = useState<string>(' اختر ملف');
+  const handleWebsiteIconChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setWebsiteIconName(file.name);
+      setSettings({ ...settings, website_icon: file });
+      console.log(settings);
+    } else {
+      setWebsiteIconName('لم يتم اختيار صورة');
+    }
+  };
+
+  const triggerWebsiteIconInput = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const fileInputElement = document.getElementById('website_icon') as HTMLInputElement | null;
+    if (fileInputElement) {
+      fileInputElement.click();
+    }
+  };
+
+  const [websiteLogoName, setWebsiteLogoName] = useState<string>(' اختر ملف');
+  const handleWebsiteLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setWebsiteLogoName(file.name);
+      setSettings({ ...settings, website_logo: file });
+      console.log(settings);
+    } else {
+      setWebsiteLogoName('لم يتم اختيار صورة');
+    }
+  };
+
+  const triggerWebsiteLogoInput = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const fileInputElement = document.getElementById('website_logo') as HTMLInputElement | null;
+    if (fileInputElement) {
+      fileInputElement.click();
+    }
+  };
   return (
     <>
       <Outlet />
@@ -92,26 +129,46 @@ const Settings = () => {
         />
       </div>
 
-      <form className="na-form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
 
-
-        <div className="input na-icon">
-          <SettingImageUpload
-            name="website_icon"
-            label="أيقونة الموقع الخاص بالمتصفح"
-            onImageUpload={handleImageUpload}
-          />
+        <div className='container input'>
+          <label htmlFor='website_icon'>أيقونة الموقع الخاص بالمتصفح</label>
+          <div className="file-upload-wrapper">
+            <button className="choose-file-btn" onClick={triggerWebsiteIconInput}>
+              <span>اختر الملف</span>
+            </button>
+            <div className="file-name">{websiteIconName}</div>
+            <input
+              type="file"
+              id='website_icon'
+              onChange={handleWebsiteIconChange}
+              style={{ display: "none" }}
+            />
+            <span className="icon">
+              <FaRegTrashCan />
+            </span>
+          </div>
         </div>
 
-        <div className="input na-logo">
-          <SettingImageUpload
-            name="website_logo"
-            label="شعار الموقع"
-            onImageUpload={handleImageUpload}
-          />
+        <div className='container input'>
+          <label htmlFor='website_icon'>أيقونة الموقع الخاص بالمتصفح</label>
+          <div className="file-upload-wrapper">
+            <button className="choose-file-btn" onClick={triggerWebsiteLogoInput}>
+              <span>اختر الملف </span>
+            </button>
+            <div className="file-name">{websiteLogoName}</div>
+            <input
+              type="file"
+              id='website_logo'
+              onChange={handleWebsiteLogoChange}
+              style={{ display: "none" }}
+            />
+            <span className="icon">
+              <FaRegTrashCan />
+            </span>
+          </div>
         </div>
-
-        <div className="input na-title">
+        <div className="input">
           <label htmlFor="site-title">عنوان الموقع</label>
           <input
             type="text"
@@ -123,29 +180,12 @@ const Settings = () => {
           />
         </div>
 
-        <div className="input na-desc">
-          {/* <TextArea name="وصف الموقع" value={settings.description} onChange={handleChange} /> */}
-          <div className='input'>
-            <label htmlFor="description" className="HJ_FontColor_gray"> وصف الموقع</label>
-            <textarea name="description" id="description" className='MA_TextArea' value={settings.description} onChange={handleChange}></textarea>
-          </div>
+        <div className='input'>
+          <label htmlFor="description" className="HJ_FontColor_gray"> وصف الموقع</label>
+          <textarea name="description" id="description" className='MA_TextArea' value={settings.description} onChange={handleChange}></textarea>
         </div>
 
-        <div className="input na-language">
-          <label htmlFor="system-language">لغة النظام</label>
-          <div className="input-wrapper">
-            <input
-              type="text"
-              name="system_language"
-              id="system-language"
-              value={settings.system_language}
-              onChange={handleChange}
-            />
-            <span className="language-toggle">▼</span>
-          </div>
-        </div>
-
-        <div className="input na-keywords">
+        <div className="input">
           <label htmlFor="keywords">كلمات مفتاحية</label>
           <input
             type="text"
@@ -158,7 +198,7 @@ const Settings = () => {
           <span> منتجات طبيعية#, avie, #malika#</span>
         </div>
 
-        <div className="input na-meta-pixel">
+        <div className="input">
           <label htmlFor="meta-pixel">معرف Meta Pixel</label>
           <input
             type="text"
@@ -169,7 +209,7 @@ const Settings = () => {
             placeholder="الصق المعرف هنا"
           />
         </div>
-        <div className="input na-google">
+        <div className="input">
           <label htmlFor="google-analytics">معرف Google Analytics</label>
           <input
             type="text"
@@ -180,10 +220,9 @@ const Settings = () => {
             placeholder="الصق المعرف هنا"
           />
         </div>
-
         <div className="na-button">
           <SaveButton className="na-save-button" />
-        </div>
+          </div>
       </form>
     </>
   );
