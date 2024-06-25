@@ -8,7 +8,11 @@
 .ne-add-policy h1 {
   padding-left: 71px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
+
 
 .ne-policy {
   display: flex;
