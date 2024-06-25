@@ -1,0 +1,115 @@
+
+.form{
+    width: 100%;
+    height: 54%;
+    gap: 37px;
+    border-radius: 4px 0px 0px 0px;
+    background: white;
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+    font-family: var(--almarai-family);
+}
+.form .input{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 95% !important;
+    border-radius: 3px;
+
+}
+
+.form .accordion .checkbox{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #000000;
+    
+}
+
+.form .input label{
+font-size: 14px;
+font-weight: 400;
+line-height: 14px;
+color: var(--blue-color);
+
+}
+
+.form .input input[type="text"]  , .form .input select{
+    border: 0.5px solid #525866;
+height: 48px;
+border-radius: 3px 0px 0px 0px;
+opacity: 0px;
+padding: 10px;
+
+}
+.form .form-header{
+font-size: 24px;
+font-weight: 400;
+line-height: 26.78px;
+color: var(--gray-color);
+
+}
+.form .accordion{
+    width: 95% !important;
+    position: relative;
+    margin-bottom: 60px;
+}
+.form .accordion .NA_button_Name{
+width: 134px;
+height: 48px;
+border-radius: 5px;
+opacity: 0px;
+background: var(--blue-color);
+font-size: 20px;
+font-weight: 700;
+line-height: 20px;
+color: white;
+position: absolute;
+left: 20px;
+bottom: 5px;
+}
+.form  .accordion-button:not(.collapsed) {
+    color: var(--bs-accordion-active-color);
+    background-color: var( --white-color) !important;
+}
+.form  .accordion-button {
+    gap: 90%;
+}
+.form .submit_button{
+    width: 134px;
+height: 48px;
+border-radius: 5px;
+opacity: 0px;
+background: var(--blue-color);
+font-size: 20px;
+font-weight: 700;
+line-height: 20px;
+color: white;
+position: absolute;
+left: 9%;
+bottom: 5px;
+
+}
+.form .submit_button {
+    border-radius: 5px;
+    background: var(--blue-color);
+    border: none;
+    cursor: pointer;
+    padding: 16px 32px  16px  33px;
+}
+
+.form .submit_button {
+font-family: var(--almarai-family);
+font-size:1.125rem /* 18px */;
+font-weight: var(--bold-weight);
+line-height: 18px;
+letter-spacing: -0.03em;
+color: var(--absolute-white);
+
+}
