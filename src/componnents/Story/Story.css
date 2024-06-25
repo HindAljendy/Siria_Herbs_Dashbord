@@ -1,0 +1,32 @@
+.YS_margin{
+    margin-bottom: 35.13px;
+}
+.YS_line{
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-bottom: 15.69px;
+
+}
+.YS_line_End{
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-bottom: 31px;
+    margin-top: 8px;
+}
+
+.story-section {
+    background-color: #FFFFFF;
+    padding: 0 34px;
+}
+
+.story-section .YS-form-header {
+    color: #000000;
+    font-family: Almarai;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 26px;
+    padding-top: 89px;
+    margin-bottom: 36px;
+}

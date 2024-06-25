@@ -1,0 +1,79 @@
+.HJ_ProductsOperationsSection {
+    width: 100%;
+    background-color: var(--absolute-white);
+    border-radius: 10px;
+    margin-bottom: 36px;
+    padding-left: 315px;
+    
+}
+.HJ_ProductsOperationsSection .HJ_content_Operations{
+    flex-wrap: wrap;
+}
+.HJ_ProductsOperationsSection .HJ_content_Operations form .HJ_inputSearch {
+    width: 429px; 
+    height: 48px;
+    border-radius: 3px;
+    border: 0.5px solid var(--dark-blue-gray);
+    outline: none;
+    padding-right: 12px;
+    margin: 26.5px 27px 26.5px 16.13px;
+    color: var(--dark-blue-gray);
+}
+
+.HJ_ProductsOperationsSection .HJ_content_Operations form .HJ_inputSearch::placeholder {
+    font-family: var(--almarai-family);
+    font-size: 0.875rem/* 14px */;
+    font-weight: var(--normal-weight);
+    line-height: 14px;
+    letter-spacing: -3%;
+    color: var(--soft-gray);
+}
+
+
+.HJ_styleBtn{
+    height: 48px;
+    border-radius: 5px;
+    background-color: var(--blue-color);
+    outline: none;
+    border: none;
+    color: var(--absolute-white);
+    margin-block:  27px 26px;
+    font-family: var(--almarai-family);
+    font-size: 0.875rem/* 14px */;
+    font-weight: var(--bold-weight);
+    line-height: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.HJ_ProductsOperationsSection .HJ_content_Operations form  .HJ_btnSearch{
+    width: 73.87px;
+    margin-block:  27px 26px;
+
+}
+.HJ_ProductsOperationsSection .HJ_content_Operations form .HJ_btnSearch img{
+    margin-left: 7.34px;
+}
+
+.HJ_ProductsOperationsSection .HJ_content_Operations .HJ_buttonsGroup{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-right: 27px;
+}
+.HJ_ProductsOperationsSection .HJ_content_Operations .HJ_buttonsGroup a{
+    text-decoration: none;
+}
+.HJ_ProductsOperationsSection .HJ_content_Operations .HJ_buttonsGroup .HJ_btn_AddProduct{
+    width:155px; 
+    
+}
+.HJ_ProductsOperationsSection .HJ_content_Operations  .HJ_IMG_btn{
+    margin-left: 8px;
+}
+.HJ_ProductsOperationsSection .HJ_content_Operations .HJ_buttonsGroup .HJ_btn_filter{
+    width:182px ; 
+}
