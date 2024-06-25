@@ -1,22 +1,21 @@
+// TextArea.tsx
+import React, { ChangeEvent } from 'react';
 
 
 import './TextArea.css'
 
-import React, { ChangeEvent } from 'react';
-
 interface TextAreaProps {
     name: string;
-    value: string;
-    onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 }
+const TextArea: React.FC<TextAreaProps> = ({ name }) => {
 
-const TextArea: React.FC<TextAreaProps> = ({ name, value, onChange }) => {
-    return (
-        <div>
-            <label htmlFor={name}>{name}</label>
-            <textarea id={name} name={name} value={value} onChange={onChange} />
-        </div>
-    );
-};
+  return (
+    <div className='input'>
+      <label htmlFor="description"  className="HJ_FontColor_gray"> {name}</label>
+      <textarea name="description" id="description" className='MA_TextArea'></textarea>
+    {/*  <div className='MA_Note'>سيظهر هذا النص فوق الصورة</div>*/}
+    </div>
+  )
+}
 
 export default TextArea;
