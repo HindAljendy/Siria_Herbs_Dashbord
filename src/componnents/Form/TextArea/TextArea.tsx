@@ -1,3 +1,5 @@
+// TextArea.tsx
+import React, { ChangeEvent } from 'react';
 
 import React from 'react';
 import './TextArea.css'
