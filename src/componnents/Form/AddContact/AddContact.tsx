@@ -56,9 +56,9 @@ const AddContact: React.FC<AddContactProps> = ({ contactId = "1" }) => {
     return (
         <div className="AB-container">
             <form className='form' onSubmit={handleSubmit}>
-                <TextArea name="adresses" value={contact.adresses} onChange={handleChange} />
-                <TextArea name="phone_number" value={contact.phone_number} onChange={handleChange} />
-                <TextArea name="email" value={contact.email} onChange={handleChange} />
+                <TextArea name="عناوين جهات الاتصال " value={contact.email} onChange={handleChange} />
+                <TextArea name="رقم التصال" value={contact.phone_number} onChange={handleChange} />
+                <TextArea name="العنوان" value={ contact.adresses} onChange={handleChange} />
 
                 <div className="AB_input_facebook">
                     <label htmlFor="facebook_link">فيسبوك-facebook

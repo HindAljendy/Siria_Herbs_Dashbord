@@ -12,6 +12,7 @@
     display: flex;
     flex-wrap: wrap;
     gap:20px;
+    padding: 24px;
 } 
 
 
@@ -68,11 +69,16 @@ textarea {
 }
 
 .AB_SaveButton{
-    display: block;
-    width: 100%;
-    padding: 20px;
-    color:  var(--absolute-white);
-    font-family: var(--roboto-family);
+    display: flex;
+    justify-content: flex-end;
+    /* padding: 20px; */
     font-size: 20px;
-    
+   
 } 
+    
+
+.AB_SaveButton button{
+    
+    padding: 10px 20px;
+    margin-left: 0;
+}

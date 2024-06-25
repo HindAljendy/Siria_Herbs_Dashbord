@@ -1,13 +1,13 @@
 // TextArea.tsx
 import React, { ChangeEvent } from 'react';
 
-import React from 'react';
-import './TextArea.css'
-interface TextArea {
-  name: string;
-}
 
-const TextArea: React.FC<TextArea> = ({ name }) => {
+import './TextArea.css'
+
+interface TextAreaProps {
+    name: string;
+}
+const TextArea: React.FC<TextAreaProps> = ({ name }) => {
 
   return (
     <div className='input'>
@@ -17,4 +17,5 @@ const TextArea: React.FC<TextArea> = ({ name }) => {
     </div>
   )
 }
+
 export default TextArea;
