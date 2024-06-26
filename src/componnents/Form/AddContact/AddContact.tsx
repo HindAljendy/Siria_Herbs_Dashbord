@@ -43,7 +43,7 @@ const AddContact: React.FC<AddContactProps> = ({ contactId = "1" }) => {
            .catch((error) => {
                 console.log(error);
             });
-    },[]);
+    },[contactId]);
     
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;

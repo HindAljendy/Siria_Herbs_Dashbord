@@ -8,7 +8,7 @@ const SettingsAbout = () => {
   return (
     <>
       <div className='SettingsAbout'>
-        <PageHeaderForm />
+        <PageHeaderForm heroId={2}/>
         <AboutUsForm />
         <OurFutueresForm />
 

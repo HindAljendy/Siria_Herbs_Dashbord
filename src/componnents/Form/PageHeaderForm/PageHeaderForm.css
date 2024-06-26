@@ -1,8 +1,8 @@
 .MA_form_padding{
-    padding-top: 61px;
-    padding-bottom: 35px;
-    padding-right:23px;
-    padding-left:34px;
+    padding-top: 61px !important;
+    padding-bottom: 35px !important;
+    padding-right:34px !important;
+    padding-left:34px !important;
 }
 .MA_margin{
     margin-bottom: 48px;
@@ -10,7 +10,17 @@
 
 
 .MA_container_Button{
-    margin-top: 39px;
+    width: 95%;
+    margin-top: 25px;
     display: flex;
     justify-content: flex-end;
+}
+
+.MA-form-header {
+    color: #000000;
+    font-family: Almarai;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 26px;
+    padding-top: 48px;
 }

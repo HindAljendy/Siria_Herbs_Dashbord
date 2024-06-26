@@ -7,7 +7,7 @@ import PageHeaderForm from '../Form/PageHeaderForm/PageHeaderForm'
 const SettingHome = () => {
   return (
     <div className='YS-setting-home'>
-      <PageHeaderForm />
+      <PageHeaderForm heroId={1} />
       <Story />
       <Evaluation />
     </div>

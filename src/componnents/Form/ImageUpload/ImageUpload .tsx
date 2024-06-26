@@ -32,25 +32,24 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ name, onChange }) => {
 
   return (
     <div className=" input">
-    <div className="container input">
-      <label htmlFor="name" className="HJ_FontColor_gray"> {name}</label>
-      <div className="file-upload-wrapper">
-        <button className="choose-file-btn" onClick={triggerFileInput}>
-          <span>اختر ملف</span>
-        </button>
-        <div className="file-name">{fileName}</div>
-        <input
-          type="file"
-          id="fileInput"
-          onChange={handleFileChange} // Ensure handleFileChange is used here
-          style={{ display: "none" }}
-        />
-        <span className="icon">
-          <FaRegTrashCan />
-        </span>
+        <label htmlFor="name" className="HJ_FontColor_gray"> {name}</label>
+        <div className="file-upload-wrapper">
+          <button className="choose-file-btn" onClick={triggerFileInput}>
+            <span>اختر ملف</span>
+          </button>
+          <div className="file-name">{fileName}</div>
+          <input
+            type="file"
+            id="fileInput"
+            onChange={handleFileChange} // Ensure handleFileChange is used here
+            style={{ display: "none" }}
+          />
+          <span className="icon">
+            <FaRegTrashCan />
+          </span>
       </div>
     </div>
   );
-};
+}
 
 export default ImageUpload;
