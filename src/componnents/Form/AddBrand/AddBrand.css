@@ -1,0 +1,43 @@
+.IB_form {
+  width: 100%;
+  margin: auto;
+  padding: 20px;
+  background-color: var(--white-color);
+  border-radius: 8px;
+  font-size: 16px;
+}
+.IB_form-header {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+.IB_input {
+  position: relative;
+  margin-bottom: 2px;
+  font-family: var(--almarai-family);
+}
+.IB_input label {
+  font-size: 16px;
+  font-family: var(--almarai-family);
+}
+.IB_input input[type="text"],
+.IB_input input[type="file"],
+.IB_input textarea {
+  width: 100%;
+  font-family: var(--almarai-family);
+  border: 1px solid var(--dark-gray );
+  border-radius: 4px;
+  font-size: 16px;
+}
+.IB_button-container {
+  display: flex;
+}
+
+.IB_publish {
+  display: flex;
+  align-items: center; 
+  font-family: var(--almarai-family);
+}
+.IB_publish input{
+  margin-left: 10px;
+}
