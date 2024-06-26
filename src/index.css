@@ -26,7 +26,7 @@ body {
     --white-color: #FFFFFF;
     --red-color: #DC3545;
     --green-color: #29C92F;
-    --green-dark:#24B263;
+    --green-dark: #24B263;
     --pink-color: #B0426C;
     --cyan-color: #7367F0;
     --gray-color: #636363;
@@ -37,7 +37,7 @@ body {
     --black: #000000;
     --dark-brown: #504444;
     --dark-blue: #211639;
-    --dark-blue-gray :#525866;
+    --dark-blue-gray: #525866;
     --soft-gray: #B5B1B1;
 
 
@@ -93,21 +93,26 @@ body {
     flex-direction: column;
     gap: 21.87px;
 }
-.form_padding{
+
+.form_padding {
     padding: 24px;
 }
+
 .form .form-header {
     font-family: var(--almarai-family);
     font-size: 24px;
     font-weight: var(--normal-weight);
     line-height: 26.78px;
 }
-.HJ_FontColor_black{
+
+.HJ_FontColor_black {
     color: var(--black);
 }
+
 .HJ_FontColor_gray {
     color: var(--gray-color);
 }
+
 .HJ_FontColor_blue {
     color: var(--blue-color);
 }
@@ -135,12 +140,13 @@ body {
 
 }
 
-.form .input input[type="text"] {
+.form .input input[type="text"],
+.form .input input[type="url"] {
     border: 0.5px solid #ABABAC;
     height: 48px;
     border-radius: 3px;
     opacity: 0px;
-    padding-top:16.87px ;
+    padding-top: 16.87px;
     padding-right: 20px;
     padding-bottom: 18.13px;
     font-family: var(--almarai-family);
@@ -150,7 +156,7 @@ body {
     letter-spacing: -3%;
     color: var(--blue-color);
 
-} 
+}
 
 .form .input select {
     border: 0.5px solid #ABABAC;
@@ -185,6 +191,7 @@ body {
     line-height: 14px;
     color: var(--black);
 }
+
 .form .input .checkbox input[type="checkbox"] {
     width: 20px;
     height: 20px;

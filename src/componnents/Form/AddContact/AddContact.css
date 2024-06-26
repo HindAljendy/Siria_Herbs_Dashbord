@@ -1,5 +1,5 @@
 
-.AB-container {
+/* .AB-container {
     max-width: 100%;
     margin: 0 auto;
     padding: 20px;
@@ -13,10 +13,10 @@
     flex-wrap: wrap;
     gap:20px;
     padding: 24px;
-} 
+}  */
 
 
-.AB_input_facebook,
+/* .AB_input_facebook,
 .AB_input_instagram,
 .AB_input_whatsapp,
 .AB_input_twitter,
@@ -25,9 +25,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
+} */
 
-label {
+/* label {
     margin-bottom: 2px;
     font-family: var(--almarai-family);
 }
@@ -40,15 +40,10 @@ textarea {
     width: 100%;
     box-sizing: border-box;
    
-}
+} */
 
 @media (max-width: 1024px) {
-    .AB_input_facebook,
-    .AB_input_instagram,
-    .AB_input_whatsapp,
-    .AB_input_twitter,
-    .AB_input_linkedin,
-    .AB_input_youtube {
+    .input {
         flex: 1 1 100%; /* لجعل كل عنصر يأخذ العرض الكامل */
     }
 }
@@ -69,6 +64,7 @@ textarea {
 }
 
 .AB_SaveButton{
+    width: 95%;
     display: flex;
     justify-content: flex-end;
     /* padding: 20px; */
@@ -78,7 +74,6 @@ textarea {
     
 
 .AB_SaveButton button{
-    
     padding: 10px 20px;
     margin-left: 0;
 }
