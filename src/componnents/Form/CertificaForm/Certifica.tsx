@@ -4,7 +4,7 @@ import TextArea from "../TextArea/TextArea";
 import SaveButton from "../Buttons/SaveButton";
 import ImageUpload from './../ImageUpload/ImageUpload ';
 
-export default function AboutUsForm() {
+export default function Certifica() {
     const [formData, setFormData] = useState({
         title: "",
         description: "",
@@ -64,9 +64,10 @@ export default function AboutUsForm() {
 
     return (
         <form className='form' onSubmit={handleSubmit}>
-            <div className='form-header'>عنا</div>
+            <div className='form-header'>إضافة شهادة</div>
+            <ImageUpload name="الإبقونة" onChange={handleChangeFile}/>
             <div className='input'>
-                <label htmlFor="title">العنوان</label>
+                <label htmlFor="title">اسم الشهادة</label>
                 <input type="text" 
                  name="title" 
                  id="title" 
@@ -74,8 +75,17 @@ export default function AboutUsForm() {
                  onChange={handleChange} 
                  />
             </div>
-            <TextArea name="الوصف" value={formData.description} onChange={handleChange}/>
-            <ImageUpload name="صورة او فيديو" onChange={handleChangeFile}/>
+            <div className='input'>
+                <label htmlFor="title"> الاسم الفرعي للشهادة</label>
+                <input type="text" 
+                 name="title" 
+                 id="title" 
+                 value={formData.title}
+                 onChange={handleChange} 
+                 />
+            </div>
+            <ImageUpload name="صورة الشهادة" onChange={handleChangeFile}/>
+            <TextArea name="وصف الشهادة" value={formData.description} onChange={handleChange}/>
             <SaveButton />
         </form>
     );

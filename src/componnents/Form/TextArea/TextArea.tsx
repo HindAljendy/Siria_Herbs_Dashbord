@@ -1,7 +1,5 @@
 // TextArea.tsx
 import React from 'react';
-
-
 import './TextArea.css'
 
 interface TextAreaProps {
@@ -19,3 +17,4 @@ const TextArea: React.FC<TextAreaProps> = ({ name }) => {
 }
 
 export default TextArea;
+
