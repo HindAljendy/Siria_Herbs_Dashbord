@@ -58,11 +58,22 @@
 
 .IB_sidebar-container .IB_menu {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
 
 }
 
+
+.IB_sidebar-container .IB_menu .menu-item.active .IB_Img_sub_menu{
+  transform: rotate(-90deg);
+}
 .IB_sidebar-container .IB_menu .menu-item {
-  padding-right: 30.15px;
+  position: relative;
+  gap:10px;
+  padding-top: 0;
+  transition: 0.3s;
+  padding-right: 20.15px;
   padding-block: 14.31px 5.69px;
   font-family: var(--almarai-family);
   font-size: 1.25rem;
@@ -74,14 +85,25 @@
   justify-content: start;
   align-items: center;
   text-decoration: none;
+  padding: 10px;
 }
-
+.IB_sidebar-container .IB_menu .menu-item .icon-row{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20px;
+  }
 .IB_sidebar-container .IB_menu .menu-item.active {
   background-color: var(--blue-color);
   color: var(--absolute-white);
   font-weight: var(--bold-weight);
 }
-
+.IB_sidebar-container .IB_menu .menu-item.active .icon-row svg {
+transform:  rotate(-90deg);
+}
+.IB_sidebar-container .IB_menu .menu-item.active svg path{
+  stroke: white;
+}
 .IB_sidebar-container .IB_menu .IB_img_sidebar {
   width: 24px;
   margin-left: 16px;
@@ -98,6 +120,7 @@
   cursor: pointer;
   padding-right: 30.95px;
   display: flex;
+  padding-bottom: 10px;
 
 }
 
@@ -123,3 +146,11 @@
     max-width: 20%;
   }
 }
+.HJ_AllSettings , .menu-subitem{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+

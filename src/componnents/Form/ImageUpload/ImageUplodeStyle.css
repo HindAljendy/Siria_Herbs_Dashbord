@@ -6,7 +6,7 @@
   padding: 10px;
   width: 100%;
   position: relative;
-  border-radius: 3px 0px 0px 0px;
+  border-radius: 3px;
 }
 
 .file-upload-wrapper .choose-file-btn {
@@ -25,7 +25,11 @@
   border: none;
   border-right: 1px solid;
   height: 48px;
-  border-radius: 3px 0px 0px 0px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
 }
 
 .file-upload-wrapper .choose-file-btn span {
@@ -80,3 +84,18 @@
   color: #FFFFFF;
 
 }
+
+.container{
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+}
+
+
+
+
+
+
+

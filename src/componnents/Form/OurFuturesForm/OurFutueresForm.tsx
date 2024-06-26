@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './OurFutureForm.css'
 import TextArea from '../TextArea/TextArea'
 import ImageUpload from '../ImageUpload/ImageUpload '
 import SaveButton from './../Buttons/SaveButton';
@@ -62,8 +63,8 @@ const handleSubmit = async (event) => {
   }
 };
   return (
-    <form className='form' onSubmit={handleSubmit}>
-      <div className='form-header'>مميزانا</div>
+    <form className='form  MA_form_padding MA_MarginBottom' onSubmit={handleSubmit}>
+      <div className='form-header  HJ_FontColor_black  MA_margin_71'>مميزانا</div>
       <div className='input'>
         <label htmlFor="address">العنوان</label>
         <input type="text" name="title" id="address" value={formData.title} onChange={handleChange}/>
@@ -75,8 +76,9 @@ const handleSubmit = async (event) => {
       <ImageUpload name='الصورة الثالثة'/>
       <ImageUpload name='الصورة الرابعة'/>
       <ImageUpload name='الصورة الخامسة'/>
-      <SaveButton/>
-
+      <div className='MA_container_Button'>
+        <SaveButton />
+      </div>
     </form>
   )
 }

@@ -1,11 +1,15 @@
 import React from 'react';
 
-const SaveButton: React.FC = () => {
+interface SaveButtonProps {
+  className?: string;
+}
+
+const SaveButton: React.FC<SaveButtonProps> = ({ className }) => {
   return (
-    <div>
-       <button type="submit">حفظ</button>
+    <div className={className}>
+      <button type="submit">حفظ</button>
     </div>
   );
-};
+}
 
 export default SaveButton;

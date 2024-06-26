@@ -26,6 +26,7 @@ body {
     --white-color: #FFFFFF;
     --red-color: #DC3545;
     --green-color: #29C92F;
+    --green-dark: #24B263;
     --pink-color: #B0426C;
     --cyan-color: #7367F0;
     --gray-color: #636363;
@@ -36,6 +37,9 @@ body {
     --black: #000000;
     --dark-brown: #504444;
     --dark-blue: #211639;
+    --dark-blue-gray: #525866;
+    --soft-gray: #B5B1B1;
+
 
     /* 
         ==========================
@@ -56,6 +60,10 @@ body {
     display: flex;
 }
 
+.d-flex_direction {
+    flex-direction: column;
+}
+
 .align-center {
     align-items: center;
 }
@@ -74,86 +82,160 @@ body {
 }
 
 
-form {
+/* Form General Classes : */
+.form {
     width: 100%;
     height: 54%;
-    gap: 37px;
-    border-radius: 4px 0px 0px 0px;
-    background: white;
+    border-radius: 4px;
+    background: var(--absolute-white);
     position: relative;
-    padding: 37px;
     display: flex;
     flex-direction: column;
-    direction: rtl;
+    gap: 21.87px;
+}
+
+.form_padding {
+    padding: 24px;
+}
+
+.form .form-header {
     font-family: var(--almarai-family);
-    margin-top: 35px;
+    font-size: 24px;
+    font-weight: var(--normal-weight);
+    line-height: 26.78px;
 }
 
-form .input {
+.HJ_FontColor_black {
+    color: var(--black);
+}
+
+.HJ_FontColor_gray {
+    color: var(--gray-color);
+}
+
+.HJ_FontColor_blue {
+    color: var(--blue-color);
+}
+
+.gap_22 {
+    gap: 22px;
+}
+
+.gap_30 {
+    gap: 30.87px;
+}
+
+/* inputs */
+.form .input {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 10.13px;
 }
 
-form .input .checkbox {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+.form .input label {
+    font-family: var(--almarai-family);
     font-size: 14px;
-    font-weight: 400;
+    font-weight: var(--normal-weight);
     line-height: 14px;
-    color: #000000;
 
 }
 
-form .input label {
-    font-family: Almarai;
+.form .input input[type="text"],
+.form .input input[type="url"] {
+    border: 0.5px solid #ABABAC;
+    height: 48px;
+    border-radius: 3px;
+    opacity: 0px;
+    padding-top: 16.87px;
+    padding-right: 20px;
+    padding-bottom: 18.13px;
+    font-family: var(--almarai-family);
     font-size: 14px;
-    font-weight: 700;
+    font-weight: var(--normal-weight);
     line-height: 14px;
-    color: #5E5873;
+    letter-spacing: -3%;
+    color: var(--blue-color);
 
 }
 
-form .input input[type="text"],
 .form .input select {
     border: 0.5px solid #ABABAC;
     height: 48px;
-    border-radius: 3px 0px 0px 0px;
-    opacity: 0px;
-    padding: 10px;
-
+    border-radius: 3px;
+    padding-right: 12px;
 }
 
-form .form-header {
-
-    color: var(--gray-color);
-    font-size: 26px;
-    font-weight: 400;
-    line-height: 26px;
-
+.form .input select option {
+    font-family: var(--almarai-family);
+    font-size: 14px;
+    font-weight: var(--normal-weight);
+    line-height: 14px;
+    letter-spacing: -3%;
+    color: var(--blue-color);
 }
 
-form button {
+.form .input input[type="text"]::placeholder {
+    font-family: var(--almarai-family);
+    font-size: 12px;
+    font-weight: var(--normal-weight);
+    line-height: 12px;
+    letter-spacing: -3%;
+    color: #A6A9B1;
+}
+
+/* checkbox */
+.checkbox .HJ_label {
+    font-family: var(--almarai-family);
+    font-size: 14px;
+    font-weight: var(--normal-weight);
+    line-height: 14px;
+    color: var(--black);
+}
+
+.form .input .checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.form .input .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+/* buttons */
+.form button {
     width: 134px;
     height: 48px;
-    border-radius: 5px 0px 0px 0px;
+    border-radius: 5px;
     opacity: 0px;
     background: var(--blue-color);
-    font-family: Almarai;
+    font-family: var(--almarai-family);
     font-size: 20px;
-    font-weight: 700;
+    font-weight: var(--bold-weight);
     line-height: 20px;
-    color: white;
-    position: absolute;
-    left: 20px;
-    bottom: 5px;
+    color: var(--absolute-white);
+    border: none;
+}
+
+.HJ_container_Button {
+    margin-top: 18.13px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 41px;
 }
 
 textarea {
     border-radius: 3px 0px 0px 0px;
     height: 88px;
     border: 0.5px solid #ABABAC;
+    font-weight: var(--normal-weight);
+    text-align: start;
+    color: rgba(0, 0, 0, 1);
+    padding-top: 20px;
+    padding-right: 32px;
 }
 
 
@@ -177,6 +259,10 @@ textarea {
     text-decoration: none;
     color: #283760;
     margin-top: 14px;
+    cursor: pointer;
+    position: unset !important;
+    border: none !important;
+    background-color: #FFFFFF !important;
 }
 
 .YS-add-form {
@@ -189,6 +275,9 @@ textarea {
     color: #283760;
     margin-top: 38px;
     margin-bottom: 65px;
+    border: none;
+    background-color: #FFFFFF;
+    cursor: pointer;
 }
 
 .YS-remove-form span,
