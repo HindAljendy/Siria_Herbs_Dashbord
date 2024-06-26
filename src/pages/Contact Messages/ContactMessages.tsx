@@ -4,6 +4,7 @@ import { TTableData } from '../../types/types';
 import { getContactMessages } from '../../services/services';
 import ShowMessage from '../../componnents/ContactMessages/ShowMessage/ShowMessage';
 import axios from 'axios';
+import NavigationLinks from '../../componnents/NavigationLinks/NavigationLinks';
 
 
 
@@ -11,58 +12,61 @@ import axios from 'axios';
 
 const ContactMessages = () => {
 
-  const [messages,setMessages] = useState<TTableData[]>([]);
-  const [showedMessage,setShowedMessage] = useState (false);
- const [messageToshow,setMessageToShow]=useState<any>('');
+  const [messages, setMessages] = useState<TTableData[]>([]);
+  const [showedMessage, setShowedMessage] = useState(false);
+  const [messageToshow, setMessageToShow] = useState<string | undefined>('');
+
+  const columns = ['اسم المستخدم', 'البريد الالكتروني', 'الرسالة', 'الإجراءات']
 
 
-    const title='الرسائل'
+  const buttons = [
 
-    const columns=['اسم المستخدم','البريد الالكتروني','الرسالة','الإجراءات']
+    {
+      btn_path: 'src/assets/images/button_icon/delete.svg',
+      btn_alt: 'delete icon',
+      handlefunc: ((itemId: number) => {
+        axios.delete(`http://127.0.0.1:8000/api/deleteContactMessage/${itemId}`)
+        setMessages(messages.filter((message) => message.id != itemId))
+
+      })
 
 
-    const buttons=[
-
-      {btn_path:'src/assets/images/button_icon/delete.svg',
-        btn_alt:'delete icon',
-        handlefunc: ((itemId:number)=>{
-             axios.delete(`http://127.0.0.1:8000/api/deleteContactMessage/${itemId}`)
-                setMessages(messages.filter((message)=>message.id != itemId))
-                 
-        })
-        
-          
     },
 
-      {btn_path:'src/assets/images/button_icon/show.svg',
-        btn_alt:'show icon',
-        handlefunc:((itemId:number)=>
-          { 
-                      
-            setMessageToShow(messages.find(item=>item.id === itemId)?.message) 
-            setShowedMessage(true)
+    {
+      btn_path: 'src/assets/images/button_icon/show.svg',
+      btn_alt: 'show icon',
+      handlefunc: ((itemId: number) => {
 
-        })
-      }
-    ]
+        setMessageToShow(messages.find(item => item.id === itemId)?.message)
+        setShowedMessage(true)
 
- 
+      })
+    }
+  ]
 
-  useEffect(()=>{
-    getContactMessages().then((data)=>{
-     setMessages(data.data)
+
+
+  useEffect(() => {
+    getContactMessages().then((data) => {
+      setMessages(data.data.data)
     })
- },[])
+  }, [])
   return (
-    <div>
-
+    <>
+    
+        <NavigationLinks navigateMain='رسائل جهات الاتصال'
+        navigateLink='الواجهات الرئيسية'
+        navigateSubmain='رسائل جهات الاتصال'/>
+     
         <Messages
-         title={title}
+        
          columns={columns}
          data={messages}
          buttons={buttons} />
          {showedMessage &&<ShowMessage message={messageToshow} closeMessage={()=>setShowedMessage(false)}/>
-}    </div>
+}   
+ </>
   )
 }
 

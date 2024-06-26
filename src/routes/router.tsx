@@ -19,6 +19,7 @@ import PagesSettings from '../componnents/PagesSettings/PagesSettings'
 import ContactMessages from '../pages/Contact Messages/ContactMessages'
 import ProductAdd from '../componnents/ProductAdd/ProductAdd'
 import AddBrand from '../componnents/Form/AddBrand/AddBrand'
+import UpdateCategory from '../componnents/Category/updateCategory/updateCategory'
 
 export const router = createBrowserRouter([
     {
@@ -52,7 +53,11 @@ export const router = createBrowserRouter([
                     {
                         path: "addCategory",
                         element: <AddCategory />,
-                    }
+                    },
+                    {
+                        path: "update-category/:itemId",
+                        element: <UpdateCategory />,
+                    },
                 ]
             },
             {
