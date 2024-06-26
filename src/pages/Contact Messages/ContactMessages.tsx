@@ -6,7 +6,7 @@ import ShowMessage from '../../componnents/ContactMessages/ShowMessage/ShowMessa
 import axios from 'axios';
 import NavigationLinks from '../../componnents/NavigationLinks/NavigationLinks';
 
-import './ContactMessages.css'
+
 
 
 
@@ -15,9 +15,6 @@ const ContactMessages = () => {
   const [messages, setMessages] = useState<TTableData[]>([]);
   const [showedMessage, setShowedMessage] = useState(false);
   const [messageToshow, setMessageToShow] = useState<string | undefined>('');
-
-
-  const title = 'رسائل جهات الاتصال'
 
   const columns = ['اسم المستخدم', 'البريد الالكتروني', 'الرسالة', 'الإجراءات']
 
@@ -57,20 +54,19 @@ const ContactMessages = () => {
   }, [])
   return (
     <>
-      <div className='ra_contact_messages_navlink'>
+    
         <NavigationLinks navigateMain='رسائل جهات الاتصال'
-          navigateLink='الواجهات الرئيسية'
-          navigateSubmain='رسائل جهات الاتصال' />
-      </div>
-
-      <Messages
-
-        columns={columns}
-        data={messages}
-        buttons={buttons} />
-      {showedMessage && <ShowMessage message={messageToshow} closeMessage={() => setShowedMessage(false)} />
-      }
-    </>
+        navigateLink='الواجهات الرئيسية'
+        navigateSubmain='رسائل جهات الاتصال'/>
+     
+        <Messages
+        
+         columns={columns}
+         data={messages}
+         buttons={buttons} />
+         {showedMessage &&<ShowMessage message={messageToshow} closeMessage={()=>setShowedMessage(false)}/>
+}   
+ </>
   )
 }
 
