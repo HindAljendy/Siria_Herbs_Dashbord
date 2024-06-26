@@ -1,0 +1,86 @@
+.IB_table-container {
+    background: var(--absolute-white);
+    width: 100%;
+    border-radius: 4px;
+}
+
+.HJ_outlet {
+    width: 83%;
+}
+
+@media screen and (max-width: 1919px) {
+    .HJ_outlet {
+        width: 75%;
+    }
+}
+.IB_table-container .IB_table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15.55px 31.28px 36.23px 30.72px;
+}
+.IB_table-container .IB_table-header  h2{
+    font-family: var(--almarai-family);
+    font-size: 2.25rem;
+    font-weight: var(--bold-weight);
+    line-height: 36px;
+    letter-spacing: -0.03em;
+    text-align: left;
+    color: var(--gray-color);
+}
+.IB_button_Name {
+    font-family: var(--almarai-family);
+    font-size: 1.125rem ;
+    font-weight: var(--bold-weight);
+    color: var(--absolute-white);
+    background-color: var(--blue-color);
+}
+.IB_table-header button {
+    border-radius: 5px;
+    background: var(--blue-color);
+    border: none;
+    cursor: pointer;
+    padding: 16px 32px 16px 33px;
+}
+.IB_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.IB_table th,
+.IB_table td {
+    padding-block: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.IB_column-name {
+    background-color: var(--blue-color);
+    font-family: var(--almarai-family);
+    font-size: 20px;
+    font-weight: var(--bold-weight);
+    line-height: 20px;
+    letter-spacing: -0.03em;
+    color: var(--absolute-white);
+}
+.IB_Name-row {
+    font-family: var(--almarai-family);
+    font-size: 1.25rem ;
+    font-weight: var(--normal-weight);
+    line-height: 40px;
+    letter-spacing: -0.02em;
+    color: var(--black);
+}
+.IB_product-image {
+    width: 66px;
+    height: 66px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+.IB_display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+.ne-delete-icon , .ne-edit-icon{
+    cursor: pointer;
+}
