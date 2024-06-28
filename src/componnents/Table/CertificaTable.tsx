@@ -2,8 +2,8 @@ import React from 'react';
 import './Table.css';
 import delet from "../../assets/images/button_icon/delete.svg";
 import edite from "../../assets/images/button_icon/edite.svg";
-import switch_on from './../../assets/images/button_icon/Switche_on.svg';
-import switch_off from './../../assets/images/button_icon/switch_OFF.svg';
+// import switch_on from './../../assets/images/button_icon/Switche_on.svg';
+// import switch_off from './../../assets/images/button_icon/switch_OFF.svg';
 import { TableProps } from '../../types/types';
 
 
@@ -29,11 +29,11 @@ const CertificaTable: React.FC<TableProps> = ({ title, buttonLabel, columns, dat
                 <tbody >
                     {data?.map((row, index) => (
                         <tr key={index}>
+                            <td><img src={row.icon} alt={`icone ${row.name}`} className="NA_product-image" /></td>
                             <td className='NA_Name_row'>{row.name}</td>
-                            <td className='NA_Name_row'>{row.name}</td>
-                            <td className='NA_Name_row'>{row.name}</td>
-                            <td className='NA_Name_row'>{row.name}</td>
-                            <td><img src={row.image} alt={row.name} className="NA_product-image" /></td>
+                            <td className='NA_Name_row'>{row.subname}</td>
+                            <td><img src={row.photo} alt={`photo ${row.name}`} className="NA_product-image" /></td>
+                            <td className='NA_Name_row'>{row.description}</td>
                             <td>
                                 <div className="ne-action NA_display">
                                     <div className="ne-edit-icon ">

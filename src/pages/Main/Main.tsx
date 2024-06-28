@@ -1,13 +1,13 @@
 import React from 'react'
-// import Certifica from '../../componnents/Form/CertificaForm/Certifica'
-// import CertificaTable from '../../componnents/Table/CertificaTable'
+import Certifica from '../../componnents/Form/CertificaForm/Certifica'
+import CertificaTable from '../../componnents/Table/CertificaTable'
 
 const Main = () => {
   return (
     <div>
       main
-      {/* <Certifica/> */}
-      {/* <CertificaTable title="الشهادات" buttonLabel="إضافة شهادة"  columns={["الايقونة" , "الاسم" ,"الاسم الفرعي" ,"الصورة" , "الوصف","الإجرائات"]}  
+      <Certifica/>
+      <CertificaTable title="الشهادات" buttonLabel="إضافة شهادة"  columns={["الايقونة" , "الاسم" ,"الاسم الفرعي" ,"الصورة" , "الوصف","الإجرائات"]}  
       data={
         [
           {
@@ -15,7 +15,7 @@ const Main = () => {
           },
         ]
       }
-        /> */}
+        />
     </div>
   )
 }
