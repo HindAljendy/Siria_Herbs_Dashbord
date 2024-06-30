@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import './AddBrand.css';
 import axios from 'axios';
+import { FaRegTrashCan } from 'react-icons/fa6';
+import { useNavigate } from 'react-router-dom';
 
 const AddBrand: React.FC = () => {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     main_image: null as File | null,
     presentation_image: null as File | null,
     background_image: null as File | null,
     description: '',
+    color: '',
     published: false
   });
 
@@ -29,16 +35,6 @@ const AddBrand: React.FC = () => {
     }
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, files } = e.target;
-    if (files && files.length > 0) {
-      setFormData({
-        ...formData,
-        [name]: files[0]
-      });
-    }
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = new FormData();
@@ -47,7 +43,9 @@ const AddBrand: React.FC = () => {
     if (formData.presentation_image) form.append('presentation_image', formData.presentation_image);
     if (formData.background_image) form.append('background_image', formData.background_image);
     form.append('description', formData.description);
+    form.append('color', formData.color);
     form.append('published', formData.published.toString());
+    console.log(form);
 
     axios.post('http://127.0.0.1:8000/api/create-brand', form)
       .then(response => {
@@ -56,45 +54,177 @@ const AddBrand: React.FC = () => {
       .catch(error => {
         console.error('There was an error creating the brand!', error);
       });
+      
+      navigate('/brands');
+  };
+
+  const [backgroundImageName, setBackgroundImageName] = useState<string>('لم يتم اختيار صورة');
+
+  const handleBackgroundImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setBackgroundImageName(file.name);
+      setFormData(prevState => ({
+        ...prevState,
+        background_image: file
+      }));
+    } else {
+      setBackgroundImageName('لم يتم اختيار صورة');
+    }
+  };
+
+  const triggerBackgroundImageInput = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    const fileInputElement = document.getElementById('backgroundImageInput') as HTMLInputElement | null;
+    if (fileInputElement) {
+      fileInputElement.click();
+    }
+  };
+
+  const [mainImageName, setMainImageName] = useState<string>('لم يتم اختيار صورة');
+
+  const handleMainImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setMainImageName(file.name);
+      setFormData(prevState => ({
+        ...prevState,
+        main_image: file
+      }));
+    } else {
+      setMainImageName('لم يتم اختيار صورة');
+    }
+  };
+
+  const triggerMainImageInput = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    const fileInputElement = document.getElementById('mainImageInput') as HTMLInputElement | null;
+    if (fileInputElement) {
+      fileInputElement.click();
+    }
+  };
+
+  const [presentationImageName, setPresentationImageName] = useState<string>('لم يتم اختيار صورة');
+
+  const handlePresentationImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setPresentationImageName(file.name);
+      setFormData(prevState => ({
+        ...prevState,
+        presentation_image: file
+      }));
+    } else {
+      setPresentationImageName('لم يتم اختيار صورة');
+    }
+  };
+
+  const triggerPresentationImageInput = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    const fileInputElement = document.getElementById('presentationImageInput') as HTMLInputElement | null;
+    if (fileInputElement) {
+      fileInputElement.click();
+    }
   };
 
   return (
-    <form className='IB_form' onSubmit={handleSubmit}>
-      <h1>إضافة ماركة إلى النظام</h1>
-      <div className='IB_input'>
-        <label htmlFor="name">الاسم</label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} />
-      </div>
+    <form className='form' onSubmit={handleSubmit}>
+      <div className='form-header'>إضافة ماركة الى النظام</div>
 
-      <div className='IB_input'>
-        <label htmlFor="main_image">الصورة </label>
-        <input type="file" name="main_image" onChange={handleFileChange} />
-      </div>
-      
-      <div className='IB_input'>
-        <label htmlFor="description">الوصف</label>
-        <textarea
-          name="description"
-          value={formData.description}
-          onChange={handleChange as (e: React.ChangeEvent<HTMLTextAreaElement>) => void} 
+      <div className='input'>
+        <label htmlFor="name">الاسم </label>
+        <input type="text"
+          name="name"
+          id="name"
+          value={formData.name}
+          onChange={handleChange}
         />
       </div>
 
-     
-      <div className='IB_input'>
-        <label htmlFor="presentation_image">صورة رئيسية</label>
-        <input type="file" name="presentation_image" onChange={handleFileChange} />
+      <div className=" input">
+        <label htmlFor="name" className="HJ_FontColor_gray"> صورة الخلفية</label>
+        <div className="file-upload-wrapper">
+          <button className="choose-file-btn" onClick={triggerBackgroundImageInput}>
+            <span>اختر ملف</span>
+          </button>
+          <div className="file-name">{backgroundImageName}</div>
+          <input
+            type="file"
+            id="backgroundImageInput"
+            onChange={handleBackgroundImageChange} // Ensure handleFileChange is used here
+            style={{ display: "none" }}
+          />
+          <span className="icon">
+            <FaRegTrashCan />
+          </span>
+        </div>
       </div>
-      <div className='IB_input'>
-        <label htmlFor="background_image">صورة صفحة العرض</label>
-        <input type="file" name="background_image" onChange={handleFileChange} />
+
+      <div className='input'>
+        <label htmlFor="description" className="HJ_FontColor_gray">الوصف </label>
+        <textarea name="description" id="description" className='MA_TextArea' value={formData.description} onChange={handleChange}></textarea>
       </div>
-     
-      <div className='IB_publish'>
-        <input type="checkbox" name="published" checked={formData.published} onChange={handleChange} />
-        <label htmlFor="published">نشر</label>
+
+      <div className=" input">
+        <label htmlFor="name" className="HJ_FontColor_gray"> صورة رئيسية</label>
+        <div className="file-upload-wrapper">
+          <button className="choose-file-btn" onClick={triggerMainImageInput}>
+            <span>اختر ملف</span>
+          </button>
+          <div className="file-name">{mainImageName}</div>
+          <input
+            type="file"
+            id="mainImageInput"
+            onChange={handleMainImageChange} // Ensure handleFileChange is used here
+            style={{ display: "none" }}
+          />
+          <span className="icon">
+            <FaRegTrashCan />
+          </span>
+        </div>
       </div>
-      <div className="IB_button-container">
+
+      <div className=" input">
+        <label htmlFor="name" className="HJ_FontColor_gray"> صورة صفحة العرض</label>
+        <div className="file-upload-wrapper">
+          <button className="choose-file-btn" onClick={triggerPresentationImageInput}>
+            <span>اختر ملف</span>
+          </button>
+          <div className="file-name">{presentationImageName}</div>
+          <input
+            type="file"
+            id="presentationImageInput"
+            onChange={handlePresentationImageChange} // Ensure handleFileChange is used here
+            style={{ display: "none" }}
+          />
+          <span className="icon">
+            <FaRegTrashCan />
+          </span>
+        </div>
+      </div>
+
+      <div className='input'>
+        <label htmlFor="color">اللون </label>
+        <input type='color'
+          name="color"
+          id="color"
+          value={formData.color}
+          onChange={handleChange}
+        />
+      </div>
+
+      <div className="input">
+        <div className='checkbox'>
+          <input type="checkbox" name="published" id="published" checked={formData.published} onChange={handleChange} />
+          <label htmlFor="published" className='HJ_label'> نشر</label>
+        </div>
+      </div>
+
+
+      <div className="MA_container_Button">
         <button type="submit">حفظ</button>
       </div>
     </form>

@@ -201,7 +201,9 @@ export default function Certifica() {
                 <label htmlFor="description" className="HJ_FontColor_gray"> وصف الشهادة</label>
                 <textarea name="description" id="description" className='MA_TextArea' value={formData.description} onChange={handleChange}></textarea>
             </div>
-            <SaveButton />
+            <div className="MA_container_Button">
+                <SaveButton />
+            </div>
         </form>
     );
 }

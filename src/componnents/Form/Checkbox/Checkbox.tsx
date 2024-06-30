@@ -12,7 +12,6 @@ export default function Checkbox() {
         <input type="checkbox" name="ملكية" id="ownership"  />
         <label htmlFor="ownership">ملكية</label> 
       </div>
-
     </div>
   )
 }

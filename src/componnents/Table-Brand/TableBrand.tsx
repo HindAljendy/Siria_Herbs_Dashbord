@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './TableBrand.css';
 import delet from "../../assets/images/button_icon/delete.svg";
@@ -10,36 +10,16 @@ import Delete_Popup from '../Delete_Popup/Delete_Popup';
 import axios from 'axios';
 
 const Table: React.FC<TableProps> = ({ title, buttonLabel, columns, data }) => {
-    const [tableData, setTableData] = useState(data);
+    // const [tableData, setTableData] = useState(data);
     const [isPopupVisible, setIsPopupVisible] = useState(false);
 
-    useEffect(() => {
-      
-    }, []);
 
-    const handleTogglePublished = (index: number) => {
-        const newData = [...tableData];
-        const brand = newData[index];
-        brand.published = !brand.published;
-        setTableData(newData);
-
-        axios.post(`http://127.0.0.1:8000/api/brands/${brand.id}`, {
-            published: brand.published
-        }).then(response => {
-            console.log('Brand updated successfully:', response.data);
-        }).catch(error => {
-            console.error('error update the brand!', error);
-        });
-    };
-
-    const handleDeleteClick = (index: number) => {
+    const handleDeleteClick = (id: number) => {
         setIsPopupVisible(true);
 
-        const brand = tableData[index];
-        axios.delete(`http://127.0.0.1:8000/api/brands/${brand.id}`)
+        axios.delete(`http://127.0.0.1:8000/api/brands/${id}`)
             .then(response => {
                 console.log('Brand deleted successfully:', response.data);
-                setTableData(tableData.filter((_, i) => i !== index));
             })
             .catch(error => {
                 console.error(' error delete the brand!', error);
@@ -69,12 +49,12 @@ const Table: React.FC<TableProps> = ({ title, buttonLabel, columns, data }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {tableData.map((row, index) => (
+                    {data?.map((row, index) => (
                         <tr key={index}>
                             <td className='IB_Name-row'>{row.name}</td>
-                            <td><img src={row.image} alt={row.name} className="IB_product-image" /></td>
-                            <td>{row.quantity}</td>
-                            <td onClick={() => handleTogglePublished(index)}>
+                            <td><img src={row.main_image} alt={row.name} className="IB_product-image" /></td>
+                            <td>{row.products_count}</td>
+                            <td>
                                 {row.published ? <img src={switch_on} alt="switch-on" /> : <img src={switch_off} alt="switch-off" />}
                             </td>
                             <td>
@@ -82,7 +62,7 @@ const Table: React.FC<TableProps> = ({ title, buttonLabel, columns, data }) => {
                                     <div className="ne-edit-icon">
                                         <img src={edite} alt="edit icon" />
                                     </div>
-                                    <div className="ne-delete-icon" onClick={() => handleDeleteClick(index)}>
+                                    <div className="ne-delete-icon" onClick={() => handleDeleteClick(row.id)}>
                                         <img src={delet} alt="delete icon" />
                                     </div>
                                 </div>

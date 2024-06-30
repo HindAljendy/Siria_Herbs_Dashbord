@@ -3,6 +3,7 @@ import axios from 'axios';
 import Table from '../../componnents/Table-Brand/TableBrand';
 
 interface Brand {
+  id: number;
   name: string;
   main_image: string;
   products_count: number;
@@ -30,22 +31,13 @@ const Brands = () => {
 
   const columns = ['الاسم', 'صورة المنتج', 'عدد المنتجات', 'Published', 'الاجراءات'];
 
-  const data = brands.length > 0 ? brands.map(brand => ({
-    name: brand.name,
-    image: brand.main_image,
-    quantity: brand.products_count || 0,
-    published: brand.published,
-  })) : [];
-
-  console.log('Formatted data for table:', data);
-
   return (
     <div>
       <Table 
         title="العلامات التجارية"
         buttonLabel="اضافة ماركة"
         columns={columns}
-        data={data}
+        data={brands}
       />
     </div>
   );
