@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './CategoryForm.css';
 import Accordion from 'react-bootstrap/Accordion';
 import axios from 'axios';
+import check from '../../assets/images/button_icon/check.svg'
 
 export default function CategoryForm() {
   const [name, setName] = useState('');
@@ -136,6 +137,14 @@ type TData = Array<TDataitem>;
               </Accordion.Item>
           
           </Accordion>
+          <ul>
+          {selectedOptions.map((option, index) => (
+            <li key={index}> <img src={check} alt="check" style={{marginLeft:'0.9rem',width:'1.25rem'}}/>   
+              {option}
+              
+          </li>
+          ))}
+         </ul>
         </div>
         <button type="submit" className="submit_button">
           حفظ
