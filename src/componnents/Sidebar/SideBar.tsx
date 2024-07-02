@@ -58,7 +58,7 @@ const Sidebar: React.FC = () => {
         </NavLink>
 
         {/* قسم الفئات مع القائمة الفرعية */}
-        <NavLink to='/categories' className={`menu-item IB_lineHeight20 ${activePath === '/categories' ? 'active' : ''}`} onClick={() => handleSubMenuToggle('categories')}>
+        <NavLink to='/categories' className={`menu-item IB_lineHeight20 `} onClick={() => handleSubMenuToggle('categories')}>
           <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M13.8477 1.91309V4.57975M13.8477 23.2464V25.9131M13.8477 8.57975V19.2464M7.84766 20.5798V23.2464M1.84766 12.5798V15.2464M25.8477 12.5798V15.2464M7.84766 4.57975V15.2464M19.8477 7.24642V4.57975M19.8477 23.2464V12.5798" stroke="#283760" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
@@ -68,7 +68,7 @@ const Sidebar: React.FC = () => {
           </span>        </NavLink>
         {openSubMenu === 'categories' && (
           <div className="menu-subitem">
-            <NavLink to='/categories/addCategory' className={`IB_SubMenu_LinkTo ${activePath === '/categories/addCategory' ? 'HJ_active' : ''}`}>
+            <NavLink to='/categories/addCategory' className={`IB_SubMenu_LinkTo`}>
               <img className="IB_arrow" src={arrow_small} alt="arrow" />
               <span className='IB_Space'>اضافة فئة جديدة</span>
             </NavLink>
