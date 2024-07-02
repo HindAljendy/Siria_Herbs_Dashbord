@@ -25,6 +25,8 @@
    font-weight: 700;
    font-size: 1.98rem;
    line-height: 31.71px;
+   font-family:var( --almarai-family) !important;    
+
 
 }
 .MA_card .box1 .MA_card_img{

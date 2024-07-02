@@ -19,7 +19,7 @@
    font-weight: 700;
    font-size: 1.98rem;
    line-height: 1.98rem;
-   font-family:var( --almarai-family);
+   font-family:var( --almarai-family) !important;
 
 }
 .MA_cards_withCircleImage .box1 .MA_cards_withCircleImage_img{
