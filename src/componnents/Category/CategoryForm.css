@@ -2,11 +2,11 @@
 .MA_form{
     width: 100%;
     height: 54%;
-    gap: 37px;
+    gap: 24px;
     border-radius: 4px 0px 0px 0px;
     background: white;
     position: relative;
-    padding: 20px;
+    padding: 1rem 1rem;
     display: flex;
     flex-direction: column;
     direction: rtl;
@@ -23,7 +23,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 95% !important;
+    width: 100% !important;
     border-radius: 3px;
 }
 
@@ -38,7 +38,7 @@
 
 
 .MA_form .accordion{
-    width: 95% !important;
+    width: 100% !important;
     position: relative;
     margin-bottom: 60px;
 }
@@ -72,38 +72,7 @@ bottom: 5px;
 .MA_form  .accordion-button {
     gap: 90%;
 }
-.MA_form .submit_button{
-    width: 134px;
-    height: 48px;
-    border-radius: 5px;
-    opacity: 0px;
-    background: var(--blue-color);
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 20px;
-    color: white;
-    position: absolute;
-    left: 9%;
-    bottom: 5px;
 
-}
-.MA_form .submit_button {
-    border-radius: 5px;
-    background: var(--blue-color);
-    border: none;
-    cursor: pointer;
-    padding: 16px 32px  16px  33px;
-}
-
-.MA_form .submit_button {
-font-family: var(--almarai-family);
-font-size:1.125rem /* 18px */;
-font-weight: var(--bold-weight);
-line-height: 18px;
-letter-spacing: -0.03em;
-color: var(--absolute-white);
-
-}
 .MA_form .MA_checkbox .textarea{
     width: 98%;
     height: 48px;
@@ -125,4 +94,29 @@ color: var(--absolute-white);
     width: 20px;
     height: 20px;
     margin-left: 10px;
+}
+.MA_form ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.MA_form ul li{
+    margin-bottom: 1rem;
+}
+.MA_form .submit_button{
+    width: 134px;
+    height: 48px;
+    border-radius: 5px;
+    opacity: 0px;
+    background: var(--blue-color);
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    color: white;
+    position: absolute;
+    left: 1.5%;
+    bottom: 5px;
+    border: none;
 }
