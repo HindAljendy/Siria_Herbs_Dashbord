@@ -1,13 +1,13 @@
 .MA_card{
-    width: 17.29%;
+    width: 21rem;
     height: 248.05px;
-    padding: 1rem 2.25rem;
+    padding: 2rem 2.25rem;
     color: #ffffff;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    
+    gap: 3.4rem;
+    font-family:var( --almarai-family) !important;    
 }
 .MA_card p , .MA_card label{
     font-family:var( --almarai-family) !important;
@@ -25,6 +25,8 @@
    font-weight: 700;
    font-size: 1.98rem;
    line-height: 31.71px;
+   font-family:var( --almarai-family) !important;    
+
 
 }
 .MA_card .box1 .MA_card_img{
@@ -36,6 +38,7 @@
     flex-direction: row-reverse;
     align-items: center;
     gap: 10px;
+    justify-content: flex-end;
 }
 .MA_card .box2 p{
   
