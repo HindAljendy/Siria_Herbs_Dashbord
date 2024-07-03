@@ -4,7 +4,7 @@ import IMG_allert from './../../../assets/images/pop_up/Vector.svg';
 import axios from 'axios';
 
 type DeletePopupProps = {
-    id: string; 
+    id?:  number; 
     onClose: () => void;
 };
 

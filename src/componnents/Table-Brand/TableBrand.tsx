@@ -1,0 +1,83 @@
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './TableBrand.css';
+import delet from "../../assets/images/button_icon/delete.svg";
+import edite from "../../assets/images/button_icon/edite.svg";
+import switch_on from './../../assets/images/button_icon/Switche_on.svg';
+import switch_off from './../../assets/images/button_icon/switch_OFF.svg';
+import { TableProps } from '../../types/types';
+import Delete_Popup from '../Delete_Popup/Delete_Popup';
+import axios from 'axios';
+
+const Table: React.FC<TableProps> = ({ title, buttonLabel, columns, data }) => {
+    // const [tableData, setTableData] = useState(data);
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+
+    const handleDeleteClick = (id: number) => {
+        setIsPopupVisible(true);
+
+        axios.delete(`http://127.0.0.1:8000/api/brands/${id}`)
+            .then(response => {
+                console.log('Brand deleted successfully:', response.data);
+            })
+            .catch(error => {
+                console.error(' error delete the brand!', error);
+            });
+    };
+
+    const handleClosePopup = () => {
+        setIsPopupVisible(false);
+    };
+
+    return (
+        <div className="IB_table-container">
+            <div className="IB_table-header">
+                <h2>{title}</h2>
+                <Link to="/brands/addbrand">
+                    <button className='IB_button_Name'>
+                        {buttonLabel}
+                    </button>
+                </Link>
+            </div>
+            <table className='IB_table'>
+                <thead>
+                    <tr>
+                        {columns.map((column) => (
+                            <th key={column} className='IB_column-name'>{column}</th>
+                        ))}
+                    </tr>
+                </thead>
+                <tbody>
+                    {data?.map((row, index) => (
+                        <tr key={index}>
+                            <td className='IB_Name-row'>{row.name}</td>
+                            <td><img src={row.main_image} alt={row.name} className="IB_product-image" /></td>
+                            <td>{row.products_count}</td>
+                            <td>
+                                {row.published ? <img src={switch_on} alt="switch-on" /> : <img src={switch_off} alt="switch-off" />}
+                            </td>
+                            <td>
+                                <div className="IB_display">
+                                    <div className="ne-edit-icon">
+                                        <img src={edite} alt="edit icon" />
+                                    </div>
+                                    <div className="ne-delete-icon" onClick={() => handleDeleteClick(row.id)}>
+                                        <img src={delet} alt="delete icon" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
+            {isPopupVisible && (
+                <div onClick={handleClosePopup}>
+                    <Delete_Popup />
+                </div>
+            )}
+        </div>
+    );
+};
+export default Table;
