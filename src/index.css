@@ -135,7 +135,7 @@ body {
 
 }
 
-.form .input input[type="text"] {
+.form .input input[type="text"]   {
     border: 0.5px solid #ABABAC;
     height: 48px;
     border-radius: 3px;

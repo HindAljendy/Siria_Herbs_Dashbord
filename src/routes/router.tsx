@@ -18,6 +18,7 @@ import SystemSettings from '../componnents/SystemSettings/SystemSettings'
 import PagesSettings from '../componnents/PagesSettings/PagesSettings'
 import ContactMessages from '../pages/Contact Messages/ContactMessages'
 import ProductAdd from '../componnents/ProductAdd/ProductAdd'
+import ProductEdit from '../componnents/ProductEdit/ProductEdit'
 
 export const router = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
             {
                 path: "/products/addProduct",
                 element: <ProductAdd/>
+            },
+            {
+                path: "/products/EditProduct/:productNum",
+                element: <ProductEdit/>
             },
             {
                 path: "/categories",

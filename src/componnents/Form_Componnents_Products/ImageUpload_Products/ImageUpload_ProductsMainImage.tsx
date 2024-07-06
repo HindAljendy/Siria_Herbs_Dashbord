@@ -1,34 +1,43 @@
 import React, { useState } from "react";
-import './ImageUplodeStyle.css';
 import { FaRegTrashCan } from "react-icons/fa6";
-
+import { FormProduct } from "../../../types/types";
 
 // Define the props interface if needed for future enhancements
 interface ImageUploadProps {
-  name:string;
+  name: string;
+  formData: FormProduct;
+  setFormData: (formData: FormProduct) => void;
 
 }
 
-const ImageUpload: React.FC<ImageUploadProps> = ({name}) => {
-
+const ImageUpload_ProductsMainImage: React.FC<ImageUploadProps> = ({ name, formData, setFormData }) => {
 
   // Use string for fileName state since it will hold strings
-  const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
+  const [fileNameMainImage, setFileNameMainImage] = useState<string>('لم يتم اختيار صورة');
+  
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]; // Use optional chaining to avoid runtime errors
+    
+    console.log(e.target.files);
+    
     if (file) {
-      setFileName(file.name);
+      setFileNameMainImage(file.name);
+      setFormData({
+        ...formData,
+        main_image:file ,
+      });
+      console.log(file);
     } else {
-      setFileName('لم يتم اختيار صورة');
+      setFileNameMainImage('لم يتم اختيار صورة');
     }
   };
 
   const triggerFileInput = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    
+
     // Ensure the element exists before calling click
-    const fileInputElement = document.getElementById('fileInput') as HTMLInputElement | null;
+    const fileInputElement = document.getElementById('mainFileInput') as HTMLInputElement | null;
     if (fileInputElement) {
       fileInputElement.click();
     }
@@ -41,10 +50,10 @@ const ImageUpload: React.FC<ImageUploadProps> = ({name}) => {
         <button className="choose-file-btn" onClick={triggerFileInput}>
           <span>اختر ملف</span>
         </button>
-        <div className="file-name">{fileName}</div>
+        <div className="file-name">{fileNameMainImage}</div>
         <input
           type="file"
-          id="fileInput"
+          id="mainFileInput"
           onChange={handleFileChange}
           style={{ display: "none" }}
         />
@@ -56,4 +65,5 @@ const ImageUpload: React.FC<ImageUploadProps> = ({name}) => {
   );
 };
 
-export default ImageUpload;
+export default ImageUpload_ProductsMainImage;
+

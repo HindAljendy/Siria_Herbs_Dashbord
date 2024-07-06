@@ -1,6 +1,6 @@
 .ne-product-box{
     max-width: 452px;
-    /* height: 564px; */
+    height: 100%; 
     background-color: var(--absolute-white);
     box-shadow: 0.3px 0.3px 6.4px 0px rgba(205, 202, 202, 0.25);
     display: flex;
@@ -66,6 +66,12 @@
     flex-direction: row-reverse;
     text-align: end;
 }
-.ne-product-box .ne-action .ne-edit-icon{
+.ne-edit-icon , .ne-dublicate-icon  ,.ne-delete-icon{
     cursor: pointer;
+}
+
+@media screen and (max-width: 1919px) {
+    .ne-product-box{
+        max-width: 305px;
+    }
 }

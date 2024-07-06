@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 
+
 interface SelectorProps {
     name: string;
-
 }
 
-const SelectorCategory: React.FC<SelectorProps> = ({ name }) => {
+const SelectorCategory: React.FC<SelectorProps> = ({ name  }) => {
     const [color, setColor] = useState('gray');
     const handleChange = () => {
         setColor("var(--blue-color)");

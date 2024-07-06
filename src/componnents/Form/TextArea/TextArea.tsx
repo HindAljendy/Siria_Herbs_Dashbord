@@ -1,11 +1,12 @@
 
 import React from 'react';
 import './TextArea.css'
+
 interface TextArea {
   name: string;
 }
 
-const TextArea: React.FC<TextArea> = ({ name }) => {
+const TextArea: React.FC<TextArea> = ({ name}) => {
   return (
     <div className='input'>
       <label htmlFor="description"  className="HJ_FontColor_gray"> {name}</label>
