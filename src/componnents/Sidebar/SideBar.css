@@ -127,9 +127,19 @@ transform:  rotate(-90deg);
 /* .IB_sidebar-container .IB_menu .menu-item  */.IB_SubMenu_LinkTo.HJ_active{
   color: var(--blue-color);
   font-weight: var(--bold-weight);
-  text-decoration: underline var(--blue-color) solid 10px;
-}
+  text-decoration: underline var(--blue-color) solid 5px;
 
+  
+  
+}
+/* .IB_SubMenu_LinkTo.HJ_active::before{
+  content: '';
+  position: absolute;
+  width:40%;
+  height: 5px;
+  top: 30%;
+  background-color: var(--blue-color);
+} */
 .IB_sidebar-container .IB_menu .menu-item .IB_SubMenu_LinkTo .IB_arrow {
   width: 12.81px;
 }

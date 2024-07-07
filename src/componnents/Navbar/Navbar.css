@@ -33,6 +33,7 @@
 
 .ne-navbar .ne-info-nav .logout {
     gap: 5.5px;
+    cursor: pointer;
 }
 
 .ne-navbar .ne-info-nav .logout img {

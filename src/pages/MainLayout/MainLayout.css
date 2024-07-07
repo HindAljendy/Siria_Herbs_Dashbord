@@ -1,0 +1,19 @@
+.HJ_container{
+    position: relative;
+
+}
+.HJ_outlet{
+    position: absolute;
+    top: 8.28% /* 159px */ ;
+    right: 15.40% /* 295.72px */;
+    width: 76%;
+}
+
+
+@media screen and (max-width: 1919px) {
+    .HJ_outlet{
+        position: absolute;
+        top: 12.28% ;
+        right: 22.40% ;
+    }
+}

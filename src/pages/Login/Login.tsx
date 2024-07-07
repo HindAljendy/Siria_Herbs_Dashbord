@@ -27,7 +27,7 @@ const Login = () => {
 
       localStorage.setItem("token", response.data.token);
 
-      // navigate("/");
+      navigate("/");
     } catch (error) {
       console.error("Error during login:", error);
       setError("Login failed. Please check your username and password.");
