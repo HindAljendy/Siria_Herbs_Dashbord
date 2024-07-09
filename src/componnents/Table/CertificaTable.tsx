@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './Table.css';
 import delet from "../../assets/images/button_icon/delete.svg";
 import edite from "../../assets/images/button_icon/edite.svg";
-// import switch_on from './../../assets/images/button_icon/Switche_on.svg';
-// import switch_off from './../../assets/images/button_icon/switch_OFF.svg';
 import { TableProps } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
