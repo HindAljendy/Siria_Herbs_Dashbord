@@ -3,6 +3,8 @@ import './AddBrand.css';
 import axios from 'axios';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
+import SaveButton from '../Buttons/SaveButton';
+import BigNavigationLinks_Brands from '../../BigNavigationLinks/BigNavigationLinks_Brands';
 
 const AddBrand: React.FC = () => {
 
@@ -54,8 +56,8 @@ const AddBrand: React.FC = () => {
       .catch(error => {
         console.error('There was an error creating the brand!', error);
       });
-      
-      navigate('/brands');
+
+    navigate('/brands');
   };
 
   const [backgroundImageName, setBackgroundImageName] = useState<string>('لم يتم اختيار صورة');
@@ -131,103 +133,114 @@ const AddBrand: React.FC = () => {
   };
 
   return (
-    <form className='form' onSubmit={handleSubmit}>
-      <div className='form-header'>إضافة ماركة الى النظام</div>
+    <>
+      <BigNavigationLinks_Brands
+        navigateMain=' أضافة ماركة'
+        navigateLinkMain='الواجهة الرئيسية'
+        navigateLinkSubmain=' الماركات'
+        navigateSubmain='اضافة '
 
-      <div className='input'>
-        <label htmlFor="name">الاسم </label>
-        <input type="text"
-          name="name"
-          id="name"
-          value={formData.name}
-          onChange={handleChange}
-        />
-      </div>
+      />
 
-      <div className=" input">
-        <label htmlFor="name" className="HJ_FontColor_gray"> صورة الخلفية</label>
-        <div className="file-upload-wrapper">
-          <button className="choose-file-btn" onClick={triggerBackgroundImageInput}>
-            <span>اختر ملف</span>
-          </button>
-          <div className="file-name">{backgroundImageName}</div>
-          <input
-            type="file"
-            id="backgroundImageInput"
-            onChange={handleBackgroundImageChange} // Ensure handleFileChange is used here
-            style={{ display: "none" }}
+      <form className='form HJ_form_padding HJ_Margin_Add' onSubmit={handleSubmit}>
+        <div className='form-header HJ_FontColor_black  HJ_margin_27'>إضافة ماركة الى النظام</div>
+
+        <div className='input'>
+          <label htmlFor="name">الاسم </label>
+          <input type="text"
+            name="name"
+            id="name"
+            value={formData.name}
+            onChange={handleChange}
           />
-          <span className="icon">
-            <FaRegTrashCan />
-          </span>
         </div>
-      </div>
 
-      <div className='input'>
-        <label htmlFor="description" className="HJ_FontColor_gray">الوصف </label>
-        <textarea name="description" id="description" className='MA_TextArea' value={formData.description} onChange={handleChange}></textarea>
-      </div>
+        <div className=" input">
+          <label htmlFor="name" className="HJ_FontColor_gray"> صورة الخلفية</label>
+          <div className="file-upload-wrapper">
+            <button className="choose-file-btn" onClick={triggerBackgroundImageInput}>
+              <span>اختر ملف</span>
+            </button>
+            <div className="file-name">{backgroundImageName}</div>
+            <input
+              type="file"
+              id="backgroundImageInput"
+              onChange={handleBackgroundImageChange} // Ensure handleFileChange is used here
+              style={{ display: "none" }}
+            />
+            <span className="icon">
+              <FaRegTrashCan />
+            </span>
+          </div>
+        </div>
 
-      <div className=" input">
-        <label htmlFor="name" className="HJ_FontColor_gray"> صورة رئيسية</label>
-        <div className="file-upload-wrapper">
-          <button className="choose-file-btn" onClick={triggerMainImageInput}>
-            <span>اختر ملف</span>
-          </button>
-          <div className="file-name">{mainImageName}</div>
-          <input
-            type="file"
-            id="mainImageInput"
-            onChange={handleMainImageChange} // Ensure handleFileChange is used here
-            style={{ display: "none" }}
+        <div className='input'>
+          <label htmlFor="description" className="HJ_FontColor_gray">الوصف </label>
+          <textarea name="description" id="description" className='MA_TextArea' value={formData.description} onChange={handleChange}></textarea>
+        </div>
+
+        <div className=" input">
+          <label htmlFor="name" className="HJ_FontColor_gray"> صورة رئيسية</label>
+          <div className="file-upload-wrapper">
+            <button className="choose-file-btn" onClick={triggerMainImageInput}>
+              <span>اختر ملف</span>
+            </button>
+            <div className="file-name">{mainImageName}</div>
+            <input
+              type="file"
+              id="mainImageInput"
+              onChange={handleMainImageChange} // Ensure handleFileChange is used here
+              style={{ display: "none" }}
+            />
+            <span className="icon">
+              <FaRegTrashCan />
+            </span>
+          </div>
+        </div>
+
+        <div className=" input">
+          <label htmlFor="name" className="HJ_FontColor_gray"> صورة صفحة العرض</label>
+          <div className="file-upload-wrapper">
+            <button className="choose-file-btn" onClick={triggerPresentationImageInput}>
+              <span>اختر ملف</span>
+            </button>
+            <div className="file-name">{presentationImageName}</div>
+            <input
+              type="file"
+              id="presentationImageInput"
+              onChange={handlePresentationImageChange} // Ensure handleFileChange is used here
+              style={{ display: "none" }}
+            />
+            <span className="icon">
+              <FaRegTrashCan />
+            </span>
+          </div>
+        </div>
+
+        <div className='input'>
+          <label htmlFor="color">اللون </label>
+          <input type='color'
+            name="color"
+            id="color"
+            value={formData.color}
+            onChange={handleChange}
           />
-          <span className="icon">
-            <FaRegTrashCan />
-          </span>
         </div>
-      </div>
 
-      <div className=" input">
-        <label htmlFor="name" className="HJ_FontColor_gray"> صورة صفحة العرض</label>
-        <div className="file-upload-wrapper">
-          <button className="choose-file-btn" onClick={triggerPresentationImageInput}>
-            <span>اختر ملف</span>
-          </button>
-          <div className="file-name">{presentationImageName}</div>
-          <input
-            type="file"
-            id="presentationImageInput"
-            onChange={handlePresentationImageChange} // Ensure handleFileChange is used here
-            style={{ display: "none" }}
-          />
-          <span className="icon">
-            <FaRegTrashCan />
-          </span>
+        <div className="input">
+          <div className='checkbox'>
+            <input type="checkbox" name="published" id="published" checked={formData.published} onChange={handleChange} />
+            <label htmlFor="published" className='HJ_label'> نشر</label>
+          </div>
         </div>
-      </div>
 
-      <div className='input'>
-        <label htmlFor="color">اللون </label>
-        <input type='color'
-          name="color"
-          id="color"
-          value={formData.color}
-          onChange={handleChange}
-        />
-      </div>
 
-      <div className="input">
-        <div className='checkbox'>
-          <input type="checkbox" name="published" id="published" checked={formData.published} onChange={handleChange} />
-          <label htmlFor="published" className='HJ_label'> نشر</label>
+        <div className='HJ_container_Button'>
+          <SaveButton/>
         </div>
-      </div>
+      </form>
+    </>
 
-
-      <div className="MA_container_Button">
-        <button type="submit">حفظ</button>
-      </div>
-    </form>
   );
 };
 

@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import axios from "axios";
-import SaveButton from "../Buttons/SaveButton";
 import { FaRegTrashCan } from "react-icons/fa6";
 import './AboutUsForm.css'
 
@@ -93,8 +92,8 @@ export default function AboutUsForm() {
     };
 
     return (
-        <form className='MA-About-form form' onSubmit={handleSubmit}>
-            <div className='MA-form-header'>عنا</div>
+        <form className='form MA_form_padding' onSubmit={handleSubmit}>
+            <div className='form-header HJ_FontColor_black MA_margin'>عنا</div>
             <div className='input'>
                 <label htmlFor="title">العنوان</label>
                 <input type="text"
@@ -127,9 +126,9 @@ export default function AboutUsForm() {
                     </span>
                 </div>
             </div>
-            <div className='MA_container_Button'>
-                <SaveButton />
-            </div>
+
+            <div className="YS-left HJ_MarginTop"><button className='YS-save-boutton' type='submit'>حفظ</button></div>
+
         </form>
     );
 }

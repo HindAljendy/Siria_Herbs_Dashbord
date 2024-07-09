@@ -8,7 +8,6 @@
     position: absolute;
     top: 50%;
     left: 50%;
-  
     transform: translate(-50%,-50%);
 }
 .erropage h1{
@@ -20,8 +19,7 @@
     color: var(--red-color);
     font-weight: bold;
 }
-.erropage p{
-    
+.erropage p{ 
     font-size: 25px;
     color: var(--blue-color);
     font-family: var(--Mulish-family);

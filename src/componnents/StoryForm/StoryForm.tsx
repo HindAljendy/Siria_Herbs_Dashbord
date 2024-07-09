@@ -131,7 +131,7 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
             onChange={handleChange}
           />
         </div>
-        <div className="YS-left"><button className='YS-save-boutton' type='submit'>حفظ</button></div>
+        <div className="YS-left HJ_MarginTop"><button className='YS-save-boutton' type='submit'>حفظ</button></div>
       </form >
     </>
   )

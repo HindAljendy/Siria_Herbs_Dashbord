@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
 import './PageHeaderForm.css'
-import SaveButton from '../Buttons/SaveButton';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import axios from 'axios';
 
@@ -72,33 +71,33 @@ const PageHeaderForm: FC<Props> = ({ heroId }) => {
 
     return (
         <>
+
             <form className="form MA_form_padding" onSubmit={handleSubmit}>
                 <div className="form-header HJ_FontColor_black MA_margin">رأس الصفحة</div>
                 <div className=" input">
-                        <label htmlFor="name" className="HJ_FontColor_gray"> صورة رأس الصفحة</label>
-                        <div className="file-upload-wrapper">
-                            <button className="choose-file-btn" onClick={triggerFileInput}>
-                                <span>اختر ملف</span>
-                            </button>
-                            <div className="file-name">{fileName}</div>
-                            <input
-                                type="file"
-                                id="imageFileInput"
-                                onChange={handleFileChange} // Ensure handleFileChange is used here
-                                style={{ display: "none" }}
-                            />
-                            <span className="icon">
-                                <FaRegTrashCan />
-                            </span>
-                        </div>
+                    <label htmlFor="name" className="HJ_FontColor_gray"> صورة رأس الصفحة</label>
+                    <div className="file-upload-wrapper">
+                        <button className="choose-file-btn" onClick={triggerFileInput}>
+                            <span>اختر ملف</span>
+                        </button>
+                        <div className="file-name">{fileName}</div>
+                        <input
+                            type="file"
+                            id="imageFileInput"
+                            onChange={handleFileChange} // Ensure handleFileChange is used here
+                            style={{ display: "none" }}
+                        />
+                        <span className="icon">
+                            <FaRegTrashCan />
+                        </span>
+                    </div>
                 </div>
                 <div className='input'>
                     <label htmlFor="title" className="HJ_FontColor_gray"> العنوان</label>
                     <textarea name="title" id="title" className='MA_TextArea' value={title} onChange={handleChange} ></textarea>
                 </div>
-                <div className='MA_container_Button'>
-                    <SaveButton />
-                </div>
+        
+                <div className="YS-left HJ_MarginTop"><button className='YS-save-boutton' type='submit'>حفظ</button></div>
 
             </form>
         </>

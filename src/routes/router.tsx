@@ -6,23 +6,24 @@ import Brands from "../pages/Brands/Brands";
 import Products from "../pages/Products/Products";
 import Category from "../pages/Category/Category";
 import Information from "../pages/Information/Information";
-import App from "../App";
 import Contacts from "../pages/Contacts/Contacts";
 import Settings from "../pages/Settings/Settings";
 import AddCategory from "../componnents/AddCategory/AddCategory";
 import SettingHome from "../componnents/SettingHome/SettingHome";
-import SettingsAbout from "../componnents/SettingAbout/SettingsAbout";
 import Certificates from "../componnents/Certificates/Certificates";
 import PrivacyPolicy from "../componnents/PrivacyPolicy/PrivacyPolicy";
-import SystemSettings from "../componnents/SystemSettings/SystemSettings";
-import PagesSettings from "../componnents/PagesSettings/PagesSettings";
 import ContactMessages from "../pages/Contact Messages/ContactMessages";
 import ProductAdd from "../componnents/ProductAdd/ProductAdd";
 import AddBrand from "../componnents/Form/AddBrand/AddBrand";
-import UpdateCategory from "../componnents/Category/updateCategory/updateCategory";
 import Login from "../pages/Login/Login";
 import MainLayout from "../pages/MainLayout/MainLayout";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import SettingsAbout from "../componnents/SettingAbout/SettingsAbout";
+
+
+type ProtectedRouteProps = {
+  children: React.ReactNode;
+}
 
 // Assume this function checks if the user is authenticated
 const isAuthenticated = () => {
@@ -30,12 +31,13 @@ const isAuthenticated = () => {
   return localStorage.getItem("token") !== null;
 };
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   if (!isAuthenticated()) {
     return <Navigate to="/login" replace />;
   }
   return children;
 };
+
 
 export const router = createBrowserRouter([
   {
@@ -128,7 +130,7 @@ export const router = createBrowserRouter([
         )
       },
       {
-        path: "settings",
+        path: "settings/system_settings",
         element: (
           <ProtectedRoute>
             <Settings />
@@ -152,20 +154,13 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/settings/system_settings",
-        element: (
-          <ProtectedRoute>
-            <SystemSettings />
-          </ProtectedRoute>
-        ),
-      },
-      {
-        path: "/settings/pages_settings",
+        path: "/settings/pages_settings/home",
         element: (
           <ProtectedRoute>
             <SettingHome />
           </ProtectedRoute>
         ),
+  
       },
       {
         path: "/settings/pages_settings/about",
@@ -174,6 +169,7 @@ export const router = createBrowserRouter([
             <SettingsAbout />
           </ProtectedRoute>
         ),
+  
       },
       {
         path:'/info',

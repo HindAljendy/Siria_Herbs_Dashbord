@@ -1,7 +1,6 @@
 .table-container {
     background: var(--absolute-white);
     width: 90.83% !important;
-    margin-right: 36px;
     border-radius: 4px;
     font-family: var(--almarai-family);
 
@@ -44,7 +43,8 @@
     background: var(--blue-color);
     border: none;
     cursor: pointer;
-    padding: 0.8% 1.6%  0.8%   1.7%;
+    /* padding: 0.8% 1.6%  0.8%   1.7%; */
+    padding: 15px 32px 15px 33px;
   }
   
   .NA_table {

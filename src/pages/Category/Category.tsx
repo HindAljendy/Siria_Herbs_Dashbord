@@ -8,13 +8,13 @@ import CategoryTable from '../../componnents/Category/CategoryTable/CategoryTabl
 const Category = () => {
   return (
     <>
-    <NavigationLinks
-          navigateMain='أضف فئة'
-          navigateLink='الواجهة الرئيسية' navigateSubmain='الفئات' 
-        />
-      {/* <ProductsOperationsSection /> */}
-      <Outlet/>
-      <CategoryTable title={'الفئات'} buttonLabel={'اضف فئة'} columns={['الاسم', 'العلامات التجارية', 'عدد المنتجات', 'تم النشر', 'الإجراءات']} data={[]}/>
+      <NavigationLinks
+        navigateMain='الفئات'
+        navigateLink='الواجهة الرئيسية' navigateSubmain='الفئات'
+      />
+
+      <Outlet />
+      <CategoryTable title={'الفئات'} buttonLabel={'اضف فئة'} columns={['الاسم', 'العلامات التجارية', 'عدد المنتجات', 'تم النشر', 'الإجراءات']} data={[]} />
     </>
   )
 }

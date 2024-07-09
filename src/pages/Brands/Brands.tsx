@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Table from '../../componnents/Table-Brand/TableBrand';
+import NavigationLinks from '../../componnents/NavigationLinks/NavigationLinks';
 
 interface Brand {
   id: number;
@@ -33,8 +34,13 @@ const Brands = () => {
 
   return (
     <div>
+      <NavigationLinks
+        navigateMain='الماركات'
+        navigateLink='الواجهة الرئيسية' navigateSubmain='العلامة التجارية'
+      />
+
       <Table 
-        title="العلامات التجارية"
+        title="العلامة التجارية"
         buttonLabel="اضافة ماركة"
         columns={columns}
         data={brands}

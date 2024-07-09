@@ -5,6 +5,7 @@ import './CategoryForm.css';
 import Accordion from 'react-bootstrap/Accordion';
 import axios from 'axios';
 import check from '../../assets/images/button_icon/check.svg'
+import BigNavigationLinks_Categories from '../BigNavigationLinks/BigNavigationLinks_Categories';
 
 export default function CategoryForm() {
   const [name, setName] = useState('');
@@ -19,8 +20,8 @@ export default function CategoryForm() {
     published?: boolean;
     brands_name: string[];
     products_count: number;
-}
-type TData = Array<TDataitem>;
+  }
+  type TData = Array<TDataitem>;
 
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
@@ -51,13 +52,13 @@ type TData = Array<TDataitem>;
       alert('فشلت العملية، يرجى المحاولة مرة أخرى.');
     }
   };
-///////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////
   useEffect(() => {
     axios.get("http://127.0.0.1:8000/api/categorys").then((res) => setData(res.data.data)
     ).catch((error) => console.log(error))
-  },[]);
+  }, []);
 
-///////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////
   useEffect(() => {
     setDisplayText(selectedOptions.join(', '));
   }, [selectedOptions]);
@@ -72,10 +73,17 @@ type TData = Array<TDataitem>;
 
   return (
     <>
-      <form className="MA_form" onSubmit={handleSubmit}>
-        <div className="form-header">إضافة فئة إلى النظام</div>
+      <BigNavigationLinks_Categories
+        navigateMain='  أضف فئة'
+        navigateLinkMain='الواجهة الرئيسية'
+        navigateLinkSubmain=' الفئات'
+        navigateSubmain='اضافة '
+
+      />
+      <form className="MA_form HJ_form_padding HJ_Margin_Add" onSubmit={handleSubmit}>
+        <div className="form-header ">إضافة فئة إلى النظام</div>
         <div className="input">
-          <label htmlFor="name">الاسم :</label>
+          <label htmlFor="name">الاسم </label>
           <input
             type="text"
             id="name"
@@ -101,22 +109,22 @@ type TData = Array<TDataitem>;
         </div>
 
         <div>
-          <label htmlFor="name" style={{marginBottom:'10px'}}>الماركة</label>
+          <label htmlFor="name" style={{ marginBottom: '10px' }}>الماركة</label>
           <Accordion className="accordion">
-              <Accordion.Item eventKey='0'>
-                <Accordion.Header>اختار الماركة</Accordion.Header>
-                <Accordion.Body>
-                  <div className="MA_checkbox">
-                    <div>
-                      <textarea
-                        readOnly
-                        value={displayText}
-                        className="textarea"
-                        placeholder="البحث عن الماركات بالاسم"
-                      ></textarea>
-                    </div>
+            <Accordion.Item eventKey='0'>
+              <Accordion.Header >اختار الماركة</Accordion.Header>
+              <Accordion.Body>
+                <div className="MA_checkbox">
+                  <div>
+                    <textarea
+                      readOnly
+                      value={displayText}
+                      className="textarea"
+                      placeholder="البحث عن الماركات بالاسم"
+                    ></textarea>
+                  </div>
 
-                    {data?.map((row: TDataitem) => (
+                  {data?.map((row: TDataitem) => (
                     <div className="box">
                       <h2 style={{ fontWeight: 400, fontSize: '1rem' }}>اختار الماركات</h2>
                       {row.brands_name.map((brand: string) => (
@@ -130,25 +138,33 @@ type TData = Array<TDataitem>;
                         </label>
                       ))}
                     </div>
-                    ))}
-                  </div>
-                </Accordion.Body>
-               
-              </Accordion.Item>
-          
+                  ))}
+                </div>
+              </Accordion.Body>
+
+            </Accordion.Item>
+
           </Accordion>
           <ul>
-          {selectedOptions.map((option, index) => (
-            <li key={index}> <img src={check} alt="check" style={{marginLeft:'0.9rem',width:'1.25rem'}}/>   
-              {option}
-              
-          </li>
-          ))}
-         </ul>
+            {selectedOptions.map((option, index) => (
+              <li key={index}> <img src={check} alt="check" style={{ marginLeft: '0.9rem', width: '1.25rem' }} />
+                {option}
+
+              </li>
+            ))}
+          </ul>
         </div>
-        <button type="submit" className="submit_button">
-          حفظ
-        </button>
+
+        <div className='MA_Button_Space'>
+          <button type="submit" className="submit_button">
+            حفظ
+          </button>
+
+        </div>
+
+
+
+
       </form>
     </>
   );
