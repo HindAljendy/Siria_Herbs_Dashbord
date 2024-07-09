@@ -2,8 +2,19 @@ import React from 'react'
 import './Delete_Popup.css'
 import IMG_allert from './../../assets/images/pop_up/Vector.svg'
 
+type TPopup = {
+    isPopupVisible: boolean;
+    setIsPopupVisible(value: boolean): void;
+    setDeleteBrand(value: boolean): void;
+}
+const Delete_Popup: React.FC<TPopup> = ({ isPopupVisible, setIsPopupVisible, setDeleteBrand }) => {
+    const handelExiteButton = () => {
+        setIsPopupVisible(!isPopupVisible);
+    }
+    const handelDoneButton = () => {
+        setDeleteBrand(true);
+    }
 
-const Delete_Popup = () => {
     return (
         <div className='MA_Delete_Popup'>
             <div className="MA_box">
@@ -15,8 +26,8 @@ const Delete_Popup = () => {
                 </div>
 
                 <div className="MA_btns">
-                    <button className='MA_btn MA_gray'>الغاء</button>
-                    <button className='MA_btn MA_red'>تم</button>
+                    <button className='MA_btn MA_gray' onClick={handelExiteButton}>الغاء</button>
+                    <button className='MA_btn MA_red' onClick={handelDoneButton}>تم</button>
                 </div>
             </div>
         </div>

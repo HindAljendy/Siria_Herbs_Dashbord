@@ -12,6 +12,7 @@ interface Brand {
 
 const Brands = () => {
   const [brands, setBrands] = useState<Brand[]>([]);
+  const [update, setUpdate] = useState<boolean>(false)
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/brands')
@@ -27,7 +28,7 @@ const Brands = () => {
       .catch(error => {
         console.error('There was an error fetching the brands!', error);
       });
-  }, []);
+  }, [update]);
 
   const columns = ['الاسم', 'صورة المنتج', 'عدد المنتجات', 'Published', 'الاجراءات'];
 
@@ -38,6 +39,8 @@ const Brands = () => {
         buttonLabel="اضافة ماركة"
         columns={columns}
         data={brands}
+        update={update}
+        setUpdate={setUpdate}
       />
     </div>
   );

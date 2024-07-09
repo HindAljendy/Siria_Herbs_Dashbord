@@ -23,6 +23,7 @@ import UpdateCategory from "../componnents/Category/updateCategory/updateCategor
 import Login from "../pages/Login/Login";
 import MainLayout from "../pages/MainLayout/MainLayout";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Certifica from "../componnents/Form/CertificaForm/Certifica";
 
 // Assume this function checks if the user is authenticated
 const isAuthenticated = () => {
@@ -64,6 +65,14 @@ export const router = createBrowserRouter([
       },
       {
         path: "brands/addBrand",
+        element: (
+          <ProtectedRoute>
+            <AddBrand />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "brands/update/:id",
         element: (
           <ProtectedRoute>
             <AddBrand />
@@ -140,6 +149,22 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <Certificates />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/settings/certificates/add",
+        element: (
+          <ProtectedRoute>
+            <Certifica />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/settings/certificates/update/:itemId",
+        element: (
+          <ProtectedRoute>
+            <Certifica />
           </ProtectedRoute>
         ),
       },

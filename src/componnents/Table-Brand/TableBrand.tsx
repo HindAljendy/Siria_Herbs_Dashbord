@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './TableBrand.css';
 import delet from "../../assets/images/button_icon/delete.svg";
 import edite from "../../assets/images/button_icon/edite.svg";
@@ -9,22 +9,43 @@ import { TableProps } from '../../types/types';
 import Delete_Popup from '../Delete_Popup/Delete_Popup';
 import axios from 'axios';
 
-const Table: React.FC<TableProps> = ({ title, buttonLabel, columns, data }) => {
+type Tbrand = {
+    update: boolean;
+    setUpdate(value: boolean): void;
+}
+
+const Table: React.FC<TableProps & Tbrand> = ({ title, buttonLabel, columns, data, update, setUpdate }) => {
     // const [tableData, setTableData] = useState(data);
     const [isPopupVisible, setIsPopupVisible] = useState(false);
+    const [deleteBrand, setDeleteBrand] = useState(false);
+    const [brandId, setBrandId] = useState<number>();
+
+
+    const navigate = useNavigate();
 
 
     const handleDeleteClick = (id: number) => {
         setIsPopupVisible(true);
-
-        axios.delete(`http://127.0.0.1:8000/api/brands/${id}`)
-            .then(response => {
-                console.log('Brand deleted successfully:', response.data);
-            })
-            .catch(error => {
-                console.error(' error delete the brand!', error);
-            });
+        setBrandId(id);
     };
+
+    useEffect(() => {
+        if (deleteBrand) {
+            axios.delete(`http://127.0.0.1:8000/api/brands/${brandId}/delete`)
+                .then(response => {
+                    console.log('Brand deleted successfully:', response.data);
+                })
+                .then(() => setUpdate(!update))
+                .catch(error => {
+                    console.error(' error delete the brand!', error);
+                });
+        }
+
+    }, [deleteBrand]);
+
+    const handelEditeClick = (id: number) => {
+        navigate(`update/${id}`)
+    }
 
     const handleClosePopup = () => {
         setIsPopupVisible(false);
@@ -60,7 +81,7 @@ const Table: React.FC<TableProps> = ({ title, buttonLabel, columns, data }) => {
                             <td>
                                 <div className="IB_display">
                                     <div className="ne-edit-icon">
-                                        <img src={edite} alt="edit icon" />
+                                        <img src={edite} alt="edit icon" onClick={() => handelEditeClick(row.id)} />
                                     </div>
                                     <div className="ne-delete-icon" onClick={() => handleDeleteClick(row.id)}>
                                         <img src={delet} alt="delete icon" />
@@ -74,7 +95,7 @@ const Table: React.FC<TableProps> = ({ title, buttonLabel, columns, data }) => {
 
             {isPopupVisible && (
                 <div onClick={handleClosePopup}>
-                    <Delete_Popup />
+                    <Delete_Popup setIsPopupVisible={setIsPopupVisible} isPopupVisible={isPopupVisible} setDeleteBrand={setDeleteBrand} />
                 </div>
             )}
         </div>
