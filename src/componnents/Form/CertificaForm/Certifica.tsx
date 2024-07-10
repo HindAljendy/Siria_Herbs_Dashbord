@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SaveButton from "../Buttons/SaveButton";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FaRegTrashCan } from "react-icons/fa6";
 
 type TCertificate = {
@@ -13,6 +13,8 @@ type TCertificate = {
 }
 
 export default function Certifica() {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState<TCertificate>({
         icon: null,
         name: "",
@@ -20,14 +22,17 @@ export default function Certifica() {
         photo: null,
         description: "",
     });
-    const [certeivcateId, setCerteivcateId] = useState<string>('');
     const { itemId } = useParams<{ itemId: string }>();
 
     useEffect(() => {
         if (itemId) {
-            setCerteivcateId(itemId);
-            axios.get(`http://127.0.0.1:8000/api/certification/${certeivcateId}`)
+            axios.get(`http://127.0.0.1:8000/api/certification/${itemId}`)
                 .then((response) => setFormData(response.data.data))
+                .then(()=>       setFormData(prevState => ({
+                    ...prevState,
+                    icon: null,
+                    photo: null,
+                })))
                 .then(() => console.table(formData));
         }
     }, [itemId]);
@@ -46,11 +51,11 @@ export default function Certifica() {
                 formDataToSend.append('photo', formData.photo);
             }
 
-            if (certeivcateId) {
+            if (itemId) {
                 formDataToSend.append('_method', 'PUT')
                 const response = await axios.post(
-                    `http://127.0.0.1:8000/api/certification/${certeivcateId}/update`,
-                    formData, {
+                    `http://127.0.0.1:8000/api/certification/${itemId}/update`,
+                    formDataToSend, {
                     headers: {
                         // 'Authorization': 'Bearer <token>',
                         'Content-Type': 'multipart/form-data'
@@ -62,7 +67,7 @@ export default function Certifica() {
             } else {
                 const response = await axios.post(
                     `http://127.0.0.1:8000/api/certification-create`,
-                    formData, {
+                    formDataToSend, {
                     headers: {
                         // 'Authorization': 'Bearer <token>',
                         'Content-Type': 'multipart/form-data'
@@ -76,6 +81,7 @@ export default function Certifica() {
             console.error("Error sending data:", error);
             // Handle error (e.g., show an error message)
         }
+     navigate('/settings/certificates')
 
     };
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -138,7 +144,7 @@ export default function Certifica() {
 
     return (
         <form className='form' onSubmit={handleSubmit}>
-            <div className='form-header'>{certeivcateId ? 'تعديل شهادة' : 'اضافة شهادة'}</div>
+            <div className='form-header'>{itemId ? 'تعديل شهادة' : 'اضافة شهادة'}</div>
 
             <div className=" input">
                 <label htmlFor="name" className="HJ_FontColor_gray"> الأيقونة</label>

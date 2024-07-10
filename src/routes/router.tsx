@@ -25,6 +25,7 @@ type ProtectedRouteProps = {
   children: React.ReactNode;
 }
 
+
 // Assume this function checks if the user is authenticated
 const isAuthenticated = () => {
   // Implement your authentication check logic here
@@ -66,6 +67,14 @@ export const router = createBrowserRouter([
       },
       {
         path: "brands/addBrand",
+        element: (
+          <ProtectedRoute>
+            <AddBrand />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "brands/update/:id",
         element: (
           <ProtectedRoute>
             <AddBrand />
@@ -142,6 +151,22 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <Certificates />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/settings/certificates/add",
+        element: (
+          <ProtectedRoute>
+            <Certifica />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/settings/certificates/update/:itemId",
+        element: (
+          <ProtectedRoute>
+            <Certifica />
           </ProtectedRoute>
         ),
       },
