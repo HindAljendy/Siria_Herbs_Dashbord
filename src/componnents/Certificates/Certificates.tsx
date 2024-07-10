@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import CertificaTable from '../Table/CertificaTable'
 import axios from 'axios'
+import NavigationLinks from '../NavigationLinks/NavigationLinks'
 
 type TCertificate = {
   id: number
@@ -26,6 +27,10 @@ const Certificates = () => {
   // console.log(certifications)
   return (
     <>
+    <NavigationLinks
+        navigateMain='الشهادات'
+        navigateLink='الواجهة الرئيسية' navigateSubmain=' الاعدادات'
+      />
       <CertificaTable title="الشهادات" buttonLabel="إضافة شهادة" columns={["الايقونة", "الاسم", "الاسم الفرعي", "الصورة", "الوصف", "الإجرائات"]}
         data={ certifications} update={update} setUpdate={setUpdate}
       />

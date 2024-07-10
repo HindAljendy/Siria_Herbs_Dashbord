@@ -3,3 +3,10 @@
     display: flex;
     justify-content: end ;
 }
+.HJ_Words{
+    font-family: var(--almarai-family);
+    font-size:16px;
+    font-weight: 400px;
+    line-height: 16px;
+    color: rgba(99, 99, 99, 0.5);
+}

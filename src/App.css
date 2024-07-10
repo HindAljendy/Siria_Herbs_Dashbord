@@ -6,9 +6,7 @@
     -webkit-writing-mode: horizontal-tb;
     -ms-writing-mode: horizontal-tb;
 }
-body{
-    background-color: var( --bg-container);
-}
+
 .HJ_container{
     position: relative;
 

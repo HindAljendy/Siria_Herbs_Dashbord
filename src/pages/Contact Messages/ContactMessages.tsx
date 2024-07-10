@@ -54,19 +54,19 @@ const ContactMessages = () => {
   }, [])
   return (
     <>
-    
-        <NavigationLinks navigateMain='رسائل جهات الاتصال'
-        navigateLink='الواجهات الرئيسية'
-        navigateSubmain='رسائل جهات الاتصال'/>
-     
-        <Messages
-        
-         columns={columns}
-         data={messages}
-         buttons={buttons} />
-         {showedMessage &&<ShowMessage message={messageToshow} closeMessage={()=>setShowedMessage(false)}/>
-}   
- </>
+
+      <NavigationLinks navigateMain='رسائل جهات الاتصال'
+        navigateLink='الواجهة الرئيسية'
+        navigateSubmain='رسائل جهات الاتصال' />
+
+      <Messages
+
+        columns={columns}
+        data={messages}
+        buttons={buttons} />
+      {showedMessage && <ShowMessage message={messageToshow} closeMessage={() => setShowedMessage(false)} />
+      }
+    </>
   )
 }
 

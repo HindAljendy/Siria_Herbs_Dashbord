@@ -5,13 +5,9 @@ import axios from "axios";
 
 interface Policy {
   id?: number;
-
-  policy_number: number;
-
+  policy_number: string;
   title: string;
-
   description: string;
-
   icon: string;
 }
 
@@ -19,12 +15,12 @@ const Policy = () => {
   const [policies, setPolicies] = useState<Policy[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [newPolicy, setNewPolicy] = useState<Policy>({
-    policy_number: 0,
+    policy_number: "",
     title: "",
     description: "",
     icon: "",
   });
-  const [showadd,SetShowAdd] = useState(true);
+  const [showadd, SetShowAdd] = useState(true);
 
   useEffect(() => {
     axios
@@ -154,7 +150,7 @@ const Policy = () => {
               <span>-</span>حذف السياسة
             </h1>
           </div>
-          <form action="">
+          <form action="" >
             <div className="ne-form-group">
               <div className="ne-input-group">
                 <label
@@ -211,7 +207,7 @@ const Policy = () => {
                       type="text"
                       placeholder="اسم الملف"
                       id={`file-input_${index}`}
-                      //   value={policy.icon}
+                    //   value={policy.icon}
                     />
 
                     <div className=" ne-img-icon">
@@ -287,10 +283,10 @@ const Policy = () => {
       ))}
       {showadd && (
         <div className="ne-add-policy" onClick={handleAddPolicy}>
-        <h1>
-          <span>+</span>اضافة سياسة جديدة
-        </h1>
-      </div>
+          <h1>
+            <span>+</span>اضافة سياسة جديدة
+          </h1>
+        </div>
       )}
       {showModal && (
         <div className="ne-policy">
@@ -318,7 +314,9 @@ const Policy = () => {
                 />
               </div>
               <div className="ne-input-group-icon">
-                <h2 className="ne-policy-label">ايقونة السياسة</h2>
+                <label htmlFor="policy_number" className="ne-policy-label">
+                  ايقونة السياسة
+                </label>
                 <div className="ne-icon-container">
                   <label htmlFor="file-input" className="button ne-choose_file">
                     <span>اختار ملف</span>
@@ -344,7 +342,7 @@ const Policy = () => {
                       type="text"
                       placeholder="اسم الملف"
                       id="file-input"
-                      // value={newPolicy.icon}
+                    // value={newPolicy.icon}
                     />
 
                     <div className=" ne-img-icon">
@@ -387,9 +385,13 @@ const Policy = () => {
                 }
               ></textarea>
             </div>
-            <button className="ne-save-btn" type="submit">
-              حفظ
-            </button>
+
+            <div className="HJ_Btn_save">
+              <button className="ne-save-btn" type="submit">
+                حفظ
+              </button>
+            </div>
+
           </form>
         </div>
       )}

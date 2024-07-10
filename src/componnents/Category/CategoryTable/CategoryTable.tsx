@@ -53,7 +53,7 @@ const CategoryTable: React.FC<TableProps> = ({ title, buttonLabel, columns }) =>
             <div className="table-header">
                 <h2>{title}</h2>
                 <button className='NA_button_Name' onClick={handleClick}>
-                    <img src={plus} alt="" style={{ margin: '10px' }} />   {buttonLabel}
+                    <img src={plus} alt="ADD"  style={{ marginLeft: '10px' }} /> {buttonLabel}
                 </button>
 
             </div>
