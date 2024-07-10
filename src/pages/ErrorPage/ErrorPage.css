@@ -24,3 +24,9 @@
     color: var(--blue-color);
     font-family: var(--Mulish-family);
 }
+
+.HJ_content_Error{
+    width: 100vw;
+    height: 100vh;
+    background-color: aliceblue;
+}

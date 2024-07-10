@@ -34,7 +34,8 @@ const Delete_Popup: React.FC<DeleteProps> = ({ onCancel, onDeleteConfirm }) => {
                         <button className='MA_btn MA_red' onClick={handleFunctions}>تم</button>
                     </div>
                 </div>
-            </div></div>
+            </div>
+        </div>
 
     )
 }

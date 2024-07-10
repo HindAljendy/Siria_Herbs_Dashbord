@@ -64,7 +64,7 @@
 
 .NA_table .NA_Name_row {
   font-family: var(--almarai-family);
-  font-size: 1.25rem /* 20px */;
+  font-size: 16px;
   font-weight: var(--normal-weight);
   line-height: 40px;
   letter-spacing: -0.02em;

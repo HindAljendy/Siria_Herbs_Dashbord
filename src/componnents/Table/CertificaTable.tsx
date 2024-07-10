@@ -49,7 +49,7 @@ const CertificaTable: React.FC<TableProps & TCertificate> = ({ title, buttonLabe
     };
 
     return (
-        <div className="table-container">
+        <div className="table-container HJ_Margin_Add">
             <div className="table-header">
                 <h2>{title}</h2>
                 <button onClick={handelCreateAction} className='NA_button_Name'>
@@ -73,7 +73,7 @@ const CertificaTable: React.FC<TableProps & TCertificate> = ({ title, buttonLabe
                             <td className='NA_Name_row'>{row.name}</td>
                             <td className='NA_Name_row'>{row.subname}</td>
                             <td><img src={row.photo} alt={`photo ${row.name}`} className="NA_product-image" /></td>
-                            <td className='NA_Name_row'>{row.description}</td>
+                            <td className='NA_Name_row'>{row.description.slice(0, 40)}...</td>
                             <td>
                                 <div className="ne-action NA_display">
                                     <div className="ne-edit-icon ">
