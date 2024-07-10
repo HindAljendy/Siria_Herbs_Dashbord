@@ -1,9 +1,15 @@
 import "./ProductBox.css";
-import React from 'react';
+import React, { useState } from 'react';
 import dublicate from "../../assets/images/button_icon/dublicate.svg";
 import delet from "../../assets/images/button_icon/delete.svg";
 import edite from "../../assets/images/button_icon/edite.svg";
 import { ProductBoxProps } from "../../types/types";
+import Delete_Popup from "../Form_Componnents_Products/Popup_Products/Delete_Popup";
+import { Link, useParams } from "react-router-dom";
+
+
+
+
 
 
 const ProductBox: React.FC<ProductBoxProps> = ({
@@ -14,13 +20,32 @@ const ProductBox: React.FC<ProductBoxProps> = ({
   brandName,
   productNum,
   weight,
-  encapsolation,
+  packaging,
   numInPackage,
+  onDelete,
+  onDuplicate,
+
 }) => {
+
+ /*  const { productId } = useParams(); */
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+
+  };
+
+
+
   return (
-    <div className="ne-product-box ">
+    <> <div className="ne-product-box ">
       <div className="ne-box-text">
-        <img src={img} alt="product Img" className="ne-product-img" />
+        <img src={img?.toString()} alt="product Img" className="ne-product-img" />
         <p className="ne-title-1"> {title_1} </p>
         <p className="ne-title-2"> {title_2} </p>
         <p className="ne-title-3">{title_3}</p>
@@ -37,7 +62,7 @@ const ProductBox: React.FC<ProductBoxProps> = ({
             الوزن : <span>{weight} </span>
           </h1>
           <h1 className="ne-brand-title">
-            التغليف : <span>{encapsolation}</span>
+            التغليف : <span>{packaging}</span>
           </h1>
           <h1 className="ne-brand-title">
             العدد في الطرد : <span>{numInPackage}</span>
@@ -46,18 +71,39 @@ const ProductBox: React.FC<ProductBoxProps> = ({
       </div>
 
       <div className="ne-action">
-        <div className="ne-edit-icon">
-          <img src={edite} alt="edite icon" />
-        </div>
+        <Link to={`/products/EditProduct/${productNum}`}> 
+          <div className="ne-edit-icon">
+            <img src={edite} alt="edite icon" />
+          </div>
+        </Link>
+        
+
+
         <div className="ne-dublicate-icon">
-          <img src={dublicate} alt="dublicate icon" />
+          <img src={dublicate} alt="dublicate icon" onClick={() => onDuplicate()} />
         </div>
-        <div className="ne-delete-icon">
-          <img src={delet} alt="delete icon" />
+        <div className=" ne-delete-icon">
+          <img src={delet} alt="delete icon" onClick={openModal} />
         </div>
       </div>
     </div>
+
+      <div>
+
+        {isModalOpen && (
+
+          <Delete_Popup
+            onCancel={closeModal}
+            onDeleteConfirm={() => onDelete()}
+          />
+        )}
+
+      </div>
+    </>
+
+
   );
 };
 
 export default ProductBox;
+

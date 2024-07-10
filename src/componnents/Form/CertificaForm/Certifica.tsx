@@ -3,6 +3,7 @@ import axios from "axios";
 import SaveButton from "../Buttons/SaveButton";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaRegTrashCan } from "react-icons/fa6";
+import NavigationLinks from "../../NavigationLinks/NavigationLinks";
 
 type TCertificate = {
     icon: File | string | null;
@@ -28,7 +29,7 @@ export default function Certifica() {
         if (itemId) {
             axios.get(`http://127.0.0.1:8000/api/certification/${itemId}`)
                 .then((response) => setFormData(response.data.data))
-                .then(()=>       setFormData(prevState => ({
+                .then(() => setFormData(prevState => ({
                     ...prevState,
                     icon: null,
                     photo: null,
@@ -81,7 +82,7 @@ export default function Certifica() {
             console.error("Error sending data:", error);
             // Handle error (e.g., show an error message)
         }
-     navigate('/settings/certificates')
+        navigate('/settings/certificates')
 
     };
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -143,73 +144,82 @@ export default function Certifica() {
 
 
     return (
-        <form className='form' onSubmit={handleSubmit}>
-            <div className='form-header'>{itemId ? 'تعديل شهادة' : 'اضافة شهادة'}</div>
+        <>
+            <NavigationLinks
+                navigateMain='اضافة شهادة'
+                navigateLink='الواجهة الرئيسية' navigateSubmain='الاعدادات '
+            />
 
-            <div className=" input">
-                <label htmlFor="name" className="HJ_FontColor_gray"> الأيقونة</label>
-                <div className="file-upload-wrapper">
-                    <button className="choose-file-btn" onClick={triggerIconInput}>
-                        <span>اختر ملف</span>
-                    </button>
-                    <div className="file-name">{iconName}</div>
-                    <input
-                        type="file"
-                        id="iconInput"
-                        onChange={handleIconChange} // Ensure handleFileChange is used here
-                        style={{ display: "none" }}
-                    />
-                    <span className="icon">
-                        <FaRegTrashCan />
-                    </span>
+            <form className='form MA_form_padding HJ_Margin_Add' onSubmit={handleSubmit}>
+                <div className='form-header HJ_FontColor_black MA_margin'>{itemId ? 'تعديل شهادة' : 'اضافة شهادة'}</div>
+
+                <div className=" input">
+                    <label htmlFor="name" className="HJ_FontColor_gray"> الأيقونة</label>
+                    <div className="file-upload-wrapper">
+                        <button className="choose-file-btn" onClick={triggerIconInput}>
+                            <span>اختر ملف</span>
+                        </button>
+                        <div className="file-name">{iconName}</div>
+                        <input
+                            type="file"
+                            id="iconInput"
+                            onChange={handleIconChange} // Ensure handleFileChange is used here
+                            style={{ display: "none" }}
+                        />
+                        <span className="icon">
+                            <FaRegTrashCan />
+                        </span>
+                    </div>
                 </div>
-            </div>
 
-            <div className='input'>
-                <label htmlFor="title">اسم الشهادة</label>
-                <input type="text"
-                    name="name"
-                    id="title"
-                    value={formData.name}
-                    onChange={handleChange}
-                />
-            </div>
-            <div className='input'>
-                <label htmlFor="title"> الاسم الفرعي للشهادة</label>
-                <input type="text"
-                    name="subname"
-                    id="title"
-                    value={formData.subname}
-                    onChange={handleChange}
-                />
-            </div>
-
-            <div className=" input">
-                <label htmlFor="name" className="HJ_FontColor_gray">  صورة الشهادة</label>
-                <div className="file-upload-wrapper">
-                    <button className="choose-file-btn" onClick={triggerPhotoInput}>
-                        <span>اختر ملف</span>
-                    </button>
-                    <div className="file-name">{photoName}</div>
-                    <input
-                        type="file"
-                        id="photoInput"
-                        onChange={handlePhotoChange} // Ensure handleFileChange is used here
-                        style={{ display: "none" }}
+                <div className='input'>
+                    <label htmlFor="title">اسم الشهادة</label>
+                    <input type="text"
+                        name="name"
+                        id="title"
+                        value={formData.name}
+                        onChange={handleChange}
                     />
-                    <span className="icon">
-                        <FaRegTrashCan />
-                    </span>
                 </div>
-            </div>
+                <div className='input'>
+                    <label htmlFor="title"> الاسم الفرعي للشهادة</label>
+                    <input type="text"
+                        name="subname"
+                        id="title"
+                        value={formData.subname}
+                        onChange={handleChange}
+                    />
+                </div>
 
-            <div className='input'>
-                <label htmlFor="description" className="HJ_FontColor_gray"> وصف الشهادة</label>
-                <textarea name="description" id="description" className='MA_TextArea' value={formData.description} onChange={handleChange}></textarea>
-            </div>
-            <div className="MA_container_Button">
-                <SaveButton />
-            </div>
-        </form>
+                <div className=" input">
+                    <label htmlFor="name" className="HJ_FontColor_gray">  صورة الشهادة</label>
+                    <div className="file-upload-wrapper">
+                        <button className="choose-file-btn" onClick={triggerPhotoInput}>
+                            <span>اختر ملف</span>
+                        </button>
+                        <div className="file-name">{photoName}</div>
+                        <input
+                            type="file"
+                            id="photoInput"
+                            onChange={handlePhotoChange} // Ensure handleFileChange is used here
+                            style={{ display: "none" }}
+                        />
+                        <span className="icon">
+                            <FaRegTrashCan />
+                        </span>
+                    </div>
+                </div>
+
+                <div className='input'>
+                    <label htmlFor="description" className="HJ_FontColor_gray"> وصف الشهادة</label>
+                    <textarea name="description" id="description" className='MA_TextArea' value={formData.description} onChange={handleChange}></textarea>
+                </div>
+                
+                <div className='HJ_container_Button'>
+                    <SaveButton />
+                </div>
+            </form>
+        </>
+
     );
 }
