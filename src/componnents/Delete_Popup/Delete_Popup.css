@@ -79,3 +79,11 @@
     color: var(--dark-gray);
     border: 1px solid var(--light-gray);
 }
+
+.HJ_Popup_Screen{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(122, 122, 122, 0.3) ;
+}

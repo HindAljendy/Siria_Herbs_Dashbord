@@ -47,7 +47,7 @@ const FormEditProduct: React.FC<AddProductProps> = ({ Name }) => {
 
   });
 
-  const [formDataUpdate, setFormDataUpdate] = useState<FormUpdateProduct>({
+/*   const [formDataUpdate, setFormDataUpdate] = useState<FormUpdateProduct>({
     brand_id: "",
     category_id : "",
     name: "",
@@ -59,13 +59,13 @@ const FormEditProduct: React.FC<AddProductProps> = ({ Name }) => {
     packaging_description: "",
     description_component: "",
     count_each_package: "",
-    main_image: null,
-    additional_image: null,
+    main_image: null as File | null,
+    additional_image: null as File | null,
 
     _method: "PUT",
 
 
-  });
+  }); */
   const [showComponent, setShowComponent] = useState<boolean>(false);
   
 
