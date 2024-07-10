@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Table from '../../componnents/Table-Brand/TableBrand';
+import Pagination from '../../componnents/PaginateItems/Pagination';
 import NavigationLinks from '../../componnents/NavigationLinks/NavigationLinks';
 
 interface Brand {
@@ -13,13 +14,19 @@ interface Brand {
 
 const Brands = () => {
   const [brands, setBrands] = useState<Brand[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalItems, setTotalItems] = useState<number>(0);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
   const [update, setUpdate] = useState<boolean>(false)
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/brands')
+    axios.get(`http://127.0.0.1:8000/api/brands?page=${currentPage}`)
       .then(response => {
         console.log('API response:', response.data);
-        const brandsData = response.data.data?.data; 
+        const brandsData = response.data.data?.data;
+        setCurrentPage(response.data.data.current_page)
+        setTotalItems(response.data.pagination.total)
+        setItemsPerPage(response.data.pagination.per_page)
         if (Array.isArray(brandsData)) {
           setBrands(brandsData);
         } else {
@@ -29,7 +36,7 @@ const Brands = () => {
       .catch(error => {
         console.error('There was an error fetching the brands!', error);
       });
-  }, [update]);
+  }, [update, currentPage]);
 
   const columns = ['الاسم', 'صورة المنتج', 'عدد المنتجات', 'Published', 'الاجراءات'];
 
@@ -47,6 +54,12 @@ const Brands = () => {
         data={brands}
         update={update}
         setUpdate={setUpdate}
+      />
+      <Pagination
+        totalItems={totalItems}
+        itemsPerPage={itemsPerPage}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
       />
     </div>
   );

@@ -5,6 +5,7 @@ import { getContactMessages } from '../../services/services';
 import ShowMessage from '../../componnents/ContactMessages/ShowMessage/ShowMessage';
 import axios from 'axios';
 import NavigationLinks from '../../componnents/NavigationLinks/NavigationLinks';
+import Pagination from '../../componnents/PaginateItems/Pagination';
 
 
 
@@ -15,6 +16,9 @@ const ContactMessages = () => {
   const [messages, setMessages] = useState<TTableData[]>([]);
   const [showedMessage, setShowedMessage] = useState(false);
   const [messageToshow, setMessageToShow] = useState<string | undefined>('');
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalItems, setTotalItems] = useState<number>(0);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
 
   const columns = ['اسم المستخدم', 'البريد الالكتروني', 'الرسالة', 'الإجراءات']
 
@@ -48,10 +52,13 @@ const ContactMessages = () => {
 
 
   useEffect(() => {
-    getContactMessages().then((data) => {
+    getContactMessages(currentPage).then((data) => {
       setMessages(data.data.data)
+      setCurrentPage(data.data.current_page)
+      setTotalItems(data.pagination.total)
+      setItemsPerPage(data.pagination.per_page)
     })
-  }, [])
+  }, [currentPage])
   return (
     <>
 
@@ -64,6 +71,12 @@ const ContactMessages = () => {
         columns={columns}
         data={messages}
         buttons={buttons} />
+      <Pagination
+        totalItems={totalItems}
+        itemsPerPage={itemsPerPage}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />
       {showedMessage && <ShowMessage message={messageToshow} closeMessage={() => setShowedMessage(false)} />
       }
     </>
