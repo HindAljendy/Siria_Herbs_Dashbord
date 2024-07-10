@@ -5,7 +5,9 @@ import Navbar from '../../componnents/Navbar/Navbar';
 import Sidebar from '../../componnents/Sidebar/SideBar';
 
 const MainLayout = () => {
+
   const location = useLocation();
+  
   const isAuthenticated = () => {
     // Your authentication check logic here
     return localStorage.getItem('token') !== null;

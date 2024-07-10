@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import './OurFutureForm.css'
-import SaveButton from './../Buttons/SaveButton';
 import axios from 'axios';
 import { FaRegTrashCan } from 'react-icons/fa6';
 
@@ -357,9 +356,8 @@ export default function OurFutueresForm() {
         </div>
       </div>
 
-      <div className='MA_container_Button'>
-        <SaveButton />
-      </div>
+      <div className="YS-left HJ_MarginTop"><button className='YS-save-boutton' type='submit'>حفظ</button></div>
+
     </form>
   )
 }

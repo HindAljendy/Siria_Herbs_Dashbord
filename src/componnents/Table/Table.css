@@ -23,7 +23,7 @@
 
 .table-container  .table-header h2 {
   font-family: var(--almarai-family);
-  font-size: 2.25rem /* 36px */;
+  font-size:  24px ;
   font-weight: var(--bold-weight);
   line-height: 36px;
   letter-spacing: -0.03em;

@@ -110,7 +110,7 @@ transform:  rotate(-90deg);
 }
 
 
-/* .IB_sidebar-container .IB_menu .menu-item */ .IB_SubMenu_LinkTo {
+.IB_SubMenu_LinkTo {
   text-decoration: none;
   font-family: var(--almarai-family);
   font-size: 1rem;/* 16px */
@@ -124,22 +124,12 @@ transform:  rotate(-90deg);
 
 }
 
-/* .IB_sidebar-container .IB_menu .menu-item  */.IB_SubMenu_LinkTo.HJ_active{
+.IB_SubMenu_LinkTo.HJ_active{
   color: var(--blue-color);
   font-weight: var(--bold-weight);
   text-decoration: underline var(--blue-color) solid 5px;
-
-  
-  
 }
-/* .IB_SubMenu_LinkTo.HJ_active::before{
-  content: '';
-  position: absolute;
-  width:40%;
-  height: 5px;
-  top: 30%;
-  background-color: var(--blue-color);
-} */
+
 .IB_sidebar-container .IB_menu .menu-item .IB_SubMenu_LinkTo .IB_arrow {
   width: 12.81px;
 }
@@ -151,16 +141,61 @@ transform:  rotate(-90deg);
 .IB_Img_sub_menu{
   margin-right: 76px;
 }
-@media screen and (max-width: 1919px) {
+
+.HJ_Style_Pages{
+  border: none;
+  background-color: transparent;
+  font-family: var(--almarai-family);
+  font-size: 1rem;/* 16px */
+  color: var(--blue-color);
+  font-weight: var(--normal-weight);
+  line-height: 16px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+.HJ_List_Pages {
+  list-style: none;
+}
+.IB_Pages_LinkTo a{
+  text-decoration: none;
+  color: var(--blue-color);
+  font-size: 1rem;
+  font-family: var(--almarai-family);
+}
+
+.IB_Pages_LinkTo{
+  margin-bottom: 10px;
+}
+
+.IB_Pages_LinkToHome, .IB_Pages_LinkToAbout{
+  position: relative;
+  top: 31px;
+  left: 10px;
+} 
+.IB_Pages_LinkTo.HJ_active{
+  color: var(--blue-color);
+  font-weight: var(--bold-weight);
+  text-decoration: underline var(--blue-color) solid 5px;
+}
+
+@media screen and (max-width: 1919px) and (min-width:1238px) {
   .IB_sidebar-container {
     max-width: 20%;
   }
+  .HJ_AllSettings , .menu-subitem{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
 }
-.HJ_AllSettings , .menu-subitem{
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+@media screen and (max-width: 1238px) and (min-width:992px) {
+  .IB_sidebar-container {
+    max-width: 25%;
+  }
+  
 }
+
 
 

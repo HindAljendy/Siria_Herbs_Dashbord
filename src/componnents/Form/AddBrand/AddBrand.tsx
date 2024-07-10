@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './AddBrand.css';
 import axios from 'axios';
 import { FaRegTrashCan } from 'react-icons/fa6';
+import SaveButton from '../Buttons/SaveButton';
+import BigNavigationLinks_Brands from '../../BigNavigationLinks/BigNavigationLinks_Brands';
+
+
 import { useNavigate, useParams } from 'react-router-dom';
+
+
 
 const AddBrand: React.FC = () => {
 
@@ -86,6 +92,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       .catch(error => {
         console.error('There was an error creating the brand!', error);
       });
+
 
   }
   navigate('/brands');
@@ -239,6 +246,7 @@ return (
       </div>
     </div>
 
+
     <div className='input'>
       <label htmlFor="color">اللون </label>
       <input type='color'
@@ -262,6 +270,7 @@ return (
     </div>
   </form>
 );
+
 };
 
 export default AddBrand;

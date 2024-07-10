@@ -73,6 +73,12 @@ export interface NavigationLinksProps {
     navigateLink: string;
     navigateSubmain: string;
 }
+export interface NavigationLinksProps_Settings {
+    navigateMain: string;
+    navigateLink: string;
+    navigateSubmain: string;
+    navigateSubmain2: string;
+}
 
 export interface BigNavigationLinksProps {
     navigateMain: string;

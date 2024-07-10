@@ -129,7 +129,7 @@ const Settings = () => {
         />
       </div>
 
-      <form className="form" onSubmit={handleSubmit}>
+      <form className=" form HJ_form_padding HJ_Margin_Add" onSubmit={handleSubmit}>
 
         <div className='container input'>
           <label htmlFor='website_icon'>أيقونة الموقع الخاص بالمتصفح</label>
@@ -151,7 +151,7 @@ const Settings = () => {
         </div>
 
         <div className='container input'>
-          <label htmlFor='website_icon'>أيقونة الموقع الخاص بالمتصفح</label>
+          <label htmlFor='website_icon'>   شعار الموقع</label>
           <div className="file-upload-wrapper">
             <button className="choose-file-btn" onClick={triggerWebsiteLogoInput}>
               <span>اختر الملف </span>
@@ -195,7 +195,7 @@ const Settings = () => {
             onChange={handleChange}
             placeholder="اضغط هنا كلمة مفتاحية"
           />
-          <span> منتجات طبيعية#, avie, #malika#</span>
+          <span className='HJ_Words'> منتجات طبيعية#, avie, #malika#</span>
         </div>
 
         <div className="input">
@@ -220,9 +220,10 @@ const Settings = () => {
             placeholder="الصق المعرف هنا"
           />
         </div>
-        <div className="na-button">
-          <SaveButton className="na-save-button" />
-          </div>
+
+        <div className='HJ_container_Button'>
+          <SaveButton />
+        </div>
       </form>
     </>
   );

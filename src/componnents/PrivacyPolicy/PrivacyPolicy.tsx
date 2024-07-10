@@ -6,6 +6,7 @@ const PrivacyPolicy = () => {
   return (
 <>
 <div className='ne-privacy-policy'>
+  
   <NavigationLinks navigateMain='إدارة سياسات الموقع' navigateLink='لوحة التحكم' navigateSubmain='الاعدادات' />
   <Policy/>
 </div>

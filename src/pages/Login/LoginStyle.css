@@ -1,65 +1,71 @@
 .ne-login {
-  background-color: var(--blue-color);
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  position: relative;
+    background-color: var(--blue-color);
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
 }
 
-.ne-login svg path{
+.ne-login svg path {
     fill: var(--dark-blue);
-    
     z-index: 1;
     /* background: transparent;  */
-    
+
 
 }
 
-.ne-login .ne-background-img .user-img{
+.ne-login .ne-background-img .user-img {
     position: absolute;
     top: 5%;
     right: 62%;
 }
-.ne-login .ne-background-img .sitting-img{
+
+.ne-login .ne-background-img .sitting-img {
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 60%;
 }
 
+.HJ_ErrorLogin {
+    margin-block: 10px 10px;
+    text-align: center;
+}
 
 
 
 
 .ne-login .login-form {
-  width: 610.48px;
-  height: 522.14px;
-  border-radius: 20px ;
-  background: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 4;
-  padding: 49.29px 276.8px 49.24px 276.8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 70.75px;
+    width: 610.48px;
+    height: 522.14px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    padding: 49.29px 276.8px 49.24px 276.8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70.75px;
 
 }
-.ne-login .login-form .logo-form{
+
+.ne-login .login-form .logo-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.input-group-form{
+
+.input-group-form {
     display: flex;
     flex-direction: column;
     gap: 26.47px;
 }
 
-.login-input{
+.login-input {
     /* margin-top: 70.75px; */
     display: flex;
     align-items: center;
@@ -77,15 +83,15 @@
 
 .login-input input {
     width: 329.08px;
-height: 44px;
+    height: 44px;
 
-border-radius: 4px ;
-border: 1px solid rgba(171, 171, 172, 1);
+    border-radius: 4px;
+    border: 1px solid rgba(171, 171, 172, 1);
 
 
 }
 
-.ne-forget-password{
+.ne-forget-password {
     font-family: var(--almarai-family);
     font-weight: var(--normal-weight);
     font-size: 12px;
@@ -98,11 +104,12 @@ border: 1px solid rgba(171, 171, 172, 1);
     margin-right: 167px;
     margin-top: -2%;
 }
-.ne-forget-password:hover{
+
+.ne-forget-password:hover {
     color: var(--blue-color);
 }
 
-.ne-actions{
+.ne-actions {
     display: flex;
     gap: 8.84px;
     align-items: center;
@@ -133,4 +140,3 @@ border: 1px solid rgba(171, 171, 172, 1);
     line-height: 14px;
     border: none;
 }
-
