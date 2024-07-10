@@ -18,3 +18,12 @@
         right: 22.40% ;
     }
 }
+
+@media screen and (max-width: 1238px) and  (min-width: 992px) {
+    .HJ_outlet{
+        position: absolute;
+        top: 12.28% ;
+        right: 28.4%;
+        width: 65%;
+    }
+}

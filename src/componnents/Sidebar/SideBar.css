@@ -178,16 +178,24 @@ transform:  rotate(-90deg);
   text-decoration: underline var(--blue-color) solid 5px;
 }
 
-@media screen and (max-width: 1919px) {
+@media screen and (max-width: 1919px) and (min-width:1238px) {
   .IB_sidebar-container {
     max-width: 20%;
   }
+  .HJ_AllSettings , .menu-subitem{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  
 }
-.HJ_AllSettings , .menu-subitem{
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+@media screen and (max-width: 1238px) and (min-width:992px) {
+  .IB_sidebar-container {
+    max-width: 25%;
+  }
+  
 }
+
 
 
