@@ -1,0 +1,33 @@
+.form .HJ_input {
+    display: flex;
+    flex-direction: row;
+    gap: 1.35% /* 26px */;
+}
+
+.HJ_group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    width: 32.3%;
+    align-items: flex-start;
+}
+
+.HJ_width_input {
+    width: 100%;
+    height: 44px;
+    border: 0.5px solid #ABABAC;
+    padding-right: 12px;
+}
+
+
+
+@media screen and (max-width: 1919px) {
+    .HJ_group {
+        width: 31.8%;
+    }
+
+    .form .HJ_input {
+        gap: 2.35%;
+    }
+}

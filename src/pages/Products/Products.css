@@ -1,9 +1,10 @@
+
 .HJ_gap{
     gap: 36px;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
-.HJ_AllProducts .d-flex > * {
-    margin-bottom: 36px;
-}
+
 .HJ_MarginBottom{
     margin-bottom:18.43% ;
 }

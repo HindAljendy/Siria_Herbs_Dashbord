@@ -20,6 +20,7 @@ import MainLayout from "../pages/MainLayout/MainLayout";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import SettingsAbout from "../componnents/SettingAbout/SettingsAbout";
 import Certifica from "../componnents/Form/CertificaForm/Certifica";
+import ProductEdit from "../componnents/ProductEdit/ProductEdit";
 
 
 type ProtectedRouteProps = {
@@ -91,13 +92,13 @@ export const router = createBrowserRouter([
         )
       },
       {
-        path:'/products/addProduct',
-        element:(
-          <ProtectedRoute>
-            <ProductAdd/>
-          </ProtectedRoute>
-        )
-      },
+        path: "/products/addProduct",
+        element: <ProductAdd/>
+    },
+    {
+        path: "/products/EditProduct/:productNum",
+        element: <ProductEdit/>
+    },
       
       {
         path:'/categories',
