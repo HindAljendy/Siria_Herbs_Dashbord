@@ -5,20 +5,26 @@ import NavigationLinks from '../../componnents/NavigationLinks/NavigationLinks'
 import ProductsOperationsSection from '../../componnents/ProductsOperationsSection/ProductsOperationsSection'
 import axios from 'axios'
 import { FormProduct } from '../../types/types'
+import Pagination from '../../componnents/PaginateItems/Pagination'
 
 
 const Products = () => {
   const [products, setProducts] = useState<FormProduct[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalItems, setTotalItems] = useState<number>(0);
+  const [itemsPerPage, setItemsPerPage] = useState<number>(10);
 
-
-  const getAllProducts = () => {
-    axios.get('http://127.0.0.1:8000/api/products', {
+  const getAllProducts = (currentPage: number) => {
+    axios.get(`http://127.0.0.1:8000/api/products?page=${currentPage}`, {
       headers: {
         Accept: 'application/json',
       },
     })
       .then((response) => {
         setProducts(response.data.data.data);
+        setCurrentPage(response.data.data.current_page)
+        setTotalItems(response.data.pagination.total)
+        setItemsPerPage(response.data.pagination.per_page)
         console.log(response.data.data.data);
       })
       .catch((error) => {
@@ -28,8 +34,8 @@ const Products = () => {
 
 
   useEffect(() => {
-    getAllProducts();
-  }, []);
+    getAllProducts(currentPage);
+  }, [currentPage]);
 
 
   const token = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzIwMjU2Nzc0LCJleHAiOjE3MjAyNjAzNzQsIm5iZiI6MTcyMDI1Njc3NCwianRpIjoiaExjcWoxenJiQTNrVUh1NCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.6fy9DZyzfoEMr3dEnFnucogvhyZcuissxQW7WIvfx3s';
@@ -45,10 +51,10 @@ const Products = () => {
     axios
       .delete(`http://127.0.0.1:8000/api/products/${id}`, config)
       .then((response) => {
-        
+
         console.log(response.data);
         console.log(id);
-        getAllProducts();
+        getAllProducts(currentPage);
       })
       .catch((error) => {
         console.error("Error Delete Product: ", error);
@@ -64,12 +70,12 @@ const Products = () => {
         Accept: "application/json",
       },
     };
-  
+
     axios.post(`http://127.0.0.1:8000/api/products/${id}/duplicate`, {}, config)
       .then((response) => {
 
         console.log(response.data.data);
-        getAllProducts();
+        getAllProducts(currentPage);
         console.log(id);
       })
       .catch((error) => {
@@ -109,6 +115,12 @@ const Products = () => {
             />
           ))}
         </div>
+          <Pagination
+            totalItems={totalItems}
+            itemsPerPage={itemsPerPage}
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
+          />
       </div>
     </div>
   );

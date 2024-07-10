@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './CategoryTable.css';
 import delet from "../../../assets/images/button_icon/delete.svg";
 import edite from "../../../assets/images/button_icon/edite.svg";
@@ -6,22 +6,10 @@ import switch_on from './../../../assets/images/button_icon/Switche_on.svg';
 import switch_off from './../../../assets/images/button_icon/switch_OFF.svg';
 import plus from './../../../assets/images/button_icon/Vector.svg';
 import { TableProps } from '../../../types/types';
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
 import Delete_CategoryPopup from '../Delete_CategoryPopup/Delete_CategoryPopup';
 
-type TDataitem = {
-    id?: number;
-    name?: string;
-    published?: boolean;
-    brands_name: string[];
-    products_count: number;
-}
-type TData = Array<TDataitem>;
-
-
-const CategoryTable: React.FC<TableProps> = ({ title, buttonLabel, columns }) => {
-    const [data, setData] = useState<TData>([]);
+const CategoryTable: React.FC<TableProps> = ({ title, buttonLabel, columns, data }) => {
     const [showPopup, setShowPopup] = useState(false);
     const [itemId, setItemId] = useState<number | undefined>();
 
@@ -30,12 +18,6 @@ const CategoryTable: React.FC<TableProps> = ({ title, buttonLabel, columns }) =>
     const handleClick = () => {
         navigate('/categories/addCategory');
     };
-
-
-    useEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/categorys").then((res) => setData(res.data.data)
-        ).catch((error) => console.log(error))
-    },[]);
 
     const deleteItem = (itemId: number | undefined) => {
         setItemId(itemId);
@@ -67,7 +49,7 @@ const CategoryTable: React.FC<TableProps> = ({ title, buttonLabel, columns }) =>
                     </tr>
                 </thead>
                 <tbody >
-                    {data?.map((row: TDataitem) => {
+                    {data?.map((row) => {
                         return (
                             <tr>
                                 <td className='NA_Name_row'>{row.name}</td>
