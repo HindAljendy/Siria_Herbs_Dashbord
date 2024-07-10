@@ -16,10 +16,11 @@ const Main = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/main-card');
-        setProductCount(response.data.products_count);
-        setBrandCount(response.data.brands.brands_count);
-        setCategoryCount(response.data.categories_count);
-        setBrandImages(response.data.brands.brands_image.map((brand: { main_image: any; }) => brand.main_image));
+        console.log(response);
+        setProductCount(response.data.data.products_count);
+        setBrandCount(response.data.data.brands.brands_count);
+        setCategoryCount(response.data.data.categories_count);
+        setBrandImages(response.data.data.brands.brands_image.map((brand: { main_image: any; }) => brand.main_image));
       } catch (error) {
         console.error("Failed to fetch data:", error);
       }

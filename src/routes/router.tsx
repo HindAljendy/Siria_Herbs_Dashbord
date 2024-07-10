@@ -19,6 +19,7 @@ import Login from "../pages/Login/Login";
 import MainLayout from "../pages/MainLayout/MainLayout";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import SettingsAbout from "../componnents/SettingAbout/SettingsAbout";
+import Certifica from "../componnents/Form/CertificaForm/Certifica";
 
 
 type ProtectedRouteProps = {
