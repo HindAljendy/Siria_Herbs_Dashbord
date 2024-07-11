@@ -6,6 +6,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import axios from 'axios';
 import check from '../../assets/images/button_icon/check.svg'
 import BigNavigationLinks_Categories from '../BigNavigationLinks/BigNavigationLinks_Categories';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function CategoryForm() {
   const [name, setName] = useState('');
@@ -14,47 +15,68 @@ export default function CategoryForm() {
   const [displayText, setDisplayText] = useState('');
   const [data, setData] = useState<TData>([]);
 
+  const navigate = useNavigate();
+
+  const { categoryId } = useParams<{ categoryId: string }>();
+
+  useEffect(() => {
+    if (categoryId) {
+      axios.get(`http://127.0.0.1:8000/api/category/${categoryId}`)
+      .then((response) => {
+        setName(response.data.data.name);
+        setPublished(response.data.data.published);
+        setSelectedOptions(response.data.data.brands_id);
+      })
+    }
+  }, []);
+
   type TDataitem = {
-    id?: number;
-    name?: string;
-    published?: boolean;
-    brands_name: string[];
-    products_count: number;
+    id: string;
+    name: string;
   }
   type TData = Array<TDataitem>;
 
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    try {
-      const selectedBrandIds = selectedOptions.map((option) => {
-        if (option === 'صحتك ذهب') {
-          return 1;
-        } else if (option === 'أوغارو') {
-          return 2;
-        } else if (option === 'ملكية') {
-          return 3;
-        } else if (option === 'a vie') {
-          return 4;
-        }
-        return null;
-      });
-
-      const response = await axios.post('http://127.0.0.1:8000/api/add', {
-        name,
-        published,
-        brand_id: selectedBrandIds,
-      });
-      console.log(response.data);
-      alert('تم إضافة الفئة بنجاح!');
-    } catch (error) {
-      console.error(error);
-      alert('فشلت العملية، يرجى المحاولة مرة أخرى.');
+    if (categoryId) {
+      try {
+        const response = await axios.post(`http://127.0.0.1:8000/api/category/${categoryId}/update`, {
+          name: name,
+          published: published,
+          brand_id: selectedOptions,
+          _method: 'PUT'
+        });
+        console.log(response.data);
+        alert('تم إضافة الفئة بنجاح!');
+        navigate('/categories')
+      } catch (error) {
+        console.error(error);
+        alert('فشلت العملية، يرجى المحاولة مرة أخرى.');
+        navigate(`/categories/update-category/${categoryId}`)
+      }
+    }else{
+      try {
+        const response = await axios.post('http://127.0.0.1:8000/api/add', {
+          name: name,
+          published: published,
+          brand_id: selectedOptions,
+        });
+        console.log(response.data);
+        alert('تم إضافة الفئة بنجاح!');
+        
+      } catch (error) {
+        console.error(error);
+        alert('فشلت العملية، يرجى المحاولة مرة أخرى.');
+        navigate('/categories/addCategory')
+      }
+      navigate('/categories')
     }
+    
   };
   ///////////////////////////////////////////////////////
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/categorys").then((res) => setData(res.data.data)
+    axios.get("http://127.0.0.1:8000/api/brands-published").then((res) => setData(res.data.data)
     ).catch((error) => console.log(error))
   }, []);
 
@@ -124,21 +146,21 @@ export default function CategoryForm() {
                     ></textarea>
                   </div>
 
-                  {data?.map((row: TDataitem) => (
-                    <div className="box">
-                      <h2 style={{ fontWeight: 400, fontSize: '1rem' }}>اختار الماركات</h2>
-                      {row.brands_name.map((brand: string) => (
-                        <label>
-                          <input
-                            type="checkbox"
-                            value={brand}
-                            onChange={handleOptionChange}
-                          />
-                          {brand}
-                        </label>
-                      ))}
-                    </div>
-                  ))}
+                  <div className="box">
+                    <h2 style={{ fontWeight: 400, fontSize: '1rem' }}>اختار الماركات</h2>
+                    {data?.map((row: TDataitem) => (
+
+                      <label>
+                        <input
+                          type="checkbox"
+                          value={row.id}
+                          onChange={handleOptionChange}
+                        />
+                        {row.name}
+                      </label>
+
+                    ))}
+                  </div>
                 </div>
               </Accordion.Body>
 
@@ -161,9 +183,6 @@ export default function CategoryForm() {
           </button>
 
         </div>
-
-
-
 
       </form>
     </>

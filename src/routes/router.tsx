@@ -118,6 +118,14 @@ export const router = createBrowserRouter([
         )
       },
       {
+        path:'categories/update-category/:categoryId',
+        element:(
+          <ProtectedRoute>
+            <AddCategory/>
+          </ProtectedRoute>
+        )
+      },
+      {
         path:'/users',
         element:(
           <ProtectedRoute>
