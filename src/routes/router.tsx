@@ -119,15 +119,13 @@ export const router = createBrowserRouter([
         )
       },
       {
-        path:'/categories/update-category/:id',
+        path:'categories/update-category/:categoryId',
         element:(
           <ProtectedRoute>
-            <UpdateCategory/>
+            <AddCategory/>
           </ProtectedRoute>
         )
       },
-
-
       {
         path:'/users',
         element:(

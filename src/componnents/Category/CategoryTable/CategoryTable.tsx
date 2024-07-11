@@ -43,8 +43,8 @@ const CategoryTable: React.FC<TableProps> = ({ title, buttonLabel, columns, data
             <table className='NA_table'>
                 <thead >
                     <tr>
-                        {columns.map((column) => (
-                            <th key={column} className='Na_column_name'>{column}</th>
+                        {columns.map((column, index) => (
+                            <th key={index} className='Na_column_name'>{column}</th>
                         ))}
                     </tr>
                 </thead>
@@ -55,8 +55,8 @@ const CategoryTable: React.FC<TableProps> = ({ title, buttonLabel, columns, data
                                 <td className='NA_Name_row'>{row.name}</td>
                                 <td>
                                     <ul style={{ listStyle: 'none' }}>
-                                        {row.brands_name.map((brand: string) => (
-                                            <li>{brand}</li>
+                                        {row.brands_name.map((brand: string, index: number) => (
+                                            <li key={index} >{brand}</li>
                                         ))}
                                     </ul>
                                 </td>

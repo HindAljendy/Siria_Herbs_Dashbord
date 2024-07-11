@@ -26,7 +26,7 @@ const SelectorCategory_Products: React.FC<SelectorProps> = ({ name, formData, se
             },
         })
             .then((response) => {
-                setCategories(response.data.data);
+                setCategories(response.data.data.data);
                 console.log(response.data.data);
             })
             .catch((error) => {
