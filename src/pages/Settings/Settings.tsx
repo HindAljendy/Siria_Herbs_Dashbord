@@ -27,6 +27,8 @@ const Settings = () => {
     website_logo: null,
   });
 
+  const token = localStorage.getItem("token");
+
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/api/setting/1`)
       .then(response => {
@@ -53,6 +55,7 @@ const Settings = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     const formData = new FormData();
     formData.append('title', settings.title);
     formData.append('description', settings.description);
@@ -69,7 +72,9 @@ const Settings = () => {
 
     axios.post(`http://127.0.0.1:8000/api/setting/1/update`, formData, {
       headers: {
-        'Content-Type': 'multipart/form-data'
+        Authorization: `Bearer ${token}`,
+        'Accept': "application/json",
+        'Content-Type': 'multipart/form-data',
       }
     })
       .then(response => {

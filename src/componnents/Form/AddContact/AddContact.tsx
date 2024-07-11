@@ -34,6 +34,8 @@ const AddContact: React.FC<AddContactProps> = ({ contactId = "1" }) => {
         youtube_link: ""
     });
 
+    const token = localStorage.getItem("token");
+
     useEffect(() => {
         axios.get(`http://127.0.0.1:8000/api/contacts/${contactId}`)
             .then((response) => {
@@ -55,6 +57,15 @@ const AddContact: React.FC<AddContactProps> = ({ contactId = "1" }) => {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Accept': "application/json",
+                'Content-Type': 'multipart/form-data',
+            },
+        };
+
         const formData = new FormData();
         formData.append("email", contact.email);
         formData.append("phone_number", contact.phone_number);
@@ -68,8 +79,9 @@ const AddContact: React.FC<AddContactProps> = ({ contactId = "1" }) => {
         formData.append('_method', 'PUT');
 
         try {
-            const response = await axios.post(`http://127.0.0.1:8000/api/contacts/${contactId}`, formData);
+            const response = await axios.post(`http://127.0.0.1:8000/api/contacts/${contactId}`, formData ,config);
             console.log("Response:", response.data);
+            window.location.reload();
         } catch (error) {
             console.error("Error updating contact:", error);
         }

@@ -1,5 +1,5 @@
-.MA_cards_withCircleImage{
-    width:21rem;
+.MA_cards_withCircleImage {
+    width: 21rem;
     height: 248.05px;
     padding: 2rem 2.25rem;
     color: #ffffff;
@@ -7,26 +7,29 @@
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
-    font-family:var( --almarai-family) !important;
+    font-family: var(--almarai-family) !important;
 }
 
-.MA_cards_withCircleImage .box1{
+.MA_cards_withCircleImage .box1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.MA_cards_withCircleImage .box1 p{
-   font-weight: 700;
-   font-size: 1.98rem;
-   line-height: 1.98rem;
-   font-family:var( --almarai-family) !important;
+
+.MA_cards_withCircleImage .box1 p {
+    font-weight: 700;
+    font-size: 1.98rem;
+    line-height: 1.98rem;
+    font-family: var(--almarai-family) !important;
 
 }
-.MA_cards_withCircleImage .box1 .MA_cards_withCircleImage_img{
-   height: 38.78px;
+
+.MA_cards_withCircleImage .box1 .MA_cards_withCircleImage_img {
+    height: 38.78px;
 
 }
-.MA_cards_withCircleImage .box2{
+
+.MA_cards_withCircleImage .box2 {
     display: flex;
     flex-direction: row-reverse;
     margin-top: 2rem;
@@ -34,16 +37,22 @@
 
     position: relative;
 }
-.MA_cards_withCircleImage .box2 .all{
+
+.MA_cards_withCircleImage .box2 .all {
     position: absolute;
-  
+
 }
-.MA_cards_withCircleImage .box2  img{
+
+.MA_cards_withCircleImage .box2 img {
     border-radius: 50%;
     width: 4rem;
-    
+    border:2px solid #ffffff;
+    background-color: #ffffff;
+
+
 }
-.MA_cards_withCircleImage .box2  .circle{
+
+.MA_cards_withCircleImage .box2 .circle {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
@@ -51,13 +60,44 @@
     text-align: center;
     position: relative;
 }
-.MA_cards_withCircleImage .box2  .circle span{
+
+.MA_cards_withCircleImage .box2 .circle span {
     position: absolute;
-    top:20px;
+    top: 20px;
     left: 20px;
     font-size: 1.25rem;
     font-weight: 700;
     text-align: center !important;
     color: #A4C241;
-    
+
+}
+.HJ_flex_Cards{
+    display: flex;
+    gap: 4rem;
+}
+
+@media screen and (max-width: 1238px) and  (min-width: 992px) {
+
+    .MA_cards_withCircleImage {
+        width: 12rem;
+        height: 248.05px;
+        padding: 1rem 1rem;
+        gap: 1.4rem;
+    }
+    .MA_cards_withCircleImage .box2 .circle {
+        width: 3rem;
+        height: 3rem;
+    }
+    .MA_cards_withCircleImage .box2 img {
+        width: 3rem;
+    }
+    .HJ_Content_MainPage h2{
+        font-size: 1.6rem !important;
+    }
+    .HJ_flex_Cards{
+        display: flex;
+        gap: 1.6rem !important;
+    }
+ 
+
 }

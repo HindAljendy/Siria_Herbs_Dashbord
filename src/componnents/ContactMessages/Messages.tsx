@@ -1,22 +1,18 @@
 import React from 'react'
 
-import {  ContactMessagesProps, TTableData } from '../../types/types'
-import {  Table } from 'react-bootstrap'
+import { ContactMessagesProps, TTableData } from '../../types/types'
+import { Table } from 'react-bootstrap'
 import './Messages.css'
 
-const Messages:React.FC<ContactMessagesProps>=  ({ columns, data,buttons}) => {
+const Messages: React.FC<ContactMessagesProps> = ({ columns, data, buttons }) => {
 
   return (
 
-
     <>
-
-    
-
-            <Table  hover  responsive='md' style ={{width : "100%" ,alignItems:"center"}}>
-            <thead className='text-center'>
-          {columns.map((column:string,index:number)=>{
-              return <th className='ra_contact_msg_th' key={index}>{column}</th>
+      <Table hover responsive='md' style={{ width: "100%", alignItems: "center" }}>
+        <thead className='text-center'>
+          {columns.map((column: string, index: number) => {
+            return <th className='ra_contact_msg_th' key={index}>{column}</th>
           })}
 
         </thead>

@@ -1,3 +1,7 @@
+.HJ_Container_Footer_MainPage{
+    margin-top: 261.8px;
+}
+
 .MA_footer {
     width: 60.72%;
     height: 41.75px;
@@ -9,7 +13,7 @@
 }
 
 .MA_line {
-    width:  60.72%;
+    width:  75%;
     border: 1px solid rgba(33, 33, 33, 0.5);
 }
 
@@ -36,6 +40,7 @@
     align-items: center;
     list-style: none;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .MA_footer .Info_Contacts ul li {
@@ -69,4 +74,65 @@
     font-weight: 390;
 }
 
+ul {
+    padding-left: 0rem !important; 
+}
 
+@media screen and (max-width: 1919px) {
+    .MA_footer .Info_Contacts ul li {
+        gap: 10px;
+    }
+    .MA_footer .Info_Contacts ul {
+        gap: 5px;
+    }
+    .MA_footer {
+        width: 50.72%;
+        height: 41.75px;
+        gap: 3%;
+        padding-left: 0px; 
+    }
+    
+    .MA_line {
+        width: 100%;
+    }
+    
+    
+    .MA_footer .MA_info_Footer {
+        gap: 8px;
+    }
+    
+    .MA_footer .MA_info_Footer span {
+        font-size: 1rem;
+    }
+    
+}
+@media screen and (max-width: 1280px) and (min-width:992px){
+    .MA_footer .Info_Contacts ul li {
+        gap: 8px;
+    }
+    .MA_footer .Info_Contacts ul {
+        gap: 5px;
+    }
+    .MA_footer {
+        display: flex;
+        flex-wrap: wrap;
+        width: 30.72%;
+        height: 41.75px;
+        gap: 5%;
+        padding-left: 0px; 
+    }
+    
+    .MA_line {
+        width: 100%;
+    }
+    
+    
+    .MA_footer .MA_info_Footer {
+        gap: 8px;
+    }
+    
+    .MA_footer .MA_info_Footer span {
+        font-size: 1rem;
+    }
+    
+}

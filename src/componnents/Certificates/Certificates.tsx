@@ -40,7 +40,7 @@ const Certificates = () => {
         navigateMain='الشهادات'
         navigateLink='الواجهة الرئيسية' navigateSubmain=' الاعدادات'
       />
-      <CertificaTable title="الشهادات" buttonLabel="إضافة شهادة" columns={["الايقونة", "الاسم", "الاسم الفرعي", "الصورة", "الوصف", "الإجرائات"]}
+      <CertificaTable title="الشهادات" buttonLabel="إضافة شهادة" columns={["الايقونة", "الاسم", "الاسم الفرعي", "الصورة", "الوصف", "الاجراءات"]}
         data={certifications} update={update} setUpdate={setUpdate}
       />
       <Pagination

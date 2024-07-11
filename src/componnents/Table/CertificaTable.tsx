@@ -14,6 +14,7 @@ type TCertificate = {
 
 const CertificaTable: React.FC<TableProps & TCertificate> = ({ title, buttonLabel, columns, data, update, setUpdate }) => {
     const navigate = useNavigate();
+    const token = localStorage.getItem("token");
 
     const [isPopupVisible, setIsPopupVisible] = useState(false);
     const [deleteCertificate, setDeleteCertificate] = useState(false);
@@ -32,8 +33,16 @@ const CertificaTable: React.FC<TableProps & TCertificate> = ({ title, buttonLabe
     };
 
     useEffect(() => {
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                Accept: "application/json",
+            },
+        };
+
         if (deleteCertificate) {
-            axios.delete(`http://127.0.0.1:8000/api/certification/${certificateId}/delete`)
+            axios.delete(`http://127.0.0.1:8000/api/certification/${certificateId}/delete`,config)
                 .then(response => {
                     console.log('Brand deleted successfully:', response.data);
                 })
@@ -49,7 +58,7 @@ const CertificaTable: React.FC<TableProps & TCertificate> = ({ title, buttonLabe
     };
 
     return (
-        <div className="table-container HJ_Margin_Add">
+        <div className="table-container HJ_pa HJ_Margin_Add">
             <div className="table-header">
                 <h2>{title}</h2>
                 <button onClick={handelCreateAction} className='NA_button_Name'>
@@ -73,7 +82,7 @@ const CertificaTable: React.FC<TableProps & TCertificate> = ({ title, buttonLabe
                             <td className='NA_Name_row'>{row.name}</td>
                             <td className='NA_Name_row'>{row.subname}</td>
                             <td><img src={row.photo} alt={`photo ${row.name}`} className="NA_product-image" /></td>
-                            <td className='NA_Name_row'>{row.description.slice(0, 40)}...</td>
+                            <td className='NA_Name_row HJ_width_description'>{row.description}</td>
                             <td>
                                 <div className="ne-action NA_display">
                                     <div className="ne-edit-icon ">

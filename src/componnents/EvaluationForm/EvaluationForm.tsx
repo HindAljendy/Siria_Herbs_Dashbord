@@ -10,6 +10,8 @@ const EvaluationForm: React.FC<TEvaluationForm> = ({ mode, evaluation, setUpdate
   const [title, setTitle] = useState<string>('');
   const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
 
+  const token = localStorage.getItem("token");
+
 
   useEffect(() => {
     setDescription(evaluation.description);
@@ -53,8 +55,9 @@ const EvaluationForm: React.FC<TEvaluationForm> = ({ mode, evaluation, setUpdate
     axios.delete(`http://127.0.0.1:8000/api/evaluation/${evaluation?.id}/delete`,
       {
         headers: {
-          'Authorization': 'Bearer <token>',
-        }
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+        },
       }
     ).then(response => console.log(response.data))
       .then(() => setUpdate())
@@ -81,9 +84,10 @@ const EvaluationForm: React.FC<TEvaluationForm> = ({ mode, evaluation, setUpdate
       if (mode === 'create') {
         const response = await axios.post('http://127.0.0.1:8000/api/evaluation-create', formData, {
           headers: {
-            'Authorization': 'Bearer <token>',
-            'Content-Type': 'multipart/form-data'
-          }
+            Authorization: `Bearer ${token}`,
+            'Accept': "application/json",
+            'Content-Type': 'multipart/form-data',
+          },
         });
         console.log(response.data);
         handelHidenForm();
@@ -92,9 +96,10 @@ const EvaluationForm: React.FC<TEvaluationForm> = ({ mode, evaluation, setUpdate
         formData.append('_method', 'PUT');
         const response = await axios.post(`http://127.0.0.1:8000/api/evaluation/${evaluation?.id}/update`, formData, {
           headers: {
-            'Authorization': 'Bearer  <token>',
-            'Content-Type': 'multipart/form-data'
-          }
+            Authorization: `Bearer ${token}`,
+            'Accept': "application/json",
+            'Content-Type': 'multipart/form-data',
+          },
         });
         console.log(response.data);
         setUpdate();

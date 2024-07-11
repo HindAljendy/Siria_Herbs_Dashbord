@@ -47,8 +47,8 @@ const FormAddProduct: React.FC<AddProductProps> = ({ name }) => {
   const handleButtonClick = () => {
     setShowComponent(true);
   };
-  /* const token = localStorage.getItem("token"); */
-  const token =  'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzIwMjU2Nzc0LCJleHAiOjE3MjAyNjAzNzQsIm5iZiI6MTcyMDI1Njc3NCwianRpIjoiaExjcWoxenJiQTNrVUh1NCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.6fy9DZyzfoEMr3dEnFnucogvhyZcuissxQW7WIvfx3s';
+   const token = localStorage.getItem("token");
+  
   
   const navigate = useNavigate();
 

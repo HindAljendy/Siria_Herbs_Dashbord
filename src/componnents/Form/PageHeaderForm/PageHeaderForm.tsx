@@ -13,6 +13,8 @@ const PageHeaderForm: FC<Props> = ({ heroId }) => {
     const [image, setImage] = useState<File | null>(null);
     const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
 
+    const token = localStorage.getItem("token");
+
     useEffect(() => {
         axios.get(`http://127.0.0.1:8000/api/hero/${heroId}`)
             .then((response) => {
@@ -60,8 +62,10 @@ const PageHeaderForm: FC<Props> = ({ heroId }) => {
         try {
             const response = await axios.post(`http://127.0.0.1:8000/api/hero/${heroId}/update`, formData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
+                    Authorization: `Bearer ${token}`,
+                    'Accept': "application/json",
+                    'Content-Type': 'multipart/form-data',
+                },
             });
             console.log("Response:", response.data);
         } catch (error) {
@@ -96,7 +100,7 @@ const PageHeaderForm: FC<Props> = ({ heroId }) => {
                     <label htmlFor="title" className="HJ_FontColor_gray"> العنوان</label>
                     <textarea name="title" id="title" className='MA_TextArea' value={title} onChange={handleChange} ></textarea>
                 </div>
-        
+
                 <div className="YS-left HJ_MarginTop"><button className='YS-save-boutton' type='submit'>حفظ</button></div>
 
             </form>

@@ -9,6 +9,7 @@ import BigNavigationLinks_Categories from '../BigNavigationLinks/BigNavigationLi
 import { useNavigate, useParams } from 'react-router-dom';
 
 export default function CategoryForm() {
+
   const [name, setName] = useState('');
   const [published, setPublished] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -35,6 +36,8 @@ export default function CategoryForm() {
     name: string;
   }
   type TData = Array<TDataitem>;
+
+  const token = localStorage.getItem("token");
 
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {

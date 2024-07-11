@@ -23,6 +23,7 @@ const Category = () => {
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
 
   useEffect(() => {
+    
     axios.get(`http://127.0.0.1:8000/api/categorys?page=${currentPage}`).then((res) => {
       setData(res.data.data.data)
       setCurrentPage(res.data.data.current_page)

@@ -15,6 +15,9 @@ type TOurFuture = {
 }
 
 export default function OurFutueresForm() {
+
+  const token = localStorage.getItem("token");
+
   const [formData, setFormData] = useState<TOurFuture>({
     title: "",
     description: "",
@@ -48,6 +51,15 @@ export default function OurFutueresForm() {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Accept': "application/json",
+        'Content-Type': 'multipart/form-data',
+      },
+    };
+
     try {
       const formDataToSend = new FormData();
       formDataToSend.append('title', formData.title);
@@ -74,7 +86,7 @@ export default function OurFutueresForm() {
       console.log(formDataToSend);
       const response = await axios.post(
         "http://127.0.0.1:8000/api/advantage/1/update",
-        formDataToSend,
+        formDataToSend, config
       );
 
       console.log("Success:", response.data);
@@ -156,7 +168,7 @@ export default function OurFutueresForm() {
       fileInputElement.click();
     }
   };
-  
+
   const [image3Name, setImage3Name] = useState<string>('لم يتم اختيار صورة');
 
   const handleImage3Change = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -180,7 +192,7 @@ export default function OurFutueresForm() {
       fileInputElement.click();
     }
   };
-  
+
   const [image4Name, setImage4Name] = useState<string>('لم يتم اختيار صورة');
 
   const handleImage4Change = (e: React.ChangeEvent<HTMLInputElement>) => {

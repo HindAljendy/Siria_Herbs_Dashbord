@@ -9,6 +9,8 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
   const [description, setDescription] = useState<string>('');
   const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
 
+  const token = localStorage.getItem("token");
+
 
   useEffect(() => {
     setDescription(story.description);
@@ -44,8 +46,9 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
     axios.delete(`http://127.0.0.1:8000/api/story/${story?.id}/delete`,
       {
         headers: {
-          'Authorization': 'Bearer <token>',
-        }
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+      },
       }
     ).then(response => console.log(response.data))
       .then(() => setUpdate())
@@ -71,9 +74,10 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
       if (mode === 'create') {
         const response = await axios.post('http://127.0.0.1:8000/api/story-create', formData, {
           headers: {
-            'Authorization': 'Bearer <token>',
-            'Content-Type': 'multipart/form-data'
-          }
+            Authorization: `Bearer ${token}`,
+            'Accept': "application/json",
+            'Content-Type': 'multipart/form-data',
+        },
         });
         console.log(response.data);
         handelHidenForm();
@@ -82,9 +86,10 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
         formData.append('_method', 'PUT');
         const response = await axios.post(`http://127.0.0.1:8000/api/story/${story?.id}/update`, formData, {
           headers: {
-            'Authorization': 'Bearer <token>',
-            'Content-Type': 'multipart/form-data'
-          }
+            Authorization: `Bearer ${token}`,
+            'Accept': "application/json",
+            'Content-Type': 'multipart/form-data',
+        },
         });
         console.log(response.data);
         setUpdate();
