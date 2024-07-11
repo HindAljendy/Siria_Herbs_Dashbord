@@ -19,8 +19,9 @@ import Login from "../pages/Login/Login";
 import MainLayout from "../pages/MainLayout/MainLayout";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import SettingsAbout from "../componnents/SettingAbout/SettingsAbout";
-import Certifica from "../componnents/Form/CertificaForm/Certifica";
 import ProductEdit from "../componnents/ProductEdit/ProductEdit";
+import AddCertification from "../componnents/AddCertification/AddCertification";
+import EditCertification from "../componnents/EditCertification/EditCertification";
 
 
 type ProtectedRouteProps = {
@@ -160,7 +161,7 @@ export const router = createBrowserRouter([
         path: "/settings/certificates/add",
         element: (
           <ProtectedRoute>
-            <Certifica />
+            <AddCertification/>
           </ProtectedRoute>
         ),
       },
@@ -168,7 +169,7 @@ export const router = createBrowserRouter([
         path: "/settings/certificates/update/:itemId",
         element: (
           <ProtectedRoute>
-            <Certifica />
+            <EditCertification/>
           </ProtectedRoute>
         ),
       },

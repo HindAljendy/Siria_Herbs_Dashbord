@@ -3,7 +3,6 @@ import axios from "axios";
 import SaveButton from "../Buttons/SaveButton";
 import { useNavigate, useParams } from "react-router-dom";
 import { FaRegTrashCan } from "react-icons/fa6";
-import NavigationLinks from "../../NavigationLinks/NavigationLinks";
 
 type TCertificate = {
     icon: File | string | null;
@@ -145,11 +144,6 @@ export default function Certifica() {
 
     return (
         <>
-            <NavigationLinks
-                navigateMain='اضافة شهادة'
-                navigateLink='الواجهة الرئيسية' navigateSubmain='الاعدادات '
-            />
-
             <form className='form MA_form_padding HJ_Margin_Add' onSubmit={handleSubmit}>
                 <div className='form-header HJ_FontColor_black MA_margin'>{itemId ? 'تعديل شهادة' : 'اضافة شهادة'}</div>
 

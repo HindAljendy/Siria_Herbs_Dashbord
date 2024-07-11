@@ -45,7 +45,7 @@ const FormEditProduct: React.FC<AddProductProps> = ({ Name }) => {
     main_image: null,
     additional_image: null,
   });
-
+  
   const [showComponent, setShowComponent] = useState<boolean>(false);
 
 
