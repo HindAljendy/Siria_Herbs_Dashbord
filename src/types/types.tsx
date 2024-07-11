@@ -90,7 +90,7 @@ export interface BigNavigationLinksProps {
     navigateLinkSubmain: string;
     navigateSubmain: string;
 }
-export interface FormProduct {
+export type FormProduct = {
     id:number|string,
     brand_id: number|string,
     category_id : number |string,

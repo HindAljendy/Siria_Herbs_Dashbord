@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FormUpdateProduct, FormProduct } from '../../../types/types';
+import { FormProduct } from '../../../types/types';
 import ADD_Photo from './../../../assets/images/Product/Add_Photo_product.svg'
 
 import axios from 'axios';
@@ -44,30 +44,10 @@ const FormEditProduct: React.FC<AddProductProps> = ({ Name }) => {
     count_each_package: "",
     main_image: null,
     additional_image: null,
-
   });
 
-  const [formDataUpdate, setFormDataUpdate] = useState<FormUpdateProduct>({
-    brand_id: "",
-    category_id : "",
-    name: "",
-    subname1: "",
-    subname2: "",
-    product_description: "",
-    code_number: "",
-    weight: "",
-    packaging_description: "",
-    description_component: "",
-    count_each_package: "",
-    main_image: null,
-    additional_image: null,
-
-    _method: "PUT",
-
-
-  });
   const [showComponent, setShowComponent] = useState<boolean>(false);
-  
+
 
   useEffect(() => {
 
@@ -77,16 +57,31 @@ const FormEditProduct: React.FC<AddProductProps> = ({ Name }) => {
       },
     })
       .then((response) => {
-        console.log(productNum);
-        setFormData(response.data.data);
-
-        console.log(response.data.data);
+        setFormData({
+          ...formData,
+          id:                    response.data.data.id,
+          brand_id:              response.data.data.brand_id,
+          category_id:           response.data.data.category_id,
+          brand_name:            response.data.data.brand_name,
+          name:                  response.data.data.name,
+          subname1:              response.data.data.subname1,
+          subname2:              response.data.data.subname2,
+          product_description:   response.data.data.product_description,
+          code_number:           response.data.data.code_number,
+          weight:                response.data.data.weight,
+          packaging_description: response.data.data.packaging_description,
+          description_component: response.data.data.description_component,
+          count_each_package:    response.data.data.count_each_package,
+          main_image: null,
+          additional_image: null,
+        })
       })
       .catch((error) => {
         console.log('Error:', error);
       });
+    console.log('the name is', formData.name);
 
-  }, []);
+  }, [productNum]);
 
 
 
@@ -108,129 +103,29 @@ const FormEditProduct: React.FC<AddProductProps> = ({ Name }) => {
   const EditProduct = async (event: any) => {
     event.preventDefault();
 
-    /*  const formDataUpdate = new FormData();
-   
-     formDataUpdate.append('brand_id', String(formData.brand_id));
-     formDataUpdate.append('category_id', String(formData.category_id));
-     formDataUpdate.append('name', String(formData.name));
-     formDataUpdate.append('subname1', String(formData.subname1));
-     formDataUpdate.append('subname2', String(formData.subname2));
-     formDataUpdate.append('product_description', String(formData.product_description));
-     formDataUpdate.append('code_number', String(formData.code_number));
-     formDataUpdate.append('weight', String(formData.weight));
-     formDataUpdate.append('packaging_description', String(formData.packaging_description));
-     formDataUpdate.append('description_component', String(formData.description_component));
-     formDataUpdate.append('count_each_package', String(formData.count_each_package));
-     if (formData.main_image) {
-       formDataUpdate.append('main_image', formData.main_image);
-   }
-   
-   if (formData.additional_image) {
-       formDataUpdate.append('additional_image', formData.additional_image);
-   }
-   formDataUpdate.append('_method', 'PUT');  */
+    const formDataUpdate = new FormData();
 
-    let newdata: FormUpdateProduct = {
-      name: formData.name,
-      subname1: formData.subname1,
-      subname2: formData.subname2,
-      product_description: formData.product_description,
-      packaging_description: formData.packaging_description,
-      description_component: formData.description_component,
-      code_number: formData.code_number,
-      count_each_package: formData.count_each_package,
-      weight: formData.weight,
-      brand_id: formData.brand_id,
-      category_id : formData.category_id,
-   /*   main_image? : formData.main_image,
-    additional_image? : formData.additional_image, */
-
-
-      _method: "PUT",
+    formDataUpdate.append('brand_id', String(formData.brand_id));
+    formDataUpdate.append('category_id', String(formData.category_id));
+    formDataUpdate.append('name', String(formData.name));
+    formDataUpdate.append('subname1', String(formData.subname1));
+    formDataUpdate.append('subname2', String(formData.subname2));
+    formDataUpdate.append('product_description', String(formData.product_description));
+    formDataUpdate.append('code_number', String(formData.code_number));
+    formDataUpdate.append('weight', String(formData.weight));
+    formDataUpdate.append('packaging_description', String(formData.packaging_description));
+    formDataUpdate.append('description_component', String(formData.description_component));
+    formDataUpdate.append('count_each_package', String(formData.count_each_package));
+    if (formData.main_image) {
+      formDataUpdate.append('main_image', formData.main_image);
     }
 
-    newdata.main_image = formData.main_image ?? null;
-    newdata.additional_image = formData.additional_image ?? null;
-
-    console.log(newdata);
-
-
-
-    /* name:  (formDataUpdate.name) ?  formDataUpdate.name : formData.name,
-    subname1:  (formDataUpdate.subname1) ?  formDataUpdate.subname1 : formData.subname1,
-    subname2: (formDataUpdate.subname2) ?  formDataUpdate.subname2 : formData.subname2,
-    product_description:  (formDataUpdate.product_description) ?  formDataUpdate.product_description  : formData.product_description,
-    code_number: (formDataUpdate.code_number) ?  formDataUpdate.code_number   : formData.code_number,
-    weight: (formDataUpdate.weight) ?  formDataUpdate.weight  : formData.weight,
-    packaging_description: (formDataUpdate.packaging_description) ?  formDataUpdate.packaging_description  : formData.packaging_description,
-    description_component: (formDataUpdate.description_component) ? formDataUpdate.description_component  : formData.description_component,
-    count_each_package:   (formDataUpdate.count_each_package) ? formDataUpdate.count_each_package  : formData.count_each_package,
- 
-    main_image: (formData.main_image) ? formData.main_image  : formDataUpdate.main_image, 
-    additional_image: (formDataUpdate.additional_image) ? formDataUpdate.additional_image  : formData.additional_image,
-    _method: "PUT", */
-
-    /* main_image : formData.main_image,
-    additional_image: formData.additional_image,  */
-    /* _method: "PUT", */
-    /*  } */
-
-    /*    if (formData.main_image) {
-        newdata.main_image = formData.main_image;
-      }
-      
-      if (formData.additional_image) {
-        newdata.additional_image = formData.additional_image;
-      }  */
-    /* console.log(newdata); */
-    /*    const formDataUpdate = new FormData();
-  
-      formDataUpdate.append('brand_id', String(formData.brand_id));
-      formDataUpdate.append('category_id', String(formData.category_id));
-      formDataUpdate.append('name', String(formData.name));
-      formDataUpdate.append('subname1', String(formData.subname1));
-      formDataUpdate.append('subname2', String(formData.subname2));
-      formDataUpdate.append('product_description', String(formData.product_description));
-      formDataUpdate.append('code_number', String(formData.code_number));
-      formDataUpdate.append('weight', String(formData.weight));
-      formDataUpdate.append('packaging_description', String(formData.packaging_description));
-      formDataUpdate.append('description_component', String(formData.description_component));
-      formDataUpdate.append('count_each_package', String(formData.count_each_package));
-      if (formData.main_image) {
-        formDataUpdate.append('main_image', formData.main_image);
-    }
-    
     if (formData.additional_image) {
-        formDataUpdate.append('additional_image', formData.additional_image);
+      formDataUpdate.append('additional_image', formData.additional_image);
     }
-    formDataUpdate.append('_method', 'PUT'); 
+    formDataUpdate.append('_method', 'PUT');
 
-    console.log(formDataUpdate); */
-
-
-    /*     let newData ={
-    
-          brand_id: (formDataUpdate.brand_id) ?  formDataUpdate.brand_id : formData.brand_id,
-          category_id:  (formDataUpdate.category_id) ?  formDataUpdate.category_id : formData.category_id,
-          brand_name : (formDataUpdate.brand_name) ? formDataUpdate.brand_name  : formData.brand_name,
-          name:  (formDataUpdate.name) ?  formDataUpdate.name : formData.name,
-          subname1:  (formDataUpdate.subname1) ?  formDataUpdate.subname1 : formData.subname1,
-          subname2: (formDataUpdate.subname2) ?  formDataUpdate.subname2 : formData.subname2,
-          product_description:  (formDataUpdate.product_description) ?  formDataUpdate.product_description  : formData.product_description,
-          code_number: (formDataUpdate.code_number) ?  formDataUpdate.code_number   : formData.code_number,
-          weight: (formDataUpdate.weight) ?  formDataUpdate.weight  : formData.weight,
-          packaging_description: (formDataUpdate.packaging_description) ?  formDataUpdate.packaging_description  : formData.packaging_description,
-          description_component: (formDataUpdate.description_component) ? formDataUpdate.description_component  : formData.description_component,
-          count_each_package:   (formDataUpdate.count_each_package) ? formDataUpdate.count_each_package  : formData.count_each_package,
-          main_image: null ,
-          additional_image: null,
-          _method: "PUT",
-          
-        }  */
-    /* const method = "PUT"; */
-    /* console.log(newData); */
-
-    await axios.post(`http://127.0.0.1:8000/api/products/${productNum}`, newdata, config)
+    await axios.post(`http://127.0.0.1:8000/api/products/${productNum}`, formDataUpdate, config)
       .then((response) => {
         /*    setFormDataUpdate(response.data.data);  */
         console.log(response.data.data);
@@ -252,7 +147,7 @@ const FormEditProduct: React.FC<AddProductProps> = ({ Name }) => {
         label2='الاسم الفرعي 1' label3='الاسم الفرعي 2'
         formData={formData} setFormData={setFormData} />
 
-        <div className=" HJ_groups_Selectors">
+      <div className=" HJ_groups_Selectors">
         <SelectorCategory_Products name="الفئة"
           formData={formData} setFormData={setFormData}
         />
