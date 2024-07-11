@@ -19,9 +19,16 @@ const ContactMessages = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalItems, setTotalItems] = useState<number>(0);
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
+  const token = localStorage.getItem("token");
 
+ 
   const columns = ['اسم المستخدم', 'البريد الالكتروني', 'الرسالة', 'الإجراءات']
-
+  const config = {
+    headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+    },
+};
 
   const buttons = [
 
@@ -29,9 +36,9 @@ const ContactMessages = () => {
       btn_path: 'src/assets/images/button_icon/delete.svg',
       btn_alt: 'delete icon',
       handlefunc: ((itemId: number) => {
-        axios.delete(`http://127.0.0.1:8000/api/deleteContactMessage/${itemId}`)
+        axios.delete(`http://127.0.0.1:8000/api/deleteContactMessage/${itemId}`,config)
         setMessages(messages.filter((message) => message.id != itemId))
-
+        console.log("Delete Message Sucessfully");
       })
 
 
@@ -41,14 +48,15 @@ const ContactMessages = () => {
       btn_path: 'src/assets/images/button_icon/show.svg',
       btn_alt: 'show icon',
       handlefunc: ((itemId: number) => {
-
+        axios.get(`http://127.0.0.1:8000/api/showContactMessage/${itemId}`,config)
         setMessageToShow(messages.find(item => item.id === itemId)?.message)
-        setShowedMessage(true)
+        setShowedMessage(true) 
+        console.log("sucessfully");
+        
 
       })
     }
   ]
-
 
 
   useEffect(() => {
@@ -67,10 +75,11 @@ const ContactMessages = () => {
         navigateSubmain='رسائل جهات الاتصال' />
 
       <Messages
-
         columns={columns}
         data={messages}
-        buttons={buttons} />
+        buttons={buttons} 
+      />
+
       <Pagination
         totalItems={totalItems}
         itemsPerPage={itemsPerPage}

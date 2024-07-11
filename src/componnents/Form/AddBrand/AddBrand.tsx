@@ -14,6 +14,7 @@ const AddBrand: React.FC = () => {
 
   const navigate = useNavigate();
 
+
   const [formData, setFormData] = useState({
     name: '',
     main_image: null as File | null,
@@ -25,8 +26,10 @@ const AddBrand: React.FC = () => {
   });
 
   const { id } = useParams<{ id: string }>();
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
+
     if (id) {
       // setBrandId(id);
       axios.get(`http://127.0.0.1:8000/api/brands/${id}`)
@@ -73,11 +76,20 @@ const AddBrand: React.FC = () => {
     form.append('published', formData.published.toString());
     console.log(form);
 
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Accept': "application/json",
+        'Content-Type': 'multipart/form-data',
+      },
+    };
+
     if (id) {
       form.append('_method', 'PUT');
-      axios.post(`http://127.0.0.1:8000/api/brands/${id}/update`, form)
+      axios.post(`http://127.0.0.1:8000/api/brands/${id}/update`, form , config)
         .then(response => {
           console.log('Brand created successfully:', response.data);
+          navigate('/brands');
         })
         .catch(error => {
           console.error('There was an error creating the brand!', error);
@@ -85,9 +97,10 @@ const AddBrand: React.FC = () => {
 
     } else {
 
-      axios.post('http://127.0.0.1:8000/api/create-brand', form)
+      axios.post('http://127.0.0.1:8000/api/create-brand', form , config)
         .then(response => {
           console.log('Brand created successfully:', response.data);
+          navigate('/brands');
         })
         .catch(error => {
           console.error('There was an error creating the brand!', error);
@@ -95,7 +108,7 @@ const AddBrand: React.FC = () => {
 
 
     }
-    navigate('/brands');
+
   };
 
   const [backgroundImageName, setBackgroundImageName] = useState<string>('لم يتم اختيار صورة');

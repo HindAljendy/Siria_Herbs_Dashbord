@@ -10,6 +10,9 @@ type TAboutUs = {
 }
 
 export default function AboutUsForm() {
+
+    const token = localStorage.getItem("token");
+
     const [formData, setFormData] = useState<TAboutUs>({
         title: "",
         description: "",
@@ -53,9 +56,10 @@ export default function AboutUsForm() {
                 formDataToSend,
                 {
                     headers: {
-                        // 'Authorization': 'Bearer <token>',
-                        'Content-Type': 'multipart/form-data'
-                    }
+                        Authorization: `Bearer ${token}`,
+                        'Accept': "application/json",
+                        'Content-Type': 'multipart/form-data',
+                    },
                 }
             );
 

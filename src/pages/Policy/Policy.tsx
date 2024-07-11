@@ -21,6 +21,7 @@ const Policy = () => {
     icon: "",
   });
   const [showadd, SetShowAdd] = useState(true);
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     axios
@@ -35,8 +36,15 @@ const Policy = () => {
   }, []);
 
   const handleDelete = (id: number | undefined) => {
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      },
+    };
     axios
-      .delete(`http://127.0.0.1:8000/api/policy/${id}`)
+      .delete(`http://127.0.0.1:8000/api/policy/${id}`, config)
       .then((response) => {
         console.log(response);
         console.log(`Policy with ID ${id} deleted`);
@@ -80,7 +88,9 @@ const Policy = () => {
     axios
       .post("http://127.0.0.1:8000/api/policy", formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+          'Accept': "application/json",
+          'Content-Type': 'multipart/form-data',
         },
       })
       .then((response) => {
@@ -119,7 +129,9 @@ const Policy = () => {
     axios
       .post(`http://127.0.0.1:8000/api/policy/${id}`, formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+          'Accept': "application/json",
+          'Content-Type': 'multipart/form-data',
         },
       })
       .then((response) => {

@@ -26,8 +26,9 @@ const Login = () => {
       );
       console.log("Login successful", response.data);
 
-      localStorage.setItem("token", response.data.token);
-
+      /*  localStorage.setItem("token", response.data.token);  */
+      localStorage.setItem("token", response.data.access_token); 
+ 
       navigate("/");
     } catch (error) {
       console.error("Error during login:", error);

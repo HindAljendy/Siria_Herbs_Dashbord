@@ -8,6 +8,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  
   const handleLogout = () => {
     // Remove the user's authentication token from storage
     localStorage.removeItem('token');

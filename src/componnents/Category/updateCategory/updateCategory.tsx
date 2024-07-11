@@ -3,6 +3,7 @@ import './updateCategory.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import BigNavigationLinks_Categories from '../../BigNavigationLinks/BigNavigationLinks_Categories';
 
 const UpdateCategory = () => {
     const [name, setName] = useState('');
@@ -11,9 +12,10 @@ const UpdateCategory = () => {
 
 
     const { itemId } = useParams<{ itemId: string }>();
+    const token = localStorage.getItem("token");
 
     useEffect(() => {
-      
+
         if (itemId) {
             setId(itemId);
         } else {
@@ -24,6 +26,7 @@ const UpdateCategory = () => {
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
 
+
         try {
             if (!id) throw new Error('ID is missing');
 
@@ -32,6 +35,7 @@ const UpdateCategory = () => {
                 published,
             }, {
                 headers: {
+                    Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
             });
@@ -45,6 +49,13 @@ const UpdateCategory = () => {
 
     return (
         <div>
+            <BigNavigationLinks_Categories
+                navigateMain='  تعديل فئة'
+                navigateLinkMain='الواجهة الرئيسية'
+                navigateLinkSubmain=' الفئات'
+                navigateSubmain='تعديل '
+
+            />
             <form className='form' onSubmit={handleSubmit}>
                 <div className='form-header'>تحديث فئة في النظام</div>
                 <div className='input'>
@@ -61,7 +72,7 @@ const UpdateCategory = () => {
                     <label htmlFor="published">هل هي مدرجة؟</label>
                     <select
                         id="published"
-                        value={published? 'true' : 'false'}
+                        value={published ? 'true' : 'false'}
                         onChange={(e) => setPublished(e.target.value === 'true')}
                         required
                     >

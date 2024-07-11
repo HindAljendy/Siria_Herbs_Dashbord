@@ -22,6 +22,7 @@ const Table: React.FC<TableProps & Tbrand> = ({ title, buttonLabel, columns, dat
 
 
     const navigate = useNavigate();
+    const token = localStorage.getItem("token");
 
 
     const handleDeleteClick = (id: number) => {
@@ -30,8 +31,15 @@ const Table: React.FC<TableProps & Tbrand> = ({ title, buttonLabel, columns, dat
     };
 
     useEffect(() => {
+        
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                Accept: "application/json",
+            },
+        };
         if (deleteBrand) {
-            axios.delete(`http://127.0.0.1:8000/api/brands/${brandId}/delete`)
+            axios.delete(`http://127.0.0.1:8000/api/brands/${brandId}/delete`, config)
                 .then(response => {
                     console.log('Brand deleted successfully:', response.data);
                 })

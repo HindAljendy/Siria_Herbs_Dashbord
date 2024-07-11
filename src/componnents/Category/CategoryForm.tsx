@@ -8,6 +8,7 @@ import check from '../../assets/images/button_icon/check.svg'
 import BigNavigationLinks_Categories from '../BigNavigationLinks/BigNavigationLinks_Categories';
 
 export default function CategoryForm() {
+
   const [name, setName] = useState('');
   const [published, setPublished] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -22,6 +23,8 @@ export default function CategoryForm() {
     products_count: number;
   }
   type TData = Array<TDataitem>;
+
+  const token = localStorage.getItem("token");
 
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
@@ -40,12 +43,19 @@ export default function CategoryForm() {
         return null;
       });
 
+      const config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            Accept: "application/json",
+        },
+    };
+
       const response = await axios.post('http://127.0.0.1:8000/api/add', {
         name,
         published,
         brand_id: selectedBrandIds,
-      });
-      console.log(response.data);
+      },config);
+      console.log(response.data.data.data);
       alert('تم إضافة الفئة بنجاح!');
     } catch (error) {
       console.error(error);
@@ -54,7 +64,7 @@ export default function CategoryForm() {
   };
   ///////////////////////////////////////////////////////
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/categorys").then((res) => setData(res.data.data)
+    axios.get("http://127.0.0.1:8000/api/categorys").then((res) => setData(res.data.data.data)
     ).catch((error) => console.log(error))
   }, []);
 

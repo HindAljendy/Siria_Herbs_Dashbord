@@ -14,6 +14,7 @@ type TCertificate = {
 
 export default function Certifica() {
     const navigate = useNavigate();
+    const token = localStorage.getItem("token");
 
     const [formData, setFormData] = useState<TCertificate>({
         icon: null,
@@ -39,6 +40,7 @@ export default function Certifica() {
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
+
         try {
             const formDataToSend = new FormData();
             formDataToSend.append('name', formData.name);
@@ -57,9 +59,10 @@ export default function Certifica() {
                     `http://127.0.0.1:8000/api/certification/${itemId}/update`,
                     formDataToSend, {
                     headers: {
-                        // 'Authorization': 'Bearer <token>',
-                        'Content-Type': 'multipart/form-data'
-                    }
+                        Authorization: `Bearer ${token}`,
+                        'Accept': "application/json",
+                        'Content-Type': 'multipart/form-data',
+                    },
                 }
                 );
                 console.log("Success:", response.data);
@@ -69,9 +72,10 @@ export default function Certifica() {
                     `http://127.0.0.1:8000/api/certification-create`,
                     formDataToSend, {
                     headers: {
-                        // 'Authorization': 'Bearer <token>',
-                        'Content-Type': 'multipart/form-data'
-                    }
+                        Authorization: `Bearer ${token}`,
+                        'Accept': "application/json",
+                        'Content-Type': 'multipart/form-data',
+                    },
                 }
                 );
                 console.log("Success:", response.data);
@@ -208,7 +212,7 @@ export default function Certifica() {
                     <label htmlFor="description" className="HJ_FontColor_gray"> وصف الشهادة</label>
                     <textarea name="description" id="description" className='MA_TextArea' value={formData.description} onChange={handleChange}></textarea>
                 </div>
-                
+
                 <div className='HJ_container_Button'>
                     <SaveButton />
                 </div>

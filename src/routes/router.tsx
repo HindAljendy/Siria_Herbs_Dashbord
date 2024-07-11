@@ -22,6 +22,7 @@ import SettingsAbout from "../componnents/SettingAbout/SettingsAbout";
 import ProductEdit from "../componnents/ProductEdit/ProductEdit";
 import AddCertification from "../componnents/AddCertification/AddCertification";
 import EditCertification from "../componnents/EditCertification/EditCertification";
+import UpdateCategory from "../componnents/Category/updateCategory/updateCategory";
 
 
 type ProtectedRouteProps = {
@@ -117,6 +118,16 @@ export const router = createBrowserRouter([
           </ProtectedRoute>
         )
       },
+      {
+        path:'/categories/update-category/:id',
+        element:(
+          <ProtectedRoute>
+            <UpdateCategory/>
+          </ProtectedRoute>
+        )
+      },
+
+
       {
         path:'/users',
         element:(

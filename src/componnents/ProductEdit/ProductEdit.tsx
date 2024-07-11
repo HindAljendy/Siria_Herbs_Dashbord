@@ -1,6 +1,6 @@
 import React from 'react'
 import BigNavigationLinks from '../BigNavigationLinks/BigNavigationLinks'
-import FormEditProduct from '../Form/FormEditProduct/FormEditProduct'
+import EditFormProduct from '../Form/FormEditProduct/EditFormProduct'
 
 const ProductEdit = () => {
   return (
@@ -12,7 +12,7 @@ const ProductEdit = () => {
         navigateSubmain='تعديل '
 
     />
-    <FormEditProduct Name =' تعديل منتج'/>
+    <EditFormProduct Name =' تعديل منتج'/>
 
 </>
   )
