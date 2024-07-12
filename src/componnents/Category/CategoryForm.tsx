@@ -39,6 +39,13 @@ export default function CategoryForm() {
 
   const token = localStorage.getItem("token");
 
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Accept': "application/json",
+    },
+  };
+
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -49,7 +56,7 @@ export default function CategoryForm() {
           published: published,
           brand_id: selectedOptions,
           _method: 'PUT'
-        });
+        }, config);
         console.log(response.data);
         alert('تم إضافة الفئة بنجاح!');
         navigate('/categories')
@@ -64,7 +71,7 @@ export default function CategoryForm() {
           name: name,
           published: published,
           brand_id: selectedOptions,
-        });
+        }, config);
         console.log(response.data);
         alert('تم إضافة الفئة بنجاح!');
         
@@ -95,6 +102,8 @@ export default function CategoryForm() {
       setSelectedOptions(selectedOptions.filter((option) => option !== event.target.value));
     }
   };
+
+  console.log(published);
 
   return (
     <>
