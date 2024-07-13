@@ -8,12 +8,14 @@ import { FormProduct } from '../../types/types'
 import Pagination from '../../componnents/PaginateItems/Pagination'
 
 
+
 const Products = () => {
 
   const [products, setProducts] = useState<FormProduct[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalItems, setTotalItems] = useState<number>(0);
   const [itemsPerPage, setItemsPerPage] = useState<number>(10);
+  
 
 
   const getAllProducts = (currentPage: number) => {
@@ -43,6 +45,7 @@ const Products = () => {
 const token = localStorage.getItem("token");
 
 const deleteProduct = (id: number | string) => {
+
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -66,6 +69,7 @@ const deleteProduct = (id: number | string) => {
 
 
   const duplicateProduct = (id: number | string) => {
+    
     const config = {
       headers: {
         'Authorization': `Bearer ${token}`,

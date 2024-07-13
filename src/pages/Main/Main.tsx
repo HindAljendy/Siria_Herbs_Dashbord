@@ -7,6 +7,7 @@ import category from '../../assets/images/MainPage/category.png';
 import brand from '../../assets/images/MainPage/brandmain.png';
 import Footer from '../../componnents/Footer/Footer';
 
+
 const Main = () => {
   const [productCount, setProductCount] = useState(0);
   const [brandCount, setBrandCount] = useState(0);
