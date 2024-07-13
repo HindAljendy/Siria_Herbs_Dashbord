@@ -22,7 +22,6 @@ import SettingsAbout from "../componnents/SettingAbout/SettingsAbout";
 import ProductEdit from "../componnents/ProductEdit/ProductEdit";
 import AddCertification from "../componnents/AddCertification/AddCertification";
 import EditCertification from "../componnents/EditCertification/EditCertification";
-import UpdateCategory from "../componnents/Category/updateCategory/updateCategory";
 
 
 type ProtectedRouteProps = {
