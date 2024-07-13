@@ -1,0 +1,421 @@
+.ne-login {
+    background-color: var(--blue-color);
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    position: relative;
+}
+
+.ne-login svg path {
+    fill: var(--dark-blue);
+    z-index: 1;
+}
+
+.ne-login .ne-background-img .user-img {
+    position: absolute;
+    top: 5%;
+    
+    right: 59%;
+}
+
+.ne-login .ne-background-img .sitting-img {
+    position: absolute;
+    top: 46%;
+    left: 54%;
+}
+
+.ne-login .login-form {
+    width: 31.79%;
+    height: 522.14px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 1);
+    position: absolute;
+    top: 19.2%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 4;
+    padding: 2.56% 14.41% 2.56% 14.41%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.68%;
+}
+
+.ne-login .login-form .logo-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-group-form {
+    display: flex;
+    flex-direction: column;
+    gap: 26.47px;
+}
+
+.login-input {
+    display: flex;
+    align-items: center;
+    gap: 29.86px;
+}
+
+.login-input label {
+    width: 132px;
+    font-family: var(--almarai-family);
+    font-weight: var(--bold-weight);
+    font-size: 20px;
+    line-height: 20px;
+    color: rgba(94, 88, 115, 1);
+}
+
+.login-input input {
+    width: 329.08px;
+    height: 44px;
+    border-radius: 4px;
+    border: 1px solid rgba(171, 171, 172, 1);
+
+
+}
+
+.ne-forget-password {
+    font-family: var(--almarai-family);
+    font-weight: var(--normal-weight);
+    font-size: 12px;
+    line-height: 13.39px;
+    color: rgba(171, 171, 172, 1);
+    background: none;
+    border: none;
+    width: 94px;
+    transition: .5s all ease-in-out;
+    margin-right: 167px;
+    margin-top: -2%;
+}
+
+.ne-forget-password:hover {
+    color: var(--blue-color);
+}
+
+.ne-actions {
+    display: flex;
+    gap: 8.84px;
+    align-items: center;
+    justify-content: end;
+    margin-top: 61.98px;
+}
+
+.login-button {
+    background-color: var(--blue-color);
+    color: white;
+    padding: 10.27px 17.71px;
+    border-radius: 4px;
+    font-family: var(--almarai-family);
+    font-weight: var(--bold-weight);
+    font-size: 14px;
+    line-height: 14px;
+    border: none;
+}
+
+.cancel-button {
+    background-color: var(--red-color);
+    color: white;
+    padding: 10.27px 41.71px;
+    border-radius: 4px;
+    font-family: var(--almarai-family);
+    font-weight: var(--bold-weight);
+    font-size: 14px;
+    line-height: 14px;
+    border: none;
+}
+
+.HJ_ErrorLogin {
+    margin-block: 10px 10px;
+    text-align: center;
+}
+
+
+
+.HJ_Footer_login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.HJ_Footer_login span {
+    color: var(--absolute-white);
+    font-family: var(--Mulish-family);
+    font-size: 1rem;
+    font-weight: var(--normal-weight);
+    line-height: 20.08px;
+    text-wrap: nowrap;
+    margin-top: 56.48%;
+}
+
+.HJ_Footer_login img {
+    margin-top: 56.48%;
+}
+
+
+@media screen and (max-width: 1650px) and (min-width: 1400px) {
+    .HJ_Footer_login span {
+        margin-top: 40%;
+    }
+
+    .HJ_Footer_login img {
+        margin-top: 40%;
+    }
+}
+
+@media screen and (max-width: 1650px) and (min-width: 1366px) {
+    .HJ_Footer_login span {
+        margin-top: 20%;
+    }
+
+    .HJ_Footer_login img {
+        margin-top: 20%;
+    }
+
+    .ne-login .ne-background-img .user-img {
+        position: absolute;
+        top: 3%;
+        right: 60%;
+    }
+
+    .ne-login .ne-background-img .sitting-img {
+        position: absolute;
+        top: 33%;
+        left: 58%;
+    }
+
+    .ne-login .ne-background-img .user-img svg {
+        width: 300px;
+    }
+
+    .ne-login .ne-background-img .sitting-img svg {
+        width: 300px;
+    }
+
+    .ne-login .login-form {
+        height: 420.14px;
+        width: 40.79%;
+        border-radius: 20px;
+        top: 14.2%;
+
+    }
+
+    .login-input label {
+        width: 120px;
+        font-size: 18px;
+    }
+
+    .login-input input {
+        width: 250px;
+        height: 40px;
+        border-radius: 4px;
+    }
+
+    .ne-login .login-form .logo-form img {
+        width: 80px;
+    }
+
+    .ne-login {
+        height: 106vh;
+    }
+
+    .HJ_ErrorLogin {
+        margin-block: 0px 0px;
+        text-align: center;
+    }
+
+    .HJ_ErrorLogin span {
+        font-size: 13px;
+    }
+
+    .ne-actions {
+        gap: 8.84px;
+        align-items: center;
+        justify-content: end;
+        margin-top: 45.98px;
+    }
+
+    .ne-forget-password {
+        font-size: 12px;
+        line-height: 13.39px;
+        width: 94px;
+        transition: .5s all ease-in-out;
+        margin-right: 130px;
+        margin-top: -3%;
+    }
+
+}
+
+
+
+@media screen and (max-width: 1366px) and (min-width: 1200px) {
+    .HJ_Footer_login span {
+        margin-top: 100px;
+    }
+
+    .HJ_Footer_login img {
+        margin-top: 100px;
+    }
+
+    .ne-login .ne-background-img .user-img {
+        position: absolute;
+        top: 4%;
+        right: 60%;
+    }
+
+
+    .ne-login .ne-background-img .sitting-img {
+        position: absolute;
+        top: 37%;
+        left: 58%;
+
+    }
+
+    .ne-login .ne-background-img .user-img svg {
+        width: 250px;
+    }
+
+    .ne-login .ne-background-img .sitting-img svg {
+        width: 250px;
+
+    }
+
+    .ne-login .login-form {
+        height:420.14px;
+        width: 40.79%;
+        border-radius: 20px;
+        top: 18.2%;
+        left: 50%;
+    }
+
+    .login-input label {
+        width: 100px;
+        font-size: 15px;
+    }
+
+    .login-input input {
+        width: 200px;
+        height: 30px;
+        border-radius: 4px;
+    }
+
+    .ne-login .login-form .logo-form img {
+        width: 80px;
+    }
+
+    .ne-login {
+        height: 100vh;
+    }
+
+    .HJ_ErrorLogin {
+        margin-block: 0px 0px;
+        text-align: center;
+    }
+
+    .HJ_ErrorLogin span {
+        font-size: 13px;
+    }
+
+    .ne-actions {
+        gap: 8.84px;
+        align-items: center;
+        justify-content: end;
+        margin-top: 45.98px;
+    }
+
+    .ne-forget-password {
+        font-size: 12px;
+        line-height: 13.39px;
+        width: 94px;
+        margin-right: 130px;
+        margin-top: -3%;
+    }
+
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+    .HJ_Footer_login span {
+        margin-top: 19%;
+    }
+
+    .HJ_Footer_login img {
+        margin-top: 19%;
+    }
+
+    .ne-login .ne-background-img .user-img {
+        position: absolute;
+        top: 4%;
+        right: 59%;
+    }
+
+
+    .ne-login .ne-background-img .sitting-img {
+        position: absolute;
+        top: 37%;
+        left: 58%;
+
+    }
+
+    .ne-login .ne-background-img .user-img svg {
+        width: 250px;
+    }
+
+    .ne-login .ne-background-img .sitting-img svg {
+        width: 250px;
+
+    }
+
+    .ne-login .login-form {
+        height: 420.14px;
+        width: 40.79%;
+        border-radius: 20px;
+        top: 18.2%;
+        left: 50%;
+    }
+
+    .login-input label {
+        width: 100px;
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .login-input input {
+        width: 200px;
+        height: 30px;
+        border-radius: 4px;
+    }
+
+    .ne-login .login-form .logo-form img {
+        width: 80px;
+    }
+
+    .ne-login {
+        height: 100vh;
+    }
+
+    .HJ_ErrorLogin {
+        margin-block: 0px 0px;
+        text-align: center;
+    }
+
+    .HJ_ErrorLogin span {
+        font-size: 13px;
+    }
+
+    .ne-actions {
+        margin-top: 45.98px;
+    }
+
+    .ne-forget-password {
+        font-size: 12px;
+        line-height: 13.39px;
+        width: 94px;
+        transition: .5s all ease-in-out;
+        margin-right: 130px;
+        margin-top: -3%;
+    }
+}

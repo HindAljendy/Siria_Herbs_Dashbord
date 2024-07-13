@@ -5,11 +5,15 @@ import './CategoryForm.css';
 import Accordion from 'react-bootstrap/Accordion';
 import axios from 'axios';
 import check from '../../assets/images/button_icon/check.svg'
-import BigNavigationLinks_Categories from '../BigNavigationLinks/BigNavigationLinks_Categories';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export default function CategoryForm() {
 
+interface FormCategoryProps {
+  TitleCategory: string;
+}
+
+
+const CategoryForm: React.FC<FormCategoryProps> = ({TitleCategory}) => {
   const [name, setName] = useState('');
   const [published, setPublished] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -49,6 +53,15 @@ export default function CategoryForm() {
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Accept': "application/json",
+        'Content-Type': 'multipart/form-data',
+      },
+    };
+
     if (categoryId) {
       try {
         const response = await axios.post(`http://127.0.0.1:8000/api/category/${categoryId}/update`, {
@@ -56,7 +69,9 @@ export default function CategoryForm() {
           published: published,
           brand_id: selectedOptions,
           _method: 'PUT'
-        }, config);
+
+        },config);
+
         console.log(response.data);
         alert('تم إضافة الفئة بنجاح!');
         navigate('/categories')
@@ -71,7 +86,8 @@ export default function CategoryForm() {
           name: name,
           published: published,
           brand_id: selectedOptions,
-        }, config);
+        },config);
+
         console.log(response.data);
         alert('تم إضافة الفئة بنجاح!');
         
@@ -107,15 +123,8 @@ export default function CategoryForm() {
 
   return (
     <>
-      <BigNavigationLinks_Categories
-        navigateMain='  أضف فئة'
-        navigateLinkMain='الواجهة الرئيسية'
-        navigateLinkSubmain=' الفئات'
-        navigateSubmain='اضافة '
-
-      />
       <form className="MA_form HJ_form_padding HJ_Margin_Add" onSubmit={handleSubmit}>
-        <div className="form-header ">إضافة فئة إلى النظام</div>
+        <div className="form-header ">{TitleCategory}</div>
         <div className="input">
           <label htmlFor="name">الاسم </label>
           <input
@@ -201,3 +210,4 @@ export default function CategoryForm() {
   );
 }
 
+export default CategoryForm

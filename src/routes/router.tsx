@@ -31,13 +31,17 @@ type ProtectedRouteProps = {
 
 // Assume this function checks if the user is authenticated
 const isAuthenticated = () => {
+
   // Implement your authentication check logic here
-  return localStorage.getItem("token") !== null;
+  const token = localStorage.getItem("token");
+  return token !== null && token !== "";
+
 };
+
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   if (!isAuthenticated()) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/login" replace />
   }
   return children;
 };
@@ -85,67 +89,76 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path:'/products',
-        element:(
+        path: '/products',
+        element: (
           <ProtectedRoute>
-            <Products/>
+            <Products />
           </ProtectedRoute>
         )
       },
       {
         path: "/products/addProduct",
-        element: <ProductAdd/>
-    },
-    {
+        element: (
+          <ProtectedRoute>
+            <ProductAdd />
+          </ProtectedRoute>
+        )
+
+      },
+      {
         path: "/products/EditProduct/:productNum",
-        element: <ProductEdit/>
-    },
-      
-      {
-        path:'/categories',
-        element:(
+        element: (
           <ProtectedRoute>
-            <Category/>
+            <ProductEdit />
+          </ProtectedRoute>
+        )
+      },
+
+      {
+        path: '/categories',
+        element: (
+          <ProtectedRoute>
+            <Category />
           </ProtectedRoute>
         )
       },
       {
-        path:'/categories/addCategory',
-        element:(
+        path: '/categories/addCategory',
+        element: (
           <ProtectedRoute>
-            <AddCategory/>
+            <AddCategory />
           </ProtectedRoute>
         )
       },
       {
-        path:'categories/update-category/:categoryId',
-        element:(
+        path: 'categories/update-category/:categoryId',
+        element: (
           <ProtectedRoute>
-            <AddCategory/>
+            <UpdateCategory />
           </ProtectedRoute>
         )
       },
       {
-        path:'/users',
-        element:(
+        path: '/users',
+        element: (
           <ProtectedRoute>
-            <Users/>
+            <Users />
           </ProtectedRoute>
         )
       },
       {
-        path:'/contacts',
-        element:(
+        path: '/contacts',
+        element: (
           <ProtectedRoute>
-            <Contacts/>
+            <Contacts />
           </ProtectedRoute>
         )
       },
       {
-        path:'/contactMessages',
-        element:(
+        path: '/contactMessages',
+        element: (
           <ProtectedRoute>
-            <ContactMessages/>
+            <ContactMessages />
           </ProtectedRoute>
         )
       },
@@ -169,7 +182,7 @@ export const router = createBrowserRouter([
         path: "/settings/certificates/add",
         element: (
           <ProtectedRoute>
-            <AddCertification/>
+            <AddCertification />
           </ProtectedRoute>
         ),
       },
@@ -177,7 +190,7 @@ export const router = createBrowserRouter([
         path: "/settings/certificates/update/:itemId",
         element: (
           <ProtectedRoute>
-            <EditCertification/>
+            <EditCertification />
           </ProtectedRoute>
         ),
       },
@@ -196,7 +209,7 @@ export const router = createBrowserRouter([
             <SettingHome />
           </ProtectedRoute>
         ),
-  
+
       },
       {
         path: "/settings/pages_settings/about",
@@ -205,13 +218,13 @@ export const router = createBrowserRouter([
             <SettingsAbout />
           </ProtectedRoute>
         ),
-  
+
       },
       {
-        path:'/info',
-        element:(
+        path: '/info',
+        element: (
           <ProtectedRoute>
-            <Information/>
+            <Information />
           </ProtectedRoute>
         )
       },

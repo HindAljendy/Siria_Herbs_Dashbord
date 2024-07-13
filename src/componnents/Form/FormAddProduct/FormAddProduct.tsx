@@ -17,6 +17,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 interface AddProductProps {
   name: string;
 }
@@ -62,6 +63,7 @@ const FormAddProduct: React.FC<AddProductProps> = ({ name }) => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    
     console.log(formData);
 
     await axios.post('http://127.0.0.1:8000/api/products/create', formData, config)

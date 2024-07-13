@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./LoginStyle.css";
+import "./Login.css";
 import focalX from './../../assets/images/login/FocalX_SVG.svg'
 import logo1 from "../../assets/images/login/login_01.svg";
 import logo2 from "../../assets/images/login/login_02.svg";
@@ -26,16 +26,18 @@ const Login = () => {
       );
       console.log("Login successful", response.data);
 
-      /*  localStorage.setItem("token", response.data.token);  */
       localStorage.setItem("token", response.data.access_token); 
- 
-      navigate("/");
+      if (response.status === 200) {
+        navigate("/");
+      } else {
+        setError("failed login");
+        navigate("/login");
+      }
     } catch (error) {
-      console.error("Error during login:", error);
+      console.log("error happened", error);
       setError(".Login failed... Please check your username and password");
-    }
-  };
-
+    } 
+  }
   return (
     <div className="ne-login">
       <div className="ne-background-img">
@@ -125,7 +127,7 @@ const Login = () => {
               />
             </div>
             <a  className="ne-forget-password" href="/">نسيت كلمة المرور؟</a>
-           
+
           </div>
           <div className="HJ_ErrorLogin">
             {(error !== "") && <span style={{ color: "red" }}>{error}</span>}
@@ -139,6 +141,10 @@ const Login = () => {
             </button>
           </div>
         </form>
+        <div className='HJ_Footer_login'>
+          <img src={focalX} alt='focal' className='MA_IMG_focal' />
+          <span>Siria Herbs 2023 © All Rights Reserved | Designed and Developed by</span>
+        </div>
       </div>
     </div>
     

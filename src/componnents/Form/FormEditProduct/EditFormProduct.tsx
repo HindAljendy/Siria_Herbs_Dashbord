@@ -97,7 +97,7 @@ const EditFormProduct: React.FC<AddProductProps> = ({ Name }) => {
 
     const EditProduct = async (event: any) => {
         event.preventDefault();
-
+        
         const formDataUpdate = new FormData();
 
         formDataUpdate.append('brand_id', String(formData.brand_id));
