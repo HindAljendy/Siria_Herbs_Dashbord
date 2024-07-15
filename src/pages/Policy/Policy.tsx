@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Policy.css";
 
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface Policy {
   id?: number;
@@ -22,6 +23,7 @@ const Policy = () => {
   });
   const [showadd, SetShowAdd] = useState(true);
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -53,7 +55,11 @@ const Policy = () => {
         );
       })
       .catch((error) => {
-        console.error(error);
+        if (error.response.status === 401) {
+          navigate('/login');
+        } else {
+          console.error('Error!', error);
+        }
       });
   };
 
@@ -101,7 +107,11 @@ const Policy = () => {
         window.location.reload();
       })
       .catch((error) => {
-        console.error(error);
+        if (error.response.status === 401) {
+          navigate('/login');
+        } else {
+          console.error('Error!', error);
+        }
       });
   };
 
@@ -149,6 +159,11 @@ const Policy = () => {
           console.error("Response data:", error.response.data);
           console.error("Response status:", error.response.status);
           console.error("Response headers:", error.response.headers);
+        }
+        if (error.response.status === 401) {
+          navigate('/login');
+        } else {
+          console.error('Error!', error);
         }
       });
   };

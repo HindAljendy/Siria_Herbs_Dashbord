@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SaveButton from '../../componnents/Form/Buttons/SaveButton';
 import NavigationLinks from '../../componnents/NavigationLinks/NavigationLinks';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import './Settings.css'
 
@@ -28,6 +28,7 @@ const Settings = () => {
   });
 
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://127.0.0.1:8000/api/setting/1`)
@@ -80,8 +81,12 @@ const Settings = () => {
       .then(response => {
         console.log('Settings updated successfully:', response.data);
       })
-      .catch(error => {
-        console.error('There was an error updating the settings!', error);
+      .catch((error) => {
+        if (error.response.status === 401) {
+          navigate('/login');
+        } else {
+          console.error(' Error!', error);
+        }
       });
   };
 

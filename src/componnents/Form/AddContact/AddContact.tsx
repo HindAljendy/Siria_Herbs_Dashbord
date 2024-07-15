@@ -3,6 +3,7 @@ import SaveButton from "../Buttons/SaveButton";
 import icon from '../../../assets/images/link-icon.png';
 import axios from "axios";
 import './AddContact.css';
+import { useNavigate } from "react-router-dom";
 
 interface Contact {
     email: string;
@@ -35,6 +36,7 @@ const AddContact: React.FC<AddContactProps> = ({ contactId = "1" }) => {
     });
 
     const token = localStorage.getItem("token");
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`http://127.0.0.1:8000/api/contacts/${contactId}`)
@@ -82,8 +84,13 @@ const AddContact: React.FC<AddContactProps> = ({ contactId = "1" }) => {
             const response = await axios.post(`http://127.0.0.1:8000/api/contacts/${contactId}`, formData ,config);
             console.log("Response:", response.data);
             window.location.reload();
-        } catch (error) {
-            console.error("Error updating contact:", error);
+        } catch (error:any) {
+            if (error.response.status === 401) {
+                navigate('/login');
+            } else {
+                console.error('Error', error);
+            }
+
         }
     };
 

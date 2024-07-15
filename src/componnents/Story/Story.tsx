@@ -4,10 +4,12 @@ import StoryForm from '../StoryForm/StoryForm'
 import axios from 'axios'
 import { TStory } from '../../types/types'
 
+
 export const Story = () => {
     const [stories, setStories] = useState<TStory[]>([]);
     const [update, setUpdate] = useState<boolean>(false);
     const [hidenForm, setHidenForm] = useState<boolean>(false);
+    
 
     const handelUpdate = () => {
         setUpdate(!update);

@@ -60,19 +60,23 @@ const FormAddProduct: React.FC<AddProductProps> = ({ name }) => {
       'Content-Type': 'multipart/form-data',
     },
   };
-
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    
+  
     console.log(formData);
-
+  
     await axios.post('http://127.0.0.1:8000/api/products/create', formData, config)
       .then((response) => {
         setFormData(response.data.data);
         console.log(response.data.data);
-        /* window.location.reload(); */
         navigate('/products');
-       
+      })
+      .catch((error) => {
+        if (error.response.status === 401) {
+          navigate('/login');
+        } else {
+          console.error(error);
+        }
       });
   };
 

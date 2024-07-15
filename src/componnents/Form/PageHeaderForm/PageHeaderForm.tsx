@@ -2,6 +2,7 @@ import React, { ChangeEvent, FC, FormEvent, useEffect, useState } from 'react';
 import './PageHeaderForm.css'
 import { FaRegTrashCan } from 'react-icons/fa6';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
     heroId: number;
@@ -14,6 +15,7 @@ const PageHeaderForm: FC<Props> = ({ heroId }) => {
     const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
 
     const token = localStorage.getItem("token");
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(`http://127.0.0.1:8000/api/hero/${heroId}`)
@@ -68,8 +70,12 @@ const PageHeaderForm: FC<Props> = ({ heroId }) => {
                 },
             });
             console.log("Response:", response.data);
-        } catch (error) {
-            console.error("Error updating contact:", error);
+        } catch (error: any) {
+            if (error.response.status === 401) {
+                navigate('/login');
+            } else {
+                console.error(' Error!', error);
+            }
         }
     };
 

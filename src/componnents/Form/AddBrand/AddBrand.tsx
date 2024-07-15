@@ -91,9 +91,13 @@ const AddBrand: React.FC = () => {
           console.log('Brand created successfully:', response.data);
           navigate('/brands');
         })
-        .catch(error => {
-          console.error('There was an error creating the brand!', error);
-        });
+        .catch((error) => {
+          if (error.response.status === 401) {
+              navigate('/login');
+          } else {
+            console.error('There was an error creating the brand!', error);
+          }
+      });
 
     } else {
 
@@ -102,9 +106,13 @@ const AddBrand: React.FC = () => {
           console.log('Brand created successfully:', response.data);
           navigate('/brands');
         })
-        .catch(error => {
-          console.error('There was an error creating the brand!', error);
-        });
+        .catch((error) => {
+          if (error.response.status === 401) {
+              navigate('/login');
+          } else {
+            console.error('There was an error creating the brand!', error);
+          }
+      });
 
 
     }

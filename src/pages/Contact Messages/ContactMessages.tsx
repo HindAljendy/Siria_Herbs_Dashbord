@@ -39,6 +39,7 @@ const ContactMessages = () => {
         axios.delete(`http://127.0.0.1:8000/api/deleteContactMessage/${itemId}`,config)
         setMessages(messages.filter((message) => message.id != itemId))
         console.log("Delete Message Sucessfully");
+        
       })
 
 
@@ -52,7 +53,7 @@ const ContactMessages = () => {
         setMessageToShow(messages.find(item => item.id === itemId)?.message)
         setShowedMessage(true) 
         console.log("sucessfully");
-        
+
 
       })
     }

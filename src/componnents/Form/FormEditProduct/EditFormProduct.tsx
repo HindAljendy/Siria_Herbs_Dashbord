@@ -86,7 +86,7 @@ const EditFormProduct: React.FC<AddProductProps> = ({ Name }) => {
     };
 
     const token = localStorage.getItem("token");
-    
+
     const config = {
         headers: {
             Authorization: `Bearer ${token}`,
@@ -97,7 +97,7 @@ const EditFormProduct: React.FC<AddProductProps> = ({ Name }) => {
 
     const EditProduct = async (event: any) => {
         event.preventDefault();
-        
+
         const formDataUpdate = new FormData();
 
         formDataUpdate.append('brand_id', String(formData.brand_id));
@@ -126,7 +126,11 @@ const EditFormProduct: React.FC<AddProductProps> = ({ Name }) => {
                 navigate('/products');
             })
             .catch((error) => {
-                console.log('Error:', error);
+                if (error.response.status === 401) {
+                    navigate('/login');
+                } else {
+                    console.error(error);
+                }
             });
 
     };

@@ -6,6 +6,7 @@ import ProductsOperationsSection from '../../componnents/ProductsOperationsSecti
 import axios from 'axios'
 import { FormProduct } from '../../types/types'
 import Pagination from '../../componnents/PaginateItems/Pagination'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -43,6 +44,7 @@ const Products = () => {
 
 
 const token = localStorage.getItem("token");
+const navigate = useNavigate();
 
 const deleteProduct = (id: number | string) => {
 
@@ -61,14 +63,18 @@ const deleteProduct = (id: number | string) => {
       getAllProducts(currentPage);
     })
     .catch((error) => {
-      console.error("Error Delete Product: ", error);
+      if (error.response.status === 401) {
+        navigate('/login');
+      } else {
+        console.error(error);
+      }
     });
 };
 
 
 
 
-  const duplicateProduct = (id: number | string) => {
+const duplicateProduct = (id: number | string) => {
     
     const config = {
       headers: {
@@ -85,7 +91,11 @@ const deleteProduct = (id: number | string) => {
         console.log(id);
       })
       .catch((error) => {
-        console.error("Error Duplicate Product: ", error);
+        if (error.response.status === 401) {
+          navigate('/login');
+        } else {
+          console.error(error);
+        }
       });
   };
 

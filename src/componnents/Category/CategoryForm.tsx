@@ -13,7 +13,7 @@ interface FormCategoryProps {
 }
 
 
-const CategoryForm: React.FC<FormCategoryProps> = ({TitleCategory}) => {
+const CategoryForm: React.FC<FormCategoryProps> = ({ TitleCategory }) => {
   const [name, setName] = useState('');
   const [published, setPublished] = useState(false);
   const [selectedOptions, setSelectedOptions] = useState<string[]>([]);
@@ -27,11 +27,11 @@ const CategoryForm: React.FC<FormCategoryProps> = ({TitleCategory}) => {
   useEffect(() => {
     if (categoryId) {
       axios.get(`http://127.0.0.1:8000/api/category/${categoryId}`)
-      .then((response) => {
-        setName(response.data.data.name);
-        setPublished(response.data.data.published);
-        setSelectedOptions(response.data.data.brands_id);
-      })
+        .then((response) => {
+          setName(response.data.data.name);
+          setPublished(response.data.data.published);
+          setSelectedOptions(response.data.data.brands_id);
+        })
     }
   }, []);
 
@@ -63,35 +63,39 @@ const CategoryForm: React.FC<FormCategoryProps> = ({TitleCategory}) => {
           published: published,
           brand_id: selectedOptions,
           _method: 'PUT'
-        },config);
+        }, config);
 
         console.log(response.data);
         alert('تم إضافة الفئة بنجاح!');
         navigate('/categories')
-      } catch (error) {
-        console.error(error);
-        alert('فشلت العملية، يرجى المحاولة مرة أخرى.');
-        navigate(`/categories/update-category/${categoryId}`)
+      } catch (error:any) {
+        if (error.response.status === 401) {
+          navigate('/login');
+        } else {
+          console.error('Error', error);
+        }
       }
-    }else{
+    } else {
       try {
         const response = await axios.post('http://127.0.0.1:8000/api/add', {
           name: name,
           published: published,
           brand_id: selectedOptions,
-        },config);
+        }, config);
 
         console.log(response.data);
         alert('تم إضافة الفئة بنجاح!');
-        
-      } catch (error) {
-        console.error(error);
-        alert('فشلت العملية، يرجى المحاولة مرة أخرى.');
-        navigate('/categories/addCategory')
+
+      } catch (error:any) {
+        if (error.response.status === 401) {
+          navigate('/login');
+        } else {
+          console.error('Error', error);
+        }
       }
       navigate('/categories')
     }
-    
+
   };
   ///////////////////////////////////////////////////////
   useEffect(() => {

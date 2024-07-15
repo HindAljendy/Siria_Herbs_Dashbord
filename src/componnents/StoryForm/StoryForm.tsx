@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import { TStoryForm } from '../../types/types';
+import { useNavigate } from 'react-router-dom';
 
 const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenForm }) => {
 
@@ -10,6 +11,7 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
   const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
 
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -48,11 +50,17 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
         headers: {
           Authorization: `Bearer ${token}`,
           Accept: "application/json",
-      },
+        },
       }
     ).then(response => console.log(response.data))
       .then(() => setUpdate())
-      .catch(error => console.error(error));
+      .catch(error => {
+        if (error.response.status === 401) {
+          navigate('/login');
+        } else {
+          console.log("Error");
+        }
+      });
   }
 
   // Handle the deletion of a story
@@ -77,7 +85,7 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
             Authorization: `Bearer ${token}`,
             'Accept': "application/json",
             'Content-Type': 'multipart/form-data',
-        },
+          },
         });
         console.log(response.data);
         handelHidenForm();
@@ -89,13 +97,17 @@ const StoryForm: React.FC<TStoryForm> = ({ mode, story, setUpdate, handelHidenFo
             Authorization: `Bearer ${token}`,
             'Accept': "application/json",
             'Content-Type': 'multipart/form-data',
-        },
+          },
         });
         console.log(response.data);
         setUpdate();
       }
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      if (error.response.status === 401) {
+        navigate('/login');
+      } else {
+        console.error('Error!', error);
+      }
     }
   };
 

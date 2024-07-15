@@ -2,6 +2,7 @@ import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 import './OurFutureForm.css'
 import axios from 'axios';
 import { FaRegTrashCan } from 'react-icons/fa6';
+import { useNavigate } from 'react-router-dom';
 
 type TOurFuture = {
   title: string;
@@ -17,6 +18,7 @@ type TOurFuture = {
 export default function OurFutueresForm() {
 
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState<TOurFuture>({
     title: "",
@@ -91,9 +93,12 @@ export default function OurFutueresForm() {
 
       console.log("Success:", response.data);
       // Handle success (e.g., show a message)
-    } catch (error) {
-      console.error("Error sending data:", error);
-      // Handle error (e.g., show an error message)
+    } catch (error: any) {
+      if (error.response.status === 401) {
+        navigate('/login');
+      } else {
+        console.log("Error");
+      }
     }
   };
 

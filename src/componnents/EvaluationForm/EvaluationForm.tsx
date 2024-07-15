@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import { TEvaluationForm } from '../../types/types';
+import { useNavigate } from 'react-router-dom';
 
 const EvaluationForm: React.FC<TEvaluationForm> = ({ mode, evaluation, setUpdate, handelHidenForm }) => {
 
@@ -11,6 +12,7 @@ const EvaluationForm: React.FC<TEvaluationForm> = ({ mode, evaluation, setUpdate
   const [fileName, setFileName] = useState<string>('لم يتم اختيار صورة');
 
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -61,7 +63,13 @@ const EvaluationForm: React.FC<TEvaluationForm> = ({ mode, evaluation, setUpdate
       }
     ).then(response => console.log(response.data))
       .then(() => setUpdate())
-      .catch(error => console.error(error));
+      .catch(error => {
+        if (error.response.status === 401) {
+          navigate('/login');
+        } else {
+          console.log("Error");
+        }
+      });
   }
 
   // Function to handle the remove button click
@@ -104,8 +112,12 @@ const EvaluationForm: React.FC<TEvaluationForm> = ({ mode, evaluation, setUpdate
         console.log(response.data);
         setUpdate();
       }
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      if (error.response.status === 401) {
+        navigate('/login');
+      } else {
+        console.log("Error");
+      }
     }
   };
 

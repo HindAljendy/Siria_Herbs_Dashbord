@@ -42,13 +42,17 @@ const CertificaTable: React.FC<TableProps & TCertificate> = ({ title, buttonLabe
         };
 
         if (deleteCertificate) {
-            axios.delete(`http://127.0.0.1:8000/api/certification/${certificateId}/delete`,config)
+            axios.delete(`http://127.0.0.1:8000/api/certification/${certificateId}/delete`, config)
                 .then(response => {
                     console.log('Brand deleted successfully:', response.data);
                 })
                 .then(() => setUpdate(!update))
-                .catch(error => {
-                    console.error(' error delete the brand!', error);
+                .catch((error) => {
+                    if (error.response.status === 401) {
+                        navigate('/login');
+                    } else {
+                        console.error('Error!', error);
+                    }
                 });
         }
     }, [deleteCertificate]);

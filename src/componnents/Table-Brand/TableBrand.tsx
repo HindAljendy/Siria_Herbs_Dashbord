@@ -31,7 +31,7 @@ const Table: React.FC<TableProps & Tbrand> = ({ title, buttonLabel, columns, dat
     };
 
     useEffect(() => {
-        
+
         const config = {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -44,8 +44,12 @@ const Table: React.FC<TableProps & Tbrand> = ({ title, buttonLabel, columns, dat
                     console.log('Brand deleted successfully:', response.data);
                 })
                 .then(() => setUpdate(!update))
-                .catch(error => {
-                    console.error(' error delete the brand!', error);
+                .catch((error) => {
+                    if (error.response.status === 401) {
+                        navigate('/login');
+                    } else {
+                        console.error(' error delete the brand!', error);
+                    }
                 });
         }
 

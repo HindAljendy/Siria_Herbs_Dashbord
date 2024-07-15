@@ -81,9 +81,12 @@ export default function Certifica() {
                 console.log("Success:", response.data);
                 // Handle success (e.g., show a message)
             }
-        } catch (error) {
-            console.error("Error sending data:", error);
-            // Handle error (e.g., show an error message)
+        } catch (error: any) {
+            if (error.response.status === 401) {
+                navigate('/login');
+            } else {
+                console.error('Error', error);
+            }
         }
         navigate('/settings/certificates')
 

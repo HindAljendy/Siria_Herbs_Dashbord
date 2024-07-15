@@ -2,6 +2,7 @@ import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import axios from "axios";
 import { FaRegTrashCan } from "react-icons/fa6";
 import './AboutUsForm.css'
+import { useNavigate } from "react-router-dom";
 
 type TAboutUs = {
     title: string;
@@ -12,6 +13,7 @@ type TAboutUs = {
 export default function AboutUsForm() {
 
     const token = localStorage.getItem("token");
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState<TAboutUs>({
         title: "",
@@ -65,9 +67,12 @@ export default function AboutUsForm() {
 
             console.log("Success:", response.data);
             // Handle success (e.g., show a message)
-        } catch (error) {
-            console.error("Error sending data:", error);
-            // Handle error (e.g., show an error message)
+        } catch (error: any) {
+            if (error.response.status === 401) {
+                navigate('/login');
+            } else {
+                console.log("Error");
+            }
         }
     };
 

@@ -111,10 +111,7 @@ export type FormProduct = {
 }
 
 export interface FormUpdateProduct {
- /*    id:number|string,
-    brand_id: number|string,
-    category_id : number |string, */
-    /* brand_name :string, */
+
     brand_id: number|string,
     category_id : number |string,
     name: string;
@@ -129,6 +126,4 @@ export interface FormUpdateProduct {
     main_image?: null| File|string|undefined;
     additional_image?:  null| File|string |undefined; // nullable
     _method:string,
-  
-
 }

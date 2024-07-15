@@ -25,14 +25,17 @@ const Delete_CategoryPopup: React.FC<DeletePopupProps> = ({ id, onClose }) => {
             },
         };
         try {
-            await axios.delete(`http://127.0.0.1:8000/api/category/${id}`,config);
+            await axios.delete(`http://127.0.0.1:8000/api/category/${id}`, config);
             onClose();
             alert('تم حذف الفئة بنجاح!');
             navigate('/categories')
             window.location.reload();
-        } catch (error) {
-            console.error("Failed to delete item", error);
-            alert('فشلت العملية، يرجى المحاولة مرة أخرى.');
+        } catch (error: any) {
+            if (error.response.status === 401) {
+                navigate('/login');
+            } else {
+                console.error('Error', error);
+            }
 
         }
     };
